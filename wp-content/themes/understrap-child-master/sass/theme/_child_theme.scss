@@ -1,0 +1,65 @@
+@font-face {
+	font-family: 'Palatino Linotype';
+	src: url('../fonts/PalatinoLinotype-Bold.eot');
+	src: url('../fonts/PalatinoLinotype-Bold.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/PalatinoLinotype-Bold.woff2') format('woff2'),
+	url('../fonts/PalatinoLinotype-Bold.woff') format('woff'),
+	url('../fonts/PalatinoLinotype-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Palatino Linotype';
+	src: url('../fonts/PalatinoLinotype-Roman.eot');
+	src: url('../fonts/PalatinoLinotype-Roman.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/PalatinoLinotype-Roman.woff2') format('woff2'),
+	url('../fonts/PalatinoLinotype-Roman.woff') format('woff'),
+	url('../fonts/PalatinoLinotype-Roman.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+.h1,h2,h1{
+	font-family: $heading;
+}
+.entry-title{
+	font-family: $heading;
+	padding: 0; 
+	margin: 0;
+}
+.hero-section{
+	color: $color-white;
+	height: 750px;
+}
+
+.top-text-block{
+	color: $color-white;
+	max-width: 960px;
+	margin: 0 auto; 
+}
+.wrapper{
+	padding: 0;
+}
+.text-center{
+	a{
+		color: $theme-red;
+	}
+}
+.color1{
+	color: $theme-red;
+}
+
+#menu-footer-menu{
+	text-align: center;
+	padding-left: 0;
+	li{
+		display: inline-block;
+		margin: 0 8px;
+		a{
+			color: $theme-red;
+		}
+	}
+}
+.text-large{
+	font-size: 21px;
+}
