@@ -11634,6 +11634,10 @@ figure.woocommerce-product-gallery__wrapper {
   padding: 0;
   margin: 0; }
 
+.vc_custom_heading {
+  font-weight: bold;
+  margin-bottom: 1em; }
+
 .hero-section {
   color: #fff;
   height: 750px; }
@@ -11642,6 +11646,21 @@ figure.woocommerce-product-gallery__wrapper {
   color: #fff;
   max-width: 960px;
   margin: 0 auto; }
+
+.navbar-nav .nav-link {
+  text-transform: uppercase;
+  color: #6d6d6d;
+  font-size: 13px; }
+
+#wrapper-navbar {
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.19);
+          box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.19); }
+
+.site-main {
+  margin-top: 30px; }
+
+header.entry-header {
+  margin-bottom: 15px; }
 
 .wrapper {
   padding: 0; }
@@ -11663,6 +11682,81 @@ figure.woocommerce-product-gallery__wrapper {
 
 .text-large {
   font-size: 21px; }
+
+.design-icon, .our-feature .setup-icon, .our-feature .shipping-icon, .our-feature .machine-icon {
+  position: relative; }
+  .design-icon:before, .our-feature .setup-icon:before, .our-feature .shipping-icon:before, .our-feature .machine-icon:before {
+    background: url("../assets/images/sprite-icon.png") no-repeat left center;
+    content: '';
+    display: block;
+    height: 36px;
+    width: 44px;
+    background-position: -16px -221px;
+    position: absolute; }
+  .design-icon .wpb_wrapper, .our-feature .setup-icon .wpb_wrapper, .our-feature .shipping-icon .wpb_wrapper, .our-feature .machine-icon .wpb_wrapper {
+    padding-left: 50px;
+    padding-top: 5px; }
+
+.our-feature {
+  font-family: "Palatino Linotype";
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #000; }
+  .our-feature.vc_row {
+    margin: 30px 0 30px; }
+  .our-feature .vc_column_container > .vc_column-inner {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .our-feature .setup-icon:before {
+    background-position: -18px -151px; }
+  .our-feature .shipping-icon:before {
+    background-position: -12px -8px; }
+  .our-feature .machine-icon:before {
+    background-position: -16px -80px; }
+
+.why-us-row .vc_column_container > .vc_column-inner {
+  margin-top: 30px; }
+
+#wrapper-footer-full {
+  background: #010912;
+  color: #fff;
+  padding-top: 60px; }
+  #wrapper-footer-full a {
+    color: #fff; }
+  @media (min-width: 768px) {
+    #wrapper-footer-full [class*='col-md-']:last-child {
+      text-align: right; } }
+
+.social-media, .copyright-wrap {
+  padding-left: 0;
+  text-align: center; }
+  .social-media li, .copyright-wrap li {
+    padding-left: 8px;
+    padding-right: 8px;
+    display: inline-block; }
+
+.footer-address {
+  color: #b9b9b9;
+  font-size: 14px; }
+  .footer-address ul {
+    padding-left: 0;
+    margin-bottom: 0; }
+  .footer-address li {
+    list-style: none; }
+
+.copyright-wrap {
+  font-size: 14px;
+  margin-top: 20px;
+  border-top: 1px solid #052d5a;
+  padding-top: 8px;
+  color: #64696e; }
+  .copyright-wrap ul {
+    padding-left: 0; }
+    .copyright-wrap ul li a {
+      color: #64696e !important; }
+
+.home.page-template .site-main {
+  margin-top: 0; }
 
 /*
 * Use existing Bootstrap 4 classes and

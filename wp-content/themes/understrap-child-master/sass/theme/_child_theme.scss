@@ -27,6 +27,10 @@
 	padding: 0; 
 	margin: 0;
 }
+.vc_custom_heading{
+	font-weight: bold;
+	margin-bottom: 1em;
+}
 .hero-section{
 	color: $color-white;
 	height: 750px;
@@ -36,6 +40,21 @@
 	color: $color-white;
 	max-width: 960px;
 	margin: 0 auto; 
+}
+// Navigation 
+.navbar-nav .nav-link{
+	text-transform: uppercase;
+	color: #6d6d6d;
+	font-size: 13px;
+}
+#wrapper-navbar{
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.19);
+}
+.site-main{
+	margin-top: 30px;
+}
+header.entry-header{
+	margin-bottom: 15px;
 }
 .wrapper{
 	padding: 0;
@@ -62,4 +81,113 @@
 }
 .text-large{
 	font-size: 21px;
+}
+.design-icon{
+	position: relative;
+	&:before{
+		background: url('../assets/images/sprite-icon.png') no-repeat left center;		
+		content: '';
+		display: block;
+		height: 36px;
+		width: 44px;
+		background-position: -16px -221px;
+		position: absolute;
+	}
+	.wpb_wrapper{
+		padding-left: 50px;
+		padding-top: 5px;
+	}
+}
+.our-feature{
+	font-family: $heading;
+	font-weight: bold;
+	font-size: 20px;
+	border: 1px solid #000;
+	&.vc_row{
+		margin: 30px 0 30px; 
+	}
+	.vc_column_container>.vc_column-inner{
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+	.setup-icon{
+		@extend .design-icon;  
+		&:before{
+			background-position: -18px -151px; 	
+		}
+	}
+	.shipping-icon{
+		@extend .design-icon;  
+		&:before{
+			background-position: -12px -8px; 	
+		}
+	}
+	.machine-icon{
+		@extend .design-icon;  
+		&:before{
+			background-position: -16px -80px; 	
+		}
+	}
+}
+
+// why us
+.why-us-row{
+	.vc_column_container>.vc_column-inner{
+		margin-top: 30px;
+	}
+}
+
+#wrapper-footer-full{
+	background: #010912;
+	color: $color-white;
+	padding-top: 60px;
+	a{
+		color: $color-white;
+	}
+	@media (min-width: 768px){
+		[class*='col-md-']{
+			&:last-child{
+				text-align: right;
+			}
+		}
+	}
+}
+.social-media{
+	padding-left: 0;
+	text-align: center;
+	li{
+		padding-left: 8px;
+		padding-right: 8px;
+		display: inline-block;
+	}
+}
+.footer-address{
+	color: #b9b9b9;
+	font-size: 14px;
+	ul{
+		padding-left: 0;
+		margin-bottom: 0;
+	}
+	li{
+		list-style:none;
+	}
+}
+.copyright-wrap{
+	@extend .social-media;
+	font-size: 14px;
+	margin-top: 20px;
+	border-top: 1px solid lighten($theme-dark, 15%);
+	padding-top: 8px;
+	color: #64696e;
+	ul{
+		padding-left: 0;
+		li a{
+			color: #64696e !important;
+		}
+	}
+}
+.home.page-template{
+	.site-main{
+		margin-top: 0;
+	}
 }

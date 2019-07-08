@@ -38,3 +38,36 @@ add_filter('use_block_editor_for_post', '__return_false', 10);
 
 // disable for post types
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
+
+// Widgets
+add_action( 'widgets_init', 'patchbazaar_widget_init' );
+function patchbazaar_widget_init() {
+    register_sidebar( array(
+        'name' => __( 'Social Media and Address', 'patchbazaar' ),
+        'id' => 'footer-1',
+        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'patchbazaar' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+    register_sidebar( array(
+        'name' => __( 'Privacy Policy', 'patchbazaar' ),
+        'id' => 'footer-privacy',
+        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'patchbazaar' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+    register_sidebar( array(
+        'name' => __( 'Copyright', 'patchbazaar' ),
+        'id' => 'footer-copyright',
+        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'patchbazaar' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+}
