@@ -1,0 +1,123 @@
+.tab-carousel {
+  &.ui-widget.ui-widget-content {
+    padding: 0;
+  }
+  ul {
+    text-align: center;
+  }
+  &.ui-tabs .ui-tabs-nav li {
+    float: none;
+    display: inline-block;
+    box-shadow: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    a {
+      position: relative;
+      font-size: 14px;
+      padding: 16px 0;
+      &:after {
+        content: "";
+        position: absolute;
+        height: 6px;
+        width: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background: @primary--theme__color;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+    }
+    &.ui-state-hover {
+      background: transparent;
+      a:after {
+        width: 100%;
+      }
+    }
+    &.ui-tabs-active {
+      a:after {
+        width: 100%;
+      }
+    }
+
+    &:before {
+      display: none;
+    }
+    a {
+      color: @color__gray-dk;
+    }
+  }
+}
+.row {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+.section-row {
+  .section-title {
+    text-align: center;
+    font-size: 48px;
+  }
+  .sub-heading {
+    text-align: center;
+    font-size: 24px;
+    max-width: 710px;
+    margin: 0 auto 2.5em;
+  }
+  .feature__title {
+    text-transform: inherit;
+    font-size: 24px;
+  }
+  .feature__img {
+    border: 1px solid @color-grey-02;
+    text-align: center;
+    padding: 38px 15px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-bottom: 22px;
+    &:hover {
+      opacity: 0.8;
+    }
+    img {
+      margin: 0 auto;
+    }
+  }
+  .feature__learn-more {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.feature-section-2 {
+  background: @color__gray-xlt;
+  .feature__section {
+    .feature__img {
+      border: none;
+      padding: 0;
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+@media only screen and (min-width: @screen-md) {
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .col-md-4 {
+    float: left;
+    width: 33.3333%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

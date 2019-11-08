@@ -1,0 +1,348 @@
+// 
+// Override Plugins css
+// ==============================================
+// Gravity form css override 
+body .gform_wrapper {
+    ul li.gfield {
+        margin-top: 7px !important
+    }
+    label.gfield_label {
+        font-weight: @font-weight__regular;
+        margin-bottom: 0
+    }
+    .gfield_required {
+        display: none
+    }
+}
+
+body .gform_wrapper {
+    .gform_footer { 
+        padding-bottom: 5px;
+        .button {
+            font-family: @primary__button--font--family;
+            font-weight: @font-weight__regular;
+            font-size: 14px;
+            letter-spacing: 1px
+        }
+    }
+}
+
+// Marketo form override 
+// Global style
+// ==============================================
+.page .mktoForm .mktoFormRow {
+    input[type=text],
+    input[type=url],
+    input[type=email],
+    input[type=tel],
+    input[type=number],
+    input[type=date],
+    select.mktoField,
+    textarea.mktoField {
+        box-shadow: none;
+        .border--radius(3em);
+        padding: 0 12px !important;
+        font-size: 13px;
+    }
+    textarea.mktoField {
+        padding: 12px 20px !important;
+        height: 80px;
+    }
+    label.mktoLabel {
+        margin-bottom: 5px
+    }
+}
+
+// ==============================================
+#mktoForm_3710,
+#mktoForm_3834 {
+    width: auto !important;
+    .mktoFieldDescriptor {
+        .mktoOffset {
+            width: 0 !important
+        }
+        .mktoLabel.mktoHasWidth {
+            width: auto !important;
+        }
+        #existingCustomer {
+            width: 100% !important;
+            margin-top: 12px;
+            max-width: 240px;
+            float: left;
+            margin-bottom: 10px
+        }
+    }
+    .mktoFormRow~.mktoFormRow .mktoFieldDescriptor .mktoLabel.mktoHasWidth {
+        max-width: 210px;
+        @media only screen and (max-width: (@screen-xs + 1)) {
+            max-width: 100%
+        }
+    }
+}
+
+// input, select textarea styles
+// ==============================================
+#mktoForm_3710.mktoForm,
+#mktoForm_3834.mktoForm {
+    .mktoFieldWrap {
+        width: 100%;
+    }
+    .mktoFormRow {
+        width: 100%;
+        .mktoFormCol {
+            width: 100%;
+            max-width: 470px;
+            .mktoOffset.mktoHasWidth {
+                width: 0 !important;
+            }
+        }
+        input[type=text],
+        input[type=email],
+        input[type=tel],
+        select.mktoField {
+            width: 240px !important;
+            float: right;
+            font-size: 14px;
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+    @media only screen and (max-width:(@screen-xs + 1)) {
+        padding: 0;
+        .mktoFormRow {
+            .mktoRequiredField .mktoAsterix {
+                float: right;
+                padding-left: 5px;
+                padding-right: 0;
+            }
+            input[type=text],
+            input[type=email],
+            input[type=tel],
+            select.mktoField {
+                width: 100% !important;
+                float: left;
+                font-size: 13px;
+                height: 36px;
+                line-height: 36px;
+                margin-top: 6px
+            }
+        }
+    }
+}
+
+// select styles global
+// ==============================================
+.page .mktoForm {
+    .mktoFormRow {
+        select.mktoField {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            text-overflow: '';
+            display: block;
+            background-color: #ffffff;
+            background-image: url(../images/icon-caret.png);
+            background-repeat: no-repeat;
+            background-position:center right;
+            padding-right: 0px !important;
+            -ms-word-break: normal;
+            word-break: normal;
+            &::-ms-expand {
+                display: none
+            }
+        }
+    }
+}
+
+// Radio button styles override globaly
+// ==============================================
+.page .mktoForm input[type=radio]:checked+label:before {
+    background-position: 2px 2px
+}
+
+.page .mktoForm {
+    .mktoFormRow {
+        label[for="contactAgreement"],
+        label[for="Contact_Status__c"] {
+            width: 90% !important;
+            float: right
+        }
+    }
+    .mktoCheckboxList,
+    .mktoCheckboxList label[for="Contact_Status__c"] {
+        width: 10% !important;
+        max-width: 22px;
+        float: left
+    }
+    .mktoCheckboxList label[for="Contact_Status__c"] {
+        margin-left: 27px;
+        margin-top: -13px;
+    }
+}
+
+#mktoForm_3948.mktoForm {
+    width: 100% !important;
+    max-width: 600px;
+    .mktoFieldWrap {
+        width: 100%
+    }
+    .mktoFormRow {
+        .mktoFieldDescriptor {
+            width: 50%;
+            padding-right: 2.5%;
+        }
+        .mktoRequiredField label.mktoLabel {
+            margin-bottom: 7px;
+            font-weight: normal;
+        }
+        input[type=text],
+        input[type=email],
+        input[type=tel],
+        select#State_Province__c,
+        textarea {
+            width: 100% !important;
+            font-size: 13px;
+            height: 38px
+        }
+        textarea {
+            padding: 14px !important;
+            height: 90px
+        }
+        +.mktoFormRow+.mktoFormRow {
+            .mktoFieldDescriptor {
+                width: 100%
+            }
+        }
+    }
+    .mktoButtonRow {
+        .mktoButtonWrap.mktoDownloadButton {
+            margin-left: 0 !important;
+            button.mktoButton {
+                border: 0;
+                text-shadow: none;
+                font-weight: 600;
+                font-size: 13px;
+                float: left;
+                min-width: 180px;
+                height: 45px;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+// marketo button design global
+// ==============================================
+.page .mktoForm {
+    .mktoButtonRow {
+        padding-top: 10px
+    }
+    .mktoButtonWrap,
+    .mktoButtonWrap.mktoRound {
+        margin-left: 0 !important;
+        padding-top: 10px;
+        .mktoButton {
+            &:extend(.button);
+            border: 0 !important;
+            min-width: 180px;
+            &:hover,
+            &:focus,
+            &:active {
+                background: #000 !important
+            }
+        }
+    }
+}
+
+// furniture page marketo button design global
+// ==============================================
+.widget_km_marketo_form_widget {
+    background: @color__module-background;
+    padding: 25px 20px;
+    h2.widget-title {
+        font-size: 18px;
+        margin-bottom: 10px
+    }
+    #mktoForm_3031 {
+        &.mktoForm {
+            width: 100% !important;
+            padding: 0;
+            .mktoOffset {
+                width: 0 !important
+            }
+            .mktoRequiredField label.mktoLabel {
+                margin-bottom: 6px;
+                width: 100% !important;
+            }
+            .mktoRadioList,
+            .mktoLabel {
+                width: 100% !important
+            }
+            .mktoLabel {
+                margin-bottom: 6px;
+                font-weight: 600;
+            }
+            input[type=radio]:checked+label:before {
+                background-position: 2px 2px
+            }
+            .mktoLogicalField {
+                width: auto !important;
+                float: left;
+                .mktoCheckboxList.mktoHasWidth.mktoValid {
+                    position: absolute;
+                    left: 0;
+                }
+            }
+            .mktoFormCol,
+            .mktoFieldWrap {
+                width: 100% !important
+            }
+            .mktoFormRow {
+                input[type=text],
+                input[type=url],
+                input[type=email],
+                input[type=tel],
+                select.mktoField,
+                textarea.mktoField {
+                    width: 100% !important;
+                    font-size: 13px;
+                    min-height: 34px;
+                }
+            }
+            .mktoButtonRow,
+            .mktoButtonWrap.mktoRound,
+            .mktoButtonWrap.mktoRound .mktoButton {
+                width: 100%
+            }
+        }
+    }
+}
+
+// media query 
+// ==============================================
+// Mobile 
+@media only screen and (max-width:@screen-xs) {
+    #mktoForm_3948.mktoForm {
+        .mktoFormRow .mktoFieldDescriptor {
+            width: 100%;
+            padding-right: 0
+        }
+        .mktoButtonRow {
+            width: 100%;
+            .mktoButtonWrap.mktoDownloadButton {
+                button.mktoButton {
+                    width: 100%
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:@screen-lg) {
+    // furniture page marketo button design global
+    .widget_km_marketo_form_widget {
+        h2.widget-title {
+            font-size: 22px
+        }
+    }
+}
