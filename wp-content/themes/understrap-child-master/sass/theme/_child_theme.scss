@@ -38,8 +38,65 @@
 
 .top-text-block{
 	color: $color-white;
-	max-width: 960px;
-	margin: 0 auto; 
+	max-width: 650px;
+    margin: 0 auto;
+    background: rgba(8, 122, 168, 0.7);
+	padding: 20px 32px 30px;  
+	h1{
+		margin-bottom: 0.5em;
+	}
+}
+.btn{
+	background: #000;
+	color: #fff;
+	border-radius: 0; 
+	padding: 8px 20px; 
+}
+
+.theme-btn{ 
+	background: $primary-color; 
+	color: $color-white;
+	&:hover,
+	&:focus{
+		background: $secondary-color;
+		color: $color-white;
+	}
+}
+
+.image-list{
+	ul{
+		list-style: none;
+		padding-left: 0;
+		margin: 0 -8px;
+		@include clearfix();
+		li{
+			padding-left: 8px;
+			padding-right: 8px;
+			float: left;
+			width: 20%;
+			text-align: center;
+			a{
+				color: $color-black;
+				font-family: $heading; 
+				font-weight: bold;
+				margin-top: 5px;
+				display: block;
+			}
+		}
+	}
+}
+.quality-work{
+	padding-top: 3em;
+	padding-bottom: 3em;
+	.top-text-block{ 
+		max-width: 100%;
+		background: rgba(0, 0, 0, 0.55);
+		padding-top: 2em;
+		padding-bottom: 2em;
+		h2{
+			margin-bottom: 0.5em;
+		}	
+	}
 }
 // Navigation 
 .navbar-nav .nav-link{
@@ -59,11 +116,11 @@ header.entry-header{
 .wrapper{
 	padding: 0;
 }
-.text-center{
-	a{
-		color: $theme-red;
-	}
-}
+// .text-center{
+// 	a{
+// 		color: $theme-red;
+// 	}
+// }
 .color1{
 	color: $theme-red;
 }
@@ -71,7 +128,7 @@ header.entry-header{
 #menu-footer-menu{
 	text-align: center;
 	padding-left: 0;
-	li{
+	li{ 
 		display: inline-block;
 		margin: 0 8px;
 		a{
@@ -134,6 +191,11 @@ header.entry-header{
 .why-us-row{
 	.vc_column_container>.vc_column-inner{
 		margin-top: 30px;
+	}
+	h3{
+		font-family: $heading;
+		font-size: 21px;
+		margin-bottom: 0.5em;
 	}
 }
 
