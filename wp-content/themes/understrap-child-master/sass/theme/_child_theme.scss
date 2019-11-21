@@ -22,6 +22,11 @@
 .h1,h2,h1{
 	font-family: $heading;
 }
+@include media-breakpoint-down(md){
+	h1,.h1{
+		font-size: 25px;	
+	}
+}
 .entry-title{
 	font-family: $heading;
 	padding: 0; 
@@ -33,7 +38,10 @@
 }
 .hero-section{
 	color: $color-white;
-	height: 750px;
+	min-height: 750px;
+	@include media-breakpoint-down(md){
+		min-height: 420px;
+	}
 }
 
 .top-text-block{
@@ -99,6 +107,36 @@
 	}
 }
 // Navigation 
+#main-menu{
+	margin-right: -20px;
+	.menu-item{
+		margin-left: 10px;
+		margin-right: 10px;
+		font-size: 16px;
+		font-family: $heading;
+	}
+}
+.white-btn{
+	color: $color-white;
+	background: $theme-dark;
+	width: 208px;
+
+	&:hover,
+	&:focus{
+		background: $primary;
+	}
+}
+h1.entry-title:after {
+    content: '';
+    display: inline-block;
+    margin-left: 5px;
+    max-width: 165px;
+    height: 1px;
+    background: #c0c0c0;
+    vertical-align: middle;
+    width: 100%;
+}
+
 .navbar-nav .nav-link{
 	text-transform: uppercase;
 	color: #6d6d6d;
@@ -183,6 +221,16 @@ header.entry-header{
 		@extend .design-icon;  
 		&:before{
 			background-position: -16px -80px; 	
+		}
+	}
+	@include media-breakpoint-down(sm){
+		padding-top: 25px;	
+		.vc_column_container.vc_col-sm-3{
+			.vc_column-inner{
+				padding-top: 0 !important;
+				max-width: 270px;
+				margin: 0 auto;
+			}
 		}
 	}
 }

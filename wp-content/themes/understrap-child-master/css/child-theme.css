@@ -11629,6 +11629,10 @@ figure.woocommerce-product-gallery__wrapper {
 .h1, h2, h1 {
   font-family: "Palatino Linotype"; }
 
+@media (max-width: 991.98px) {
+  h1, .h1 {
+    font-size: 25px; } }
+
 .entry-title {
   font-family: "Palatino Linotype";
   padding: 0;
@@ -11640,7 +11644,10 @@ figure.woocommerce-product-gallery__wrapper {
 
 .hero-section {
   color: #fff;
-  height: 750px; }
+  min-height: 750px; }
+  @media (max-width: 991.98px) {
+    .hero-section {
+      min-height: 420px; } }
 
 .top-text-block {
   color: #fff;
@@ -11696,6 +11703,31 @@ figure.woocommerce-product-gallery__wrapper {
     padding-bottom: 2em; }
     .quality-work .top-text-block h2 {
       margin-bottom: 0.5em; }
+
+#main-menu {
+  margin-right: -20px; }
+  #main-menu .menu-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: "Palatino Linotype"; }
+
+.white-btn {
+  color: #fff;
+  background: #010912;
+  width: 208px; }
+  .white-btn:hover, .white-btn:focus {
+    background: #f4554a; }
+
+h1.entry-title:after {
+  content: '';
+  display: inline-block;
+  margin-left: 5px;
+  max-width: 165px;
+  height: 1px;
+  background: #c0c0c0;
+  vertical-align: middle;
+  width: 100%; }
 
 .navbar-nav .nav-link {
   text-transform: uppercase;
@@ -11760,6 +11792,13 @@ header.entry-header {
     background-position: -12px -8px; }
   .our-feature .machine-icon:before {
     background-position: -16px -80px; }
+  @media (max-width: 767.98px) {
+    .our-feature {
+      padding-top: 25px; }
+      .our-feature .vc_column_container.vc_col-sm-3 .vc_column-inner {
+        padding-top: 0 !important;
+        max-width: 270px;
+        margin: 0 auto; } }
 
 .why-us-row .vc_column_container > .vc_column-inner {
   margin-top: 30px; }
