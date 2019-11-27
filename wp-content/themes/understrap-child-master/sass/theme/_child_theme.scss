@@ -55,12 +55,16 @@
 	}
 }
 .btn{
-	background: #000;
+	background: $primary-color;
 	color: #fff;
 	border-radius: 0; 
 	padding: 8px 20px; 
-}
-
+	&:hover,
+	&:focus{
+		background: $secondary-color;
+		color: $color-white;
+	}
+} 
 .theme-btn{ 
 	background: $primary-color; 
 	color: $color-white;

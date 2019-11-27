@@ -11660,10 +11660,14 @@ figure.woocommerce-product-gallery__wrapper {
 
 .btn,
 .wpcf7 input[type=submit] {
-  background: #000;
+  background: #f25449;
   color: #fff;
   border-radius: 0;
   padding: 8px 20px; }
+  .btn:hover, .wpcf7 input:hover[type=submit], .btn:focus,
+  .wpcf7 input:focus[type=submit] {
+    background: #010912;
+    color: #fff; }
 
 .theme-btn {
   background: #f25449;
@@ -11848,6 +11852,22 @@ header.entry-header {
 
 .home.page-template .site-main {
   margin-top: 0; }
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title,
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce ul.products li.product h3 {
+  font-family: inherit;
+  font-size: 18px; }
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  text-align: center; }
+
+.woocommerce ul.products li.product .price {
+  font-size: 21px;
+  font-family: inherit;
+  font-weight: bold;
+  color: #333333; }
 
 /*
 * Use existing Bootstrap 4 classes and

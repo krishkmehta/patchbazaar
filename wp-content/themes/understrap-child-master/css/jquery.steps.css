@@ -58,7 +58,11 @@
     display: block;
     width: 100%;
 }
-
+.wizard > .steps [role="tablist"]{
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
 .wizard.vertical > .steps
 {
     display: inline;
@@ -69,23 +73,40 @@
 .wizard > .steps .number
 {
     font-size: 1.429em;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 35px;
+    background: #ff662b;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
 }
 
 .wizard > .steps > ul > li
 {
-    width: 25%;
+    width: 20%;
+    text-align: center;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
 }
 
 .wizard > .steps > ul > li,
 .wizard > .actions > ul > li
 {
     float: left;
+    position: relative;
 }
 
 .wizard.vertical > .steps > ul > li
 {
     float: none;
     width: 100%;
+    
 }
 
 .wizard > .steps a,
@@ -93,7 +114,7 @@
 .wizard > .steps a:active
 {
     display: block;
-    width: auto;
+    /* width: auto; */
     margin: 0 0.5em 0.5em;
     padding: 1em 1em;
     text-decoration: none;
@@ -102,13 +123,16 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+.wizard > .steps a{
+    width: 100%;
+}
 
 .wizard > .steps .disabled a,
 .wizard > .steps .disabled a:hover,
 .wizard > .steps .disabled a:active
 {
-    background: #eee;
-    color: #aaa;
+    background: #faa66a;
+    color: #ffffff;
     cursor: default;
 }
 
@@ -151,7 +175,9 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-
+.wizard > .content .title{
+    display: block;
+}
 .wizard.vertical > .content
 {
     display: inline;
@@ -188,10 +214,20 @@
 
 .wizard > .content > .body input
 {
-    display: block;
     border: 1px solid #ccc;
+    padding: 4px 7px;
 }
-
+.patch-size{
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c2c2c;
+    padding-top: 20px;    
+}
+.patch-size .new_size{
+    color: #0069a6;
+    display: inline-block;
+    padding-left: 6px;
+}
 .wizard > .content > .body input[type="checkbox"]
 {
     display: inline-block;
@@ -280,7 +316,9 @@
 {
 }
 
-
+.wizard{
+    overflow: visible;
+}
 
 /*
     Tabcontrol

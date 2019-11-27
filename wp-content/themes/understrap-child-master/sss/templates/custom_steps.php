@@ -27,7 +27,7 @@
             <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
                    class="required">
             <input type="hidden" name="productData[patch_size]" id="patch_size">
-            <span>YOUR PATCH SIZE:<span class="new_size"></span></span>
+            <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
         </section>
         <h3>Choose Your Embroidery</h3>
         <section>
@@ -70,7 +70,7 @@
                                value="<?php echo get_the_ID(); ?>"/>
                         <?php
                         echo woocommerce_get_product_thumbnail();
-                        echo get_the_title();
+                        echo '<span class="title">'.get_the_title().'</span>';
                         ?>
                     </label>
                     <?php
