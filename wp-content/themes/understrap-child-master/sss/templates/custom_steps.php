@@ -62,68 +62,79 @@
             $posts = get_posts($args);
             //    debug($posts);
             if ($posts) {
+                echo '<div class="row custom-select-inner">';
                 foreach ($posts as $post) {
                     setup_postdata($post);
                     ?>
-                    <label for="product<?php echo get_the_ID(); ?>">
-                        <input type="radio" id="product<?php echo get_the_ID(); ?>" name="productData[add_to_cart]"
-                               value="<?php echo get_the_ID(); ?>"/>
-                        <?php
-                        echo woocommerce_get_product_thumbnail();
-                        echo '<span class="title">'.get_the_title().'</span>';
-                        ?>
-                    </label>
+                    <div class="col-md-3">
+                        <div class="select-wrap">
+                            <input type="radio" id="product<?php echo get_the_ID(); ?>" name="productData[add_to_cart]"
+                                    value="<?php echo get_the_ID(); ?>"/>
+                            <label for="product<?php echo get_the_ID(); ?>">
+                                <?php
+                                echo woocommerce_get_product_thumbnail();
+                                echo '<span class="title">'.get_the_title().'</span>';
+                                ?>
+                            </label>
+                        </div>
+                    </div>
                     <?php
 
                 }
 
+                echo '</div>';
                 wp_reset_postdata();
-
             }
             ?>
         </section>
         <h3>Choose Your Backing</h3>
         <section>
             <?php
+            echo '<div class="row custom-select-inner">';
             if (have_rows('backing_price', 'option')): while (have_rows('backing_price', 'option')) : the_row();
                 $bac_index = 1;
                 if (have_rows('repeat_fields')): while (have_rows('repeat_fields')) : the_row();
                     ?>
-                    <label for="backing<?php echo $bac_index; ?>">
-                        <?php
-                        echo get_sub_field('title');
-                        $image = get_sub_field('image');
+                    <div class="col-md-3">
+                        <div class="select-wrap">
+                            <input type="radio" id="backing<?php echo $bac_index; ?>" name="productData[backing]"
+                                value="backing_<?php echo $bac_index; ?>">
+                            <label for="backing<?php echo $bac_index; ?>">
+                                <?php
+                                echo get_sub_field('title');
+                                $image = get_sub_field('image');
 
-                        $size = 'thumbnail';
-                        if ($image) {
+                                $size = 'thumbnail';
+                                if ($image) {
 
-                            echo wp_get_attachment_image($image['ID'], $size);
+                                    echo wp_get_attachment_image($image['ID'], $size);
 
-                        }
-                        ?>
-                        <input type="radio" id="backing<?php echo $bac_index; ?>" name="productData[backing]"
-                               value="backing_<?php echo $bac_index; ?>">
-                        <input type="hidden" name="data[backing][backing_<?php echo $bac_index ?>][title]" value="<?php
-                        echo
-                        get_sub_field
-                        ('title')
-                        ?>"
-                        />
-                        <input type="hidden" name="data[backing][backing_<?php echo $bac_index ?>][price]" value="<?php
-                        echo
-                        get_sub_field
-                        ('price')
-                        ?>"
-                        />
+                                }
+                                ?>
+                                <input type="hidden" name="data[backing][backing_<?php echo $bac_index ?>][title]" value="<?php
+                                echo
+                                get_sub_field
+                                ('title')
+                                ?>"
+                                />
+                                <input type="hidden" name="data[backing][backing_<?php echo $bac_index ?>][price]" value="<?php
+                                echo
+                                get_sub_field
+                                ('price')
+                                ?>"
+                                />
 
-                        <input type="hidden" name="data[backing][backing_<?php echo $bac_index ?>][type]"
-                               value="<?php echo get_sub_field('price_in') ?>"/>
-                    </label>
+                                <input type="hidden" name="data[backing][backing_<?php echo $bac_index ?>][type]"
+                                    value="<?php echo get_sub_field('price_in') ?>"/>
+                            </label>
+                            </div>
+                        </div>
                     <?php
                     $bac_index++;
 
                 endwhile; endif;
             endwhile; endif;
+            echo '</div>';
             ?>
         </section>
 
@@ -133,13 +144,18 @@
             if (have_rows('border_price', 'option')): while (have_rows('border_price', 'option')) : the_row();
                 $bor_index = 1;
                 ?>
-                <div class="border">
+                <div class="border border-type">
                     <h3><?php echo get_sub_field('title'); ?></h3>
                     <p><?php echo get_sub_field('description'); ?></p>
-
+                    <div class="row custom-select-inner">                    
+                        
                     <?php
                     if (have_rows('repeat_fields')): while (have_rows('repeat_fields')) : the_row();
                         ?>
+                        <div class="col-md-3">
+                        <div class="select-wrap">
+                        <input type="radio" name="productData[border]" id="border<?php echo $bor_index; ?>"
+                                   value="border_<?php echo $bor_index; ?>">
                         <label for="border<?php echo $bor_index; ?>">
                             <?php
                             echo get_sub_field('title');
@@ -152,8 +168,7 @@
 
                             }
                             ?>
-                            <input type="radio" name="productData[border]" id="border<?php echo $bor_index; ?>"
-                                   value="border_<?php echo $bor_index; ?>">
+                            
                             <input type="hidden" name="data[border][border_<?php echo $bor_index ?>][price]"
                                    value="<?php echo
                             get_sub_field
@@ -169,11 +184,14 @@
                             <input type="hidden" name="data[border][border_<?php echo $bor_index ?>][type]"
                                    value="<?php echo get_sub_field('price_in') ?>"/>
                         </label>
+                        </div>
+                        </div>
                         <?php
                         $bor_index++;
 
                     endwhile; endif;
                     ?>
+                    </div>
                 </div>
             <?php
             endwhile; endif;
@@ -183,38 +201,42 @@
                 $loop_index = 1;
                 ?>
                 <div class="loop">
+                    
                     <h3><?php echo get_sub_field('title'); ?></h3>
                     <p><?php echo get_sub_field('description'); ?></p>
-                    <label for="loop<?php echo $loop_index; ?>">
-                        <?php
-                        $image = get_sub_field('image');
-
-                        $size = 'thumbnail';
-                        if ($image) {
-
-                            echo wp_get_attachment_image($image['ID'], $size);
-
-                        }
-                        ?>
+                    <div class="row custom-select-inner">
+                    <div class="col-md-3">
+                        <div class="select-wrap">
                         <input type="radio" name="productData[loop]" id="loop<?php echo $loop_index; ?>"
                                value="loop_<?php echo $loop_index; ?>">
-                        <input type="hidden" name="data[loop][loop_<?php echo $loop_index ?>][price]" value="<?php echo
-                        get_sub_field
-                        ('price')
-                        ?>"
-                        />
-                        <input type="hidden" name="data[loop][loop_<?php echo $loop_index ?>][title]" value="<?php echo
-                        get_sub_field
-                        ('title')
-                        ?>"
-                        />
-                        <input type="hidden" name="data[loop][loop_<?php echo $loop_index ?>][type]"
-                               value="<?php echo get_sub_field('price_in') ?>"/>
-                    </label>
-                    <?php
+                            <label for="loop<?php echo $loop_index; ?>">
+                                <?php
+                                $image = get_sub_field('image');
 
+                                $size = 'thumbnail';
+                                if ($image) {
 
-                    ?>
+                                    echo wp_get_attachment_image($image['ID'], $size);
+
+                                }
+                                ?>
+                                
+                                <input type="hidden" name="data[loop][loop_<?php echo $loop_index ?>][price]" value="<?php echo
+                                get_sub_field
+                                ('price')
+                                ?>"
+                                />
+                                <input type="hidden" name="data[loop][loop_<?php echo $loop_index ?>][title]" value="<?php echo
+                                get_sub_field
+                                ('title')
+                                ?>"
+                                />
+                                <input type="hidden" name="data[loop][loop_<?php echo $loop_index ?>][type]"
+                                    value="<?php echo get_sub_field('price_in') ?>"/>
+                            </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             <?php
             endwhile; endif;
@@ -222,16 +244,23 @@
 
             <?php if (have_rows('thread_price', 'option')): ?>
                 <div class="thread">
-
+                
                     <?php while (have_rows('thread_price', 'option')) :the_row(); ?>
                         <?php $thr_index = 1; ?>
                         <h3><?php echo get_sub_field('title'); ?></h3>
                         <p><?php echo get_sub_field('description'); ?></p>
-
+                        <div class="row custom-select-inner">                    
+                        
+                        
                         <?php
                         if (have_rows('repeat_fields')):
                             while (have_rows('repeat_fields')) : the_row();
                                 ?>
+                                <div class="col-md-3">
+                                <div class="select-wrap">
+                                <input type="checkbox" name="productData[thread][]" id="thread<?php echo
+                                    $thr_index; ?>"
+                                           value="thread_<?php echo $thr_index; ?>">
                                 <label for="thread<?php echo $thr_index; ?>">
                                     <?php
                                     echo get_sub_field('title');
@@ -244,9 +273,7 @@
 
                                     }
                                     ?>
-                                    <input type="checkbox" name="productData[thread][]" id="thread<?php echo
-                                    $thr_index; ?>"
-                                           value="thread_<?php echo $thr_index; ?>">
+                                    
                                     <input type="hidden" name="data[thread][thread_<?php echo $thr_index ?>][price]"
                                            value="<?php echo
                                            get_sub_field
@@ -264,8 +291,10 @@
                                 </label>
                                 <?php
                                 $thr_index++;
-
-
+                                ?>
+                                    </div>
+                                    </div>
+                                    <?php
                             endwhile;
                         endif;
 
@@ -331,8 +360,16 @@
             <?php
             wp_nonce_field('pz-step-nonce');
             ?>
-            <textarea name="productData[comments]" ></textarea>
-            <input type="submit" />
+            <div class="custom-comment">
+                <h2>Comments</h2>
+                <p>Please provide any additional details regarding your custom patch order.</p>
+                <div class="form-group">
+                    <textarea placeholder="Enter here your additional details" name="productData[comments]" class="form-control"></textarea> 
+                </div>
+                <div class="form-group">
+                    <input class="theme-btn" type="submit" />
+                </div>
+            </div>
         </section>
 
     </div>
