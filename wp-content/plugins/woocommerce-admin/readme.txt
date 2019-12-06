@@ -1,9 +1,9 @@
 === WooCommerce Admin ===
 Contributors: automattic
 Tags: ecommerce, e-commerce, store, sales, reports, analytics, dashboard, activity, notices, insights, stats, woo commerce, woocommerce
-Requires at least: 5.0.0
-Tested up to: 5.2.1
-Requires PHP: 5.4.0
+Requires at least: 5.2.0
+Tested up to: 5.3.0
+Requires PHP: 5.6.20
 Stable tag: 1.0.0
 License: GPLv3
 License URI: https://github.com/woocommerce/woocommerce-admin/blob/master/license.txt
@@ -34,9 +34,9 @@ WooCommerce Admin also allows store owners to customize a new dashboard screen w
 
 = Minimum Requirements =
 
-* WordPress 5.0
+* WordPress 5.2
 * WooCommerce 3.6.0 or greater
-* PHP version 5.4 or greater. PHP 7.2 or greater is recommended
+* PHP version 5.6.20 or greater. PHP 7.2 or greater is recommended
 * MySQL version 5.0 or greater. MySQL 5.6 or greater is recommended
 
 Visit the [WooCommerce server requirements documentation](https://docs.woocommerce.com/document/server-requirements/) for a detailed list of server requirements.
@@ -47,7 +47,7 @@ Automatic installation is the easiest option, as WordPress handles the file tran
 1. Log in to your WordPress dashboard.
 2. Go to: Plugins > Add New.
 3. Enter “WooCommerce Admin” in the Search field, and view details about its point release, the rating and description.
-4. Select “Install Now” when you’re ready
+4. Select “Install Now” when you’re ready.
 
 = Manual installation =
 
@@ -70,6 +70,136 @@ Release and roadmap notes are available on the [WooCommerce Developers Blog](htt
 3. Analytics
 
 == Changelog ==
+
+= 0.22.0 2019-11-13 =
+
+- Fix: Incorrect calculation of tax summary on Taxes screen. #3158 (Analytics)
+- Fix: Correct product and coupon count on edited orders. #3103 (Analytics)
+- Bug: Update filter picker to use key instead of id #3214 (Analytics, Components, Packages)
+- Enhancement: prompt stores to add their first product(s). #3119 (Inbox)
+- Dev: Move Analytics REST endpoints to `wc-analytics` namespace. #3204 (Components, Packages)
+- Tweak: add usage tracking inbox notice. #3112 (Activity Panel, Inbox)
+- Task: Fix PHP linter errors. #3188
+- Enhancement: Add query filters to data stores.
+- Dev: Refactor data store classes. #2961 (REST API)
+- Dev: WooCommerce Admin has been marked as compatible with WooCommerce 3.8.0. #3201
+- Bug: Fix ellipsis menu style #3141 (Analytics, Components, Packages)
+- Tweak: Field misalignment in product edit screen. #3145
+- Dev: update tested to version for WC and WP #3162
+- none needed. #3138 (Documentation)
+
+= 0.21.0 2019-10-30 =
+
+- Fix: report export format when generated server-side. #2987 (Analytics, Packages)
+- Tweak: automatically update DB version during plugin updates. #3113
+- Tweak: add visual feedback for Inbox Note Actions #3039 (Activity Panel, Build, Inbox)
+- Fix: Address discrepancies in Revenue totals between Analytics screens. #3095 (Analytics)
+- Tweak: track inbox note views. #3096 (Activity Panel, Build, Inbox)
+- Dev: Fix asset image URL and business extension images #3062
+- Dev: Fix broken plugin builds by adding missing feature flag check #3053 (Build)
+- Enhancement: add management link to Reviews panel. #3011 (Activity Panel)
+- Fix: Error in category comparison chart. #3027 (Analytics, REST API)
+- Dev: Add the ability to create custom plugin builds #3044 (Build)
+- Fix: create table error during import. #3022 (Analytics, Build)
+- Tweak: Moved WC-Admin specific actions from TableCard to ReportTable. #2900 (Build, Components, Packages)
+
+= 0.20.1 2019-09-24 =
+
+- Fix: use category lookup id instead of term taxonomy id (#3027)
+- Fix: Update order stats table status index length. (#3022)
+
+= 0.20.0 2019-09-24 =
+
+- Dev: Fix issue #2992 (order number in orders panel) #2994
+- Dev: Replace lodash isNaN() with native Number.isNaN() #2998 (Build, Packages)
+- Enhancement: add option to email a download link when exporting reports. #2899 (Analytics, REST API)
+- Dev: Ignore filename rules for PSR-4 classes. #2967 (Build)
+- Fix: Catch notices that are hooked earlier than priority 10. #2981
+- Dev: Category Lookup Table - Fix Category Segments #2253
+- Performance: add caching layer to analytics. #2970 (Analytics)
+- Dev: Replace lodash isFinite() with native Number.isFinite() #2977 (Build, Components, Packages)
+- Bug: Fix conflict with Blocks 2.4 #2846
+- Dev: Add filter to notes datastore where clauses. #2819
+- Dev: Copy component READMEs to docs folder before GH page deploy. #2952 (Build)
+- Dev: Add GitHub pages deploy step to Travis config. #2940 (Build, Documentation)
+- Dev: Fix plugin installation when working from a push instead of a pull request. #2950 (Build)
+- Dev: Fix pull request branch detection on CI (try #2) #2944 (Build)
+- Dev: Only build pushes to master branch. #2941 (Build)
+- Performance: reduce JS bundle size. #2933 (Build)
+- Dev: Fix pull request branch detection on CI #2942 (Build)
+- Dev: refresh component documentation #2872 (Build, Components, Documentation, Packages)
+- Dev: Simplified intervals_missing method of DataStore class #2920 👏 @codemascot
+- Dev: Simplified intervals_missing method of TimeInterval class #2920 👏 @codemascot
+
+= 0.19.0 2019-09-24 =
+
+- Dev: Use upstream webpack-rtl-plugin #2870 (Build)
+- Dev: Fix variable name typo #2922
+- Fix: persist date_last_active for customer reports #2881 (Analytics) 👏 @cojennin
+- Tweak: consistent naming for report columns. #2845 (Design)
+- Tweak: schedule customer lookup table updates instead of running during checkout. #2832
+- Tweak: have Import note action scroll to import section of settings screen. #2799 (Activity Panel, Components, Inbox, Packages)
+- Bug: Fix chart type buttons misalignment #2871 (Components, Packages)
+- Updated to color-studio v2 and refreshed the color scheme #2837 (Build, Components, Packages)
+- Tweak: change report charts filter name. #2843 (Components, Documentation, Packages)
+- Dev: Update no data message in table #2854 (Components, Packages)
+
+= 0.18.0 2019-08-28 =
+
+- Fix: Product in dropdown clickable in FF/Safari #2839 (Components, Packages) 👏 @cojennin
+- Fix: gross order total calculation. #2817 (Analytics)
+- Fix: Date calculation on notes being double adjusted to UTC. #2818 (Inbox)
+- Bug: Orders report now shows coupons in Coupon(s) column #2812 (Analytics) 👏 @cojennin
+- Fix: Bug navigating from DevDoc component pages to WP dashboard pages. #2827 (Documentation)
+- Enhancement: add Facebook extension inbox note. #2798 (Activity Panel, Inbox)
+- Enhancement: handle simple to variable product changes in reports. #2814 (Analytics)
+- Dev: Release Scripts: Update to reflect refactor #2796 (Build)
+- Fix: Import all used Gutenberg component styles. #2679
+- Fix: report column visibility preference bug. #2806 (Analytics, Components, Packages, Settings)
+- Dev: Components: prepare changelogs for release #2802 (Build, Components, Packages)
+- Fix: remove date picker from Customers Report. #2805 (Analytics)
+- Tweak: add empty dataset treatment for report tables. #2801 (Analytics, Components, Packages)
+- Dev: Search List Control: fix long count values cut-off in IE11 #2783 (Components, Packages)
+- Dev: Update List actionable items to be wrapped with Link #2779 (Components, Packages)
+
+= 0.17.0 2019-08-15 =
+
+- Fix: chart data fetch/render over long time periods #2785 (Analytics)
+- Task: update the class filename exclusion to /src/ for PSR-4 #2794
+- Tweak: Increase zIndex on popover elements. #2777
+- Fix: chart display when comparing categories. #2710 (Analytics)
+- Fix: Allow WooCommerce Admin to be deleted through the plugin screen when WooCommerce is not active. #2762
+- Fix: Charts being partially rendered on long time periods. #2776 (Analytics)
+- Task: update WC tested to version to 3.7.0 #2782
+- Fix: Customer last active date showing `Invalid date`. #2764 (Analytics)
+- Task: Update report endpoints to be PSR-4 autoloaded  #2755 (Build)
+- Bug: Fix daily cron event (PSR-4) #2754 (Build)
+- Fix: issue where product category update button was not always clickable #2753
+- Fix: Add version parameter to `_doing_it_wrong` on `current_screen`. #2733
+- Task: Update feature classes to be PSR-4 autoloaded. #2736 (Build)
+- Fix: Short circuit admin title filter when applied by third parties too early. #2744
+- Fix: chart display when comparing categories. #2708 (Analytics)
+- Bug: Only apply current submenu CSS reset on non-embed pages. #2687
+- Dev: Add `wc_admin_get_feature_config` filter to feature config array. #2689
+
+= 0.16.0 2019-07-24 =
+
+- Tweak: Change verbiage of feedback notification. #2677
+- Dev: Update unit tests to work with PHPUnit 7+. #2678
+- Fix: Bug that was preventing confirmation dialog from showing after saving settings. #2660
+- Fix: completed orders lingering in activity panel. #2659 (Activity Panel, REST API)
+- Dev: Webpack: Use wp.url instead of bundling package #2663 (Build)
+- Fix: Location of unread indicators in activity panel. #2662
+- Bug: Fix missing nav on connected admin pages. #2676
+- Task: Add priority 2 Tracks events #2633 (Components, Packages)
+- Dev: Replace 'stringifyQuery' with 'addQueryArgs' #2655 (Build, Components, Packages)
+- Task: Add priority 3 Tracks events #2638 (Components, Packages)
+- Fix: Z-index issue in empty message on chart #2646 (Components, Packages)
+- Dev: Tests setup: bring in Woo Core dependencies #2640 (Build)
+- Fix: Disable placeholder animation when prefers-reduced-motion is set #2645 (Accessibility)
+- Task: Add instructions for translating to contributing docs. #2618 (Documentation)
+- Dev: show example extension list as list in readme #2619 (Documentation)
+- Fix: react-spring breaking IE11 #2698 (Build)
 
 = 0.15.0 2019-07-11 =
 

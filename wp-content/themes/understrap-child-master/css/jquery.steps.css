@@ -58,7 +58,11 @@
     display: block;
     width: 100%;
 }
-
+.wizard > .steps [role="tablist"]{
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
 .wizard.vertical > .steps
 {
     display: inline;
@@ -69,23 +73,40 @@
 .wizard > .steps .number
 {
     font-size: 1.429em;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 35px;
+    background: #ff662b;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
 }
 
 .wizard > .steps > ul > li
 {
-    width: 25%;
+    width: 20%;
+    text-align: center;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
 }
 
 .wizard > .steps > ul > li,
 .wizard > .actions > ul > li
 {
     float: left;
+    position: relative;
 }
 
 .wizard.vertical > .steps > ul > li
 {
     float: none;
     width: 100%;
+    
 }
 
 .wizard > .steps a,
@@ -93,7 +114,7 @@
 .wizard > .steps a:active
 {
     display: block;
-    width: auto;
+    /* width: auto; */
     margin: 0 0.5em 0.5em;
     padding: 1em 1em;
     text-decoration: none;
@@ -102,13 +123,16 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+.wizard > .steps a{
+    width: 100%;
+}
 
 .wizard > .steps .disabled a,
 .wizard > .steps .disabled a:hover,
 .wizard > .steps .disabled a:active
 {
-    background: #eee;
-    color: #aaa;
+    background: #faa66a;
+    color: #ffffff;
     cursor: default;
 }
 
@@ -151,7 +175,9 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-
+.wizard > .content .title{
+    display: block;
+}
 .wizard.vertical > .content
 {
     display: inline;
@@ -164,11 +190,13 @@
 {
     float: left;
     position: absolute;
-    width: 95%;
+    width: 100%;
     /*height: 95%;*/
     padding: 2.5%;
 }
-
+.border-type{
+    border: none !important;
+}
 .wizard > .content > .body ul
 {
     list-style: disc !important;
@@ -188,10 +216,60 @@
 
 .wizard > .content > .body input
 {
-    display: block;
-    border: 1px solid #ccc;
+    border: 2px solid #2184be;
+    padding: 4px 7px;
 }
-
+.steps .content .calculate_size{
+    margin-right: 15px;
+}
+#custom-product-form  .content label img{
+    width: 100%;
+}
+#custom-product-form  .content label{
+    font-weight: bold;
+    
+}
+#custom-product-form  .content .custom-select-inner label {
+    display: block;
+}
+.custom-select-inner .select-wrap img{
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+}
+.custom-select-inner .select-wrap{
+    text-align: center;
+}
+.custom-select-inner input{
+    display: none !important;
+}
+.custom-comment .theme-btn{
+    border: none !important;
+    padding: 7px 20px !important;
+}
+.custom-comment{
+    max-width: 520px;
+}
+.custom-select-inner input:checked ~ label{
+    border: 2px solid #2184be;
+}
+.select-wrap label{
+    border: 2px solid transparent;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: blink .5s step-end 5 alternate;
+}
+.patch-size{
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c2c2c;
+    padding-top: 20px;    
+}
+.patch-size .new_size{
+    color: #0069a6;
+    display: inline-block;
+    padding-left: 6px;
+}
 .wizard > .content > .body input[type="checkbox"]
 {
     display: inline-block;
@@ -280,7 +358,9 @@
 {
 }
 
-
+.wizard{
+    overflow: visible;
+}
 
 /*
     Tabcontrol
@@ -380,3 +460,11 @@
 {
     display: list-item;
 }
+
+
+ @keyframes blink { 
+    50% { 
+        border-color: #2184be; 
+    } 
+ }
+ 
