@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ef8b28e-d25f-4692-a2f2-3262af5a1231" name="Default Changelist" comment="" />
+    <list default="true" id="6ef8b28e-d25f-4692-a2f2-3262af5a1231" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/functions.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,20 +16,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/templates/custom_steps.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
+            <state relative-caret-position="1425">
               <caret line="62" column="22" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="302" column="5" lean-forward="true" selection-start-line="302" selection-start-column="5" selection-end-line="302" selection-end-column="5" />
+            <state relative-caret-position="966">
+              <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
         </entry>
@@ -56,7 +68,6 @@
       <find>add_to_cart</find>
       <find>create_order</find>
       <find>woocommerce_checkout_cart_item_quantity</find>
-      <find>add_to_cart_logic</find>
       <find>get_checkout_url</find>
       <find>woocommerce_add_cart_item_data</find>
       <find>s_th</find>
@@ -65,6 +76,7 @@
       <find>debu</find>
       <find>$data</find>
       <find>deb</find>
+      <find>add_to_cart_logic</find>
     </findStrings>
     <replaceStrings>
       <replace>sss</replace>
@@ -90,15 +102,15 @@
         <option value="$PROJECT_DIR$/wp-content/themes/understrap-child-master/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/templates/custom_steps.php" />
         <option value="/tmp/fz3temp-2/km-template-action-hooks.php" />
+        <option value="$PROJECT_DIR$/db/tp.sql" />
         <option value="$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/functions.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="53" />
-    <option name="y" value="27" />
-    <option name="width" value="1313" />
-    <option name="height" value="741" />
+    <option name="x" value="1366" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -122,27 +134,6 @@
               <item name="patchbazaar" type="b2602c69:ProjectViewProjectNode" />
               <item name="patchbazaar" type="462c0819:PsiDirectoryNode" />
               <item name="wp-content" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="patchbazaar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patchbazaar" type="462c0819:PsiDirectoryNode" />
-              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="SSS_Custom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="patchbazaar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patchbazaar" type="462c0819:PsiDirectoryNode" />
-              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="SSS_Custom" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="patchbazaar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patchbazaar" type="462c0819:PsiDirectoryNode" />
-              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
               <item name="themes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -159,15 +150,6 @@
               <item name="themes" type="462c0819:PsiDirectoryNode" />
               <item name="understrap-child-master" type="462c0819:PsiDirectoryNode" />
               <item name="sss" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="patchbazaar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patchbazaar" type="462c0819:PsiDirectoryNode" />
-              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="understrap-child-master" type="462c0819:PsiDirectoryNode" />
-              <item name="sss" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -222,17 +204,18 @@
       <workItem from="1565759306999" duration="4208000" />
       <workItem from="1565780331891" duration="15717000" />
       <workItem from="1565931704662" duration="27000" />
-      <workItem from="1573231839317" duration="1039000" />
+      <workItem from="1573231839317" duration="8163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64328000" />
+    <option name="totallyTimeSpent" value="71452000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="53" y="27" width="1313" height="741" extended-state="6" />
+    <frame x="1419" y="27" width="1867" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49586776" visible="true" weight="0.19415943" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49586776" visible="true" weight="0.1350906" />
       <window_info id="Favorites" order="1" sideWeight="0.5041322" side_tool="true" weight="0.2573007" />
       <window_info id="Structure" order="2" sideWeight="0.5008264" weight="0.17916338" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -245,7 +228,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3289256" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289256" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -266,7 +249,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/functions.php</url>
-          <line>286</line>
+          <line>287</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -325,13 +308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8700">
           <caret line="355" column="10" selection-start-line="304" selection-start-column="4" selection-end-line="355" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -434,13 +410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1136">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-includes/pluggable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -470,17 +439,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/functions.php">
+    <entry file="file://$PROJECT_DIR$/db/tp.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="302" column="5" lean-forward="true" selection-start-line="302" selection-start-column="5" selection-end-line="302" selection-end-column="5" />
+        <state relative-caret-position="25">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/templates/custom_steps.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
+        <state relative-caret-position="1425">
           <caret line="62" column="22" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/understrap-child-master/sss/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
         </state>
       </provider>
     </entry>

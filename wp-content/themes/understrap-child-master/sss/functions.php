@@ -178,6 +178,7 @@ function km_add_to_cart()
                 $_SESSION['pb_extra_data'][$key] = $value;
             }
         }
+
         add_to_cart_logic();
     }
 
@@ -187,13 +188,13 @@ function add_to_cart_logic()
 {
     global $woocommerce;
     @session_start();
-   $woocommerce->cart->get_cart();
+    $woocommerce->cart->get_cart();
     $data = $woocommerce->cart->add_to_cart($_SESSION['pb_extra_data']['add_to_cart']);
 
     $product_id = ($_SESSION['pb_extra_data']['add_to_cart']);
     $product = wc_get_product($product_id);
     $or_price = 0;
-    $percent_price  = 0;
+    $percent_price = 0;
     $main_price = floatval($product->get_price());
     $main_key = array('backing', 'border', 'loop', 'thread', 'tprice');
     foreach ($_SESSION['pb_extra_data'] as $key => $values) {
@@ -207,28 +208,28 @@ function add_to_cart_logic()
                         $or_price = $or_price + floatval($v['price']);
                     }
                 }
-            }elseif ($key == 'tprice') {
-                    foreach ($values as $v){
-                        $or_price =  $or_price + (floatval($v['price'])*$v['value']);
-                    }
-            }else{
-                if(isset($values['type']) && $values['type'] != 'flat'){
+            } elseif ($key == 'tprice') {
+                foreach ($values as $v) {
+                    $or_price = $or_price + (floatval($v['price']) * $v['value']);
+                }
+            } else {
+                if (isset($values['type']) && $values['type'] != 'flat') {
                     $percent_price = $percent_price + floatval($values['price']);
 
-                }else{
-                    $or_price =  $or_price + floatval($values['price']);
+                } else {
+                    $or_price = $or_price + floatval($values['price']);
                 }
             }
         }
     }
-    $total_price = floatval($or_price+$main_price);
+    $total_price = floatval($or_price + $main_price);
 
-    $total_percent_price =0;
-    if($percent_price >0){
-        $total_percent_price = (($total_price* $percent_price)/100);
+    $total_percent_price = 0;
+    if ($percent_price > 0) {
+        $total_percent_price = (($total_price * $percent_price) / 100);
     }
 
-    $total_price = floatval($total_percent_price+$total_price);
+    $total_price = floatval($total_percent_price + $total_price);
 
 
     WC()->session->set($data . 'price', $total_price);
@@ -247,14 +248,14 @@ function pb_add_item_data($cart_item_data, $product_id, $variation_id)
     global $woocommerce;
     @session_start();
     $new_value = array();
-    $extra_key = array('backing','border','loop','thread','tprice');
-    $main_key = array('height','width','patch_size','comments');
+    $extra_key = array('backing', 'border', 'loop', 'thread', 'tprice');
+    $main_key = array('height', 'width', 'patch_size', 'comments');
 
-    foreach ($_SESSION['pb_extra_data'] as $key => $value){
-        if(in_array($key,$main_key)){
-            $new_value[$key] = $value;
-        }elseif (in_array($key,$extra_key)){
-            $new_value[$key] = $value;
+    foreach ($_SESSION['pb_extra_data'] as $key => $value) {
+        if (in_array($key, $main_key)) {
+            $new_value['main'][$key] = $value;
+        } elseif (in_array($key, $extra_key)) {
+            $new_value['extra'][$key] = $value;
         }
     }
 
@@ -284,25 +285,61 @@ function pb_remove_qty()
 }
 
 
-//add_filter('woocommerce_cart_item_name', 'pb_add_user_custom_data_from_session_into_cart', 1, 3);
+add_filter('woocommerce_cart_item_name', 'pb_add_user_custom_data_from_session_into_cart', 1, 3);
 
 if (!function_exists('pb_add_user_custom_data_from_session_into_cart')) {
     function pb_add_user_custom_data_from_session_into_cart($product_name, $values, $cart_item_key)
     {
         $return_var_start = $return_var_end = $string = '';
 
-
         $return_string = $product_name;
 
         $return_var_end = "</table></dl>";
-        $string .= "<tr><td><strong>" . $return_string . "</strong></td></tr>";
+        $string .= "<tr><td><strong>" . $return_string . "</strong>";
+
+        foreach ($values['main'] as $k => $value) {
+
+
+            $string .= "<p><strong>".kGetLabel($k)." :</strong>". $value . "</p>";
+        }
+        echo "<pre>";
+        print_r($values['extra']);
+        foreach ($values['extra'] as $k => $value) {
+            $string .= "<p><strong>".kGetLabel($k)." :</strong>". $value['title']." (" .$value['price']. ")</p>";
+        }
+
         $return = false;
-        debug($values);
-        return $return_string;
+//        debug($values);
+        return $string . "</td></tr>";
 
     }
 }
 
+function kGetLabel($key)
+{
+    $return_string = '';
+    switch ($key) {
+        case  "backing":
+            $return_string = "Backing Type";
+            break;
+        case  "border":
+            $return_string = "Border Type";
+            break;
+        case  "loop":
+            $return_string = "Added loop";
+            break;
+        case  "thread":
+            $return_string = "Thread Type";
+            break;
+        case  "tprice":
+            $return_string = "Thread Count";
+            break;
+        default:
+            $return_string = ucfirst($key);
+            break;
+    }
+    return $return_string;
+}
 
 add_action('woocommerce_before_cart_item_quantity_zero', 'pb_remove_user_custom_data_from_cart', 1, 1);
 if (!function_exists('pb_remove_user_custom_data_from_cart')) {
