@@ -266,3 +266,13 @@ require_once trailingslashit( get_template_directory() ) . '/includes/main.php';
 
 /* Turn on wide images */
 add_theme_support( 'align-wide' );
+
+if (function_exists('acf_add_options_page')) {
+
+    acf_add_options_page('Patch Backing');
+    acf_add_options_page('Patch Border');
+    acf_add_options_page('Patch Thread');
+
+}
+
+require_once "sss/functions.php";
