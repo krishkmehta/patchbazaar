@@ -107,6 +107,41 @@ add_action( 'after_setup_theme', 'ecommerce_gem_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
+
+ 
+// Widgets
+add_action('widgets_init', 'patchbazaar_widget_init');
+function patchbazaar_widget_init()
+{
+    register_sidebar(array(
+        'name' => __('Social Media and Address', 'patchbazaar'),
+        'id' => 'footer-1',
+        'description' => __('Widgets in this area will be shown on all posts and pages.', 'patchbazaar'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widgettitle">',
+        'after_title' => '</h2>',
+    ));
+    register_sidebar(array(
+        'name' => __('Privacy Policy', 'patchbazaar'),
+        'id' => 'footer-privacy',
+        'description' => __('Widgets in this area will be shown on all posts and pages.', 'patchbazaar'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widgettitle">',
+        'after_title' => '</h2>',
+    ));
+    register_sidebar(array(
+        'name' => __('Copyright', 'patchbazaar'),
+        'id' => 'footer-copyright',
+        'description' => __('Widgets in this area will be shown on all posts and pages.', 'patchbazaar'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h2 class="widgettitle">',
+        'after_title' => '</h2>',
+    ));
+}
+
 function ecommerce_gem_widgets_init() {
 
 	register_sidebar( array(
@@ -194,6 +229,7 @@ function ecommerce_gem_scripts() {
 	wp_enqueue_style( 'ecommerce-gem-fonts', ecommerce_gem_fonts_url(), array(), null );
 
 	wp_enqueue_style( 'jquery-meanmenu', get_template_directory_uri() . '/assets/third-party/meanmenu/meanmenu.css' );
+	// wp_enqueue_style( 'jquery-steps', get_template_directory_uri() . '/assets/third-party/jquery-steps/jquery.steps.css' );
 
 	wp_enqueue_style( 'jquery-slick', get_template_directory_uri() . '/assets/third-party/slick/slick.css', '', '1.6.0' );
 
@@ -208,7 +244,7 @@ function ecommerce_gem_scripts() {
 	wp_enqueue_script( 'ecommerce-gem-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'jquery-meanmenu', get_template_directory_uri() . '/assets/third-party/meanmenu/jquery.meanmenu.js', array('jquery'), '2.0.2', true );
-
+	// wp_enqueue_script( 'jquery-steps', get_template_directory_uri() . '/assets/third-party/jquery-steps/jquery.steps.js', array('jquery'), '1.0.2', true ); 
 	wp_enqueue_script( 'jquery-slick', get_template_directory_uri() . '/assets/third-party/slick/slick.js', array('jquery'), '1.6.0', true );
 
 	// Add script for sticky sidebar.
