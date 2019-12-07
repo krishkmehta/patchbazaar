@@ -157,27 +157,64 @@ function debug($text, $exit = false)
     }
 }
 
-add_action('init', 'km_add_to_cart');
+add_action('wp_loaded', 'km_add_to_cart');
 function km_add_to_cart()
 {
     @session_start();
 
+
     if (isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pz-step-nonce')) {
+
+
         foreach ($_POST['productData'] as $key => $value) {
             if ($key == 'thread') {
                 foreach ($value as $k => $v) {
                     $_SESSION['pb_extra_data'][$key][$k] = $_POST['data'][$key][$v];
-
                 }
             } elseif ($key == 'tprice') {
-                $_SESSION['pb_extra_data'][$key] = $_POST['data'][$key];
-                $_SESSION['pb_extra_data'][$key]['tprice_1']['value'] = $value;
+                $_SESSION['pb_extra_data'][$key]['price'] = $_POST['data'][$key]['tprice_1']['price'];
+                $_SESSION['pb_extra_data'][$key]['type'] = $_POST['data'][$key]['tprice_1']['type'];
+                $_SESSION['pb_extra_data'][$key]['value'] = $value;
             } elseif (isset($_POST['data'][$key][$value])) {
                 $_SESSION['pb_extra_data'][$key] = $_POST['data'][$key][$value];
             } else {
                 $_SESSION['pb_extra_data'][$key] = $value;
             }
+
+            $posts = new  WP_Query(
+                array(
+                    'post_type' => 'size_chart',
+                    'posts_per_page' => 1,
+                    'meta_key' => 'size_price_size',
+                    'orderby' => 'meta_value',
+                    'order' => 'DESC',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'size_price_size',
+                            'compare' => '<=',
+                            'value' => floatval($_POST['productData']['patch_size']),
+
+                        ),
+                        array(
+                            'key' => 'size_price_products', // name of custom field
+                            'value' => '"' . $_POST['productData']['add_to_cart'] . '"', // matches exactly
+                            // "123", not just
+                            'compare' => 'LIKE'
+                        )
+                    )
+                )
+            );
+
+            if ($posts->have_posts()) {
+
+                while ($posts->have_posts()):$posts->the_post();
+                    $fields = get_field('size_price');
+                    $_SESSION['pb_extra_data']['size_chart'] = $fields['price_repeater'];
+                endwhile;
+                wp_reset_postdata();
+            }
         }
+
 
         add_to_cart_logic();
     }
@@ -191,12 +228,17 @@ function add_to_cart_logic()
     $woocommerce->cart->get_cart();
     $data = $woocommerce->cart->add_to_cart($_SESSION['pb_extra_data']['add_to_cart']);
 
+
+    $cart_data = $woocommerce->cart->get_cart_item($data);
+
+
     $product_id = ($_SESSION['pb_extra_data']['add_to_cart']);
     $product = wc_get_product($product_id);
     $or_price = 0;
     $percent_price = 0;
     $main_price = floatval($product->get_price());
-    $main_key = array('backing', 'border', 'loop', 'thread', 'tprice');
+    $main_key = array('backing', 'border', 'loop', 'thread', 'tprice', 'patch_size');
+
     foreach ($_SESSION['pb_extra_data'] as $key => $values) {
         if (is_array($values) && in_array($key, $main_key)) {
             if ($key == 'thread') {
@@ -209,8 +251,10 @@ function add_to_cart_logic()
                     }
                 }
             } elseif ($key == 'tprice') {
-                foreach ($values as $v) {
-                    $or_price = $or_price + (floatval($v['price']) * $v['value']);
+                if (isset($values['type']) && ($values['type'] != 'flat' || $values['type'] != 'Flat')) {
+                    $percent_price = $percent_price + (floatval($values['price']) * $values['value']);
+                } else {
+                    $or_price = $or_price + (floatval($values['price']) * $values['value']);
                 }
             } else {
                 if (isset($values['type']) && $values['type'] != 'flat') {
@@ -220,8 +264,18 @@ function add_to_cart_logic()
                     $or_price = $or_price + floatval($values['price']);
                 }
             }
+        } elseif ($key == 'size_chart') {
+
+            $size_price = floatval(SGetSizePrice($values, $cart_data['quantity']));
+
+            WC()->session->set($data . 'sizeprice', $size_price);
+            $or_price = $or_price + $size_price;
+
+
         }
     }
+
+
     $total_price = floatval($or_price + $main_price);
 
     $total_percent_price = 0;
@@ -229,10 +283,11 @@ function add_to_cart_logic()
         $total_percent_price = (($total_price * $percent_price) / 100);
     }
 
+    WC()->session->set($data . 'price', $total_price);
+
     $total_price = floatval($total_percent_price + $total_price);
 
-
-    WC()->session->set($data . 'price', $total_price);
+    WC()->session->set($data . 'percent_price', $percent_price);
 
     WC()->session->set_customer_session_cookie(true);
     unset($_SESSION['pb_extra_data']);
@@ -248,8 +303,8 @@ function pb_add_item_data($cart_item_data, $product_id, $variation_id)
     global $woocommerce;
     @session_start();
     $new_value = array();
-    $extra_key = array('backing', 'border', 'loop', 'thread', 'tprice');
-    $main_key = array('height', 'width', 'patch_size', 'comments');
+    $extra_key = array('backing', 'border', 'loop', 'thread', 'tprice', 'size_chart');
+    $main_key = array('height', 'width', 'patch_size', 'notes');
 
     foreach ($_SESSION['pb_extra_data'] as $key => $value) {
         if (in_array($key, $main_key)) {
@@ -271,9 +326,34 @@ function pb_add_item_data($cart_item_data, $product_id, $variation_id)
 add_action('woocommerce_before_calculate_totals', 'pb_add_custom_price');
 function pb_add_custom_price($cart_object)
 {
+    session_start();
     foreach ($cart_object->cart_contents as $key => $cart_item) {
         if (WC()->session->get($key . "price")) {
-            $cart_item['data']->set_price(WC()->session->get($key . 'price'));
+            $price = WC()->session->get($key . 'price');
+            $size_price = WC()->session->get($key . 'sizeprice');
+            $percent_price = WC()->session->get($key . 'percent_price');
+
+            $new_size = 0;
+            if (isset($cart_item['extra']['size_chart'])) {
+                $new_size = floatval(SGetSizePrice($cart_item['extra']['size_chart'], $cart_item['quantity']));
+                WC()->session->set($key . 'sizeprice', $new_size);
+            }
+
+            $new_price = $price;
+            if ($new_size) {
+                $new_price = ($price - $size_price) + $new_size;
+            }
+
+            $new_total_percent_price = 0;
+            if ($percent_price > 0) {
+                $new_total_percent_price = (($new_price * $percent_price) / 100);
+            }
+
+            WC()->session->set($key . 'price', $new_price);
+
+            $new_price = floatval($new_total_percent_price + $new_price);
+
+            $cart_item['data']->set_price($new_price);
         }
     }
 }
@@ -294,23 +374,52 @@ if (!function_exists('pb_add_user_custom_data_from_session_into_cart')) {
 
         $return_string = $product_name;
 
-        $return_var_end = "</table></dl>";
-        $string .= "<tr><td><strong>" . $return_string . "</strong>";
+
+        $product =  wc_get_product($values['product_id']);
+      //  $string .= "<table><tr><td><p><strong>" . $return_string . "</strong> (".wc_price($product->get_price()).")
+        //</p>";
+        $string .= "<table><tr><td><p><strong>" . $return_string . "</strong></p>";
 
         foreach ($values['main'] as $k => $value) {
 
+            if (empty($value) || $k == 'size_chart') {
+                continue;
+            }
+            if($k == 'patch_size'){
+//                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> (" .wc_price(WC()->session->get($cart_item_key
+//                        .'sizeprice')). ")</p>";
+                $string .= "<p><strong>" . kGetLabel($k) . " :</strong></p>";
+            }else{
+                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value . "</p>";
+            }
 
-            $string .= "<p><strong>".kGetLabel($k)." :</strong>". $value . "</p>";
         }
-        echo "<pre>";
-        print_r($values['extra']);
+
         foreach ($values['extra'] as $k => $value) {
-            $string .= "<p><strong>".kGetLabel($k)." :</strong>". $value['title']." (" .$value['price']. ")</p>";
+            if($k =='size_chart'){
+                continue;
+            }
+            if($k =='loop'){
+                $string .= "<p><strong>" . kGetLabel($k) . " :</strong>Yes</p>";
+            }elseif($k =='tprice'){
+                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value['value'] . "</p>";
+
+            } elseif ($k == 'thread') {
+                $str = array();
+                foreach ($value as $v){
+                    $str['title'][] =$v['title'];
+                    $str['price'][] =wc_price($v['price']);
+                }
+                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " .implode(",",$str['title']) . "</p>";
+
+            } else {
+                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value['title'] . "</p>";
+            }
         }
 
         $return = false;
-//        debug($values);
-        return $string . "</td></tr>";
+
+        return $string . "</td></tr></table>";
 
     }
 }
@@ -354,4 +463,32 @@ if (!function_exists('pb_remove_user_custom_data_from_cart')) {
             unset($woocommerce->cart->cart_contents[$key]);
         }
     }
+}
+function SGetSizePrice($prices, $qty = 1)
+{
+
+    if (count($prices) > 0) {
+        $price_array = array();
+        foreach ($prices as $price) {
+            $price_array[$price['qty']] = $price['price'];
+        }
+        ksort($price_array);
+        $low_qty = 0;
+
+        foreach ($price_array as $q => $p){
+
+
+            if($q == $qty){
+
+                return $p;
+            }
+            if($q < $qty || $low_qty ==0){
+                $low_qty = $q;
+            }
+        }
+
+
+        return $price_array[$low_qty];
+    }
+    return 0;
 }
