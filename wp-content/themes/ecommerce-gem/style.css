@@ -282,7 +282,6 @@ textarea {
     font-size: 15px;
     line-height: 1.5;
 }
-
 body {
     background-color: #fff;
     color: #707070;
@@ -314,7 +313,16 @@ h1 {
 h2 {
     font-size: 24px;
 }
-
+h2.vc_custom_heading{
+    text-transform: uppercase;
+    color: #191718;
+    font-size: 35px;
+    line-height: 1.3;
+}
+.vc_custom_heading b{
+    color: #fa6f6f;
+    font-weight: 600;
+}
 h3{
     font-size: 20px;
 }
@@ -443,7 +451,10 @@ li > ol {
     margin-bottom: 0;
     margin-left: 1.5em;
 }
-
+.woocommerce-mini-cart{
+    max-height: 320px;
+    overflow-y: auto;
+}
 ul, ol {
     margin: 0 0 0.5em 1em;
     padding: 0;
@@ -1050,7 +1061,35 @@ a:active {
     padding: 5px 15px;
     display: inline-block;
 }
-
+/* Home Page */
+.our-feature .wpb_single_image{
+    margin-bottom: 0;
+}
+.our-feature .wpb_text_column {
+    padding: 10px;
+    color: #000;
+    text-align: center;
+    margin: 0;
+}
+.vc_row.our-feature{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.our-feature .vc_column_container>.vc_column-inner{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.our-feature >.vc_column_container .vc_column-inner > .wpb_wrapper {
+    background: #f8fbf4;
+    padding: 13px 0 13px;
+    margin-bottom: 30px;
+}
+.our-feature .wpb_text_column p{
+    color: #000;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 #home-page-widget-area section {
     padding: 80px 0px;
     margin:0;
@@ -1108,6 +1147,12 @@ a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+
+/*  Gallery Page Settings */
+.no-padding > .vc_column_container>.vc_column-inner {
+    padding-left: 4px;
+    padding-right: 4px;
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -2406,7 +2451,11 @@ body.woocommerce-checkout .top-cart-content {
 
 .top-cart-content .woocommerce .woocommerce-mini-cart li {
     padding-bottom: 10px;
-    border-bottom: 
+    border-bottom: 1px solid #0e3950;
+    margin-bottom: 15px;
+}
+.top-cart-content .woocommerce .woocommerce-mini-cart li:last-child{
+    border-bottom: none;
 }
 
 .top-header .top-cart-wrapper a i,
@@ -3228,7 +3277,62 @@ body.woocommerce-checkout .top-cart-content {
     padding: 40px 0 40px 0px;
     clear: both;
 }
-
+.home #content{
+    padding-top: 0;
+}
+.home #content .entry-content{
+    margin-top: 0;
+}
+.hero-section {
+    min-height: 480px;
+}
+.cart_list table {
+    max-width: 185px;
+    margin-bottom: 0;
+}
+.cart_list table p{
+    color: #fff;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+.woocommerce.widget_shopping_cart .total{
+    border-top: 3px double #0e3950;
+}
+.cart_list table td{
+    border: none;
+    padding: 0;
+    padding-top: 0;
+}
+.image-list ul{
+    padding-left: 0;
+    list-style: none;
+    margin-left: 0;
+}
+.image-list li img{
+    max-width: 100%;
+    margin-bottom: 0;
+}
+.image-list li{
+    text-align: center;
+    margin-left: -3px;
+    padding: 0 3px;
+    display: inline-block;
+    list-style: none;
+    vertical-align: text-top;
+    width: 20%;
+}
+.top-cart-content .widgettitle{
+    display: none;
+}
+.top-text-block, .top-text-block p, .top-text-block h1,.top-text-block h2 {
+    text-align: center;
+    color: #fff;
+}
+.top-text-block{
+    max-width: 700px;
+    margin: 0 auto;
+}
 .search-results .page-title {
     text-align: left;
 }
@@ -5363,7 +5467,7 @@ li.product .view-detail-wishlist-wrap {
 }
 
 /* Smaller than standard 1024 (devices and browsers) */
-@media only screen and (max-width:1023px) {
+@media only screen and (max-width: 1023px) {
 
     h1 {
         font-size: 22px;
@@ -5698,7 +5802,11 @@ li.product .view-detail-wishlist-wrap {
         margin-left: 0;
         margin-right: 0;
     }
-
+/*      Home page responsive code */
+.our-feature >.vc_column_container .vc_column-inner > .wpb_wrapper{
+    margin-bottom: 0;
+}
+/*      Home Page Responsive Code End */
     #home-page-widget-area .widget-title span {
         margin-bottom: 0;
     }
