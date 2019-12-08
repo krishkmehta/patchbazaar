@@ -30,7 +30,7 @@ $posts = get_posts($args);
 
 if ($posts) {
     foreach ($posts as $post) {
-        echo get_the_title();
+        echo "<h4 class='table-title'>".get_the_title()."</h4>";
         $size_charts = get_posts(array(
             'post_type' => 'size_chart',
             'posts_per_page' => -1,
@@ -63,7 +63,8 @@ if ($posts) {
         if (count($tables) > 0) {
 
             ?>
-            <table class="table table-responsive table-condensed">
+            <div class="table-responsive">
+            <table class="table table-condensed custom-tables">
                 <thead>
                 <tr>
                     <td>Size</td>
@@ -75,7 +76,7 @@ if ($posts) {
                 </tr>
                 </thead>
 
-                <thead>
+                <tbody>
 
                 <?php
 
@@ -92,8 +93,9 @@ if ($posts) {
 
                 ?>
                 </tr>
-                </thead>
+                </tbody>
             </table>
+            </div>
             <?php
         }
 

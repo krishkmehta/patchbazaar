@@ -330,7 +330,9 @@ h3{
 h4 {
     font-size: 18px;
 }
-
+.table-title{
+    margin-bottom: 8px;
+}
 h5 {
     font-size: 15px;
 }
@@ -477,13 +479,19 @@ table {
     margin: 0 0 1.5em;
     width: 100%;
 }
-
+.custom-tables td{
+        padding: 0.4rem .75rem;
+}
 
 td, th {
     border: 1px solid #ddd;
     padding: 5px;
 }
 
+.table{
+    width: 100%;
+    /* max-width: 100%; */
+}
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -3791,6 +3799,13 @@ body.woocommerce-checkout .top-cart-content {
     display: block;
     clear: both;
 }
+.custom-tables thead td{
+    font-weight: bold;
+    border: none;
+    background: #fa6161;
+    color: #fff;
+}
+
 .row{
     margin-left: -8px;
     margin-right: -8px;
@@ -5832,6 +5847,13 @@ li.product .view-detail-wishlist-wrap {
     #footer-widgets, #colophon {
         margin-left: 0;
         margin-right: 0;
+    }
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 25px;
     }
 /*      Home page responsive code */
 .our-feature >.vc_column_container .vc_column-inner > .wpb_wrapper{
