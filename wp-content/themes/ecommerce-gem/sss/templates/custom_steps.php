@@ -17,15 +17,17 @@
             Determining the size of your custom embroidered patch is simple. Input your sizing below and we will
             automatically calculate it for you and rounded up to the nearest half inch!
         </p>
-        <div class="field-wrapper errorDiv">
-            <label for="height">Height *</label>
-            <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
-            >
-        </div>
-        <div class="field-wrapper errorDiv">
-            <label for="width">Width *</label>
-            <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size ignore" type="text"
-            >
+        <div class="field-wrapper-container">
+            <div class="field-wrapper errorDiv">
+                <label for="height">Height *</label>
+                <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
+                >
+            </div>
+            <div class="field-wrapper errorDiv">
+                <label for="width">Width *</label>
+                <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size ignore" type="text"
+                >
+            </div>
         </div>
         <input type="hidden" class="ignore" name="productData[patch_size]" id="patch_size">
         <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
@@ -80,6 +82,7 @@
                             echo '<span class="title">' . get_the_title() . '</span>';
                             ?>
                         </label>
+                        <i class="fa fa-check-circle"></i>
                     </div>
                 </div>
                 <?php
@@ -107,7 +110,7 @@
                                value="backing_<?php echo $bac_index; ?>">
                         <label for="backing<?php echo $bac_index; ?>">
                             <?php
-                            echo get_sub_field('title');
+                            
                             $image = get_sub_field('image');
 
                             $size = 'thumbnail';
@@ -134,7 +137,11 @@
 
                             <input type="hidden" name="data[backing][backing_<?php echo $bac_index ?>][type]"
                                    value="<?php echo get_sub_field('price_in') ?>"/>
+                            <span class="title">
+                                <?php echo get_sub_field('title'); ?>
+                            </span>
                         </label>
+                        <i class="fa fa-check-circle"></i>
                     </div>
                 </div>
                 <?php
@@ -167,7 +174,7 @@
                                            value="border_<?php echo $bor_index; ?>">
                                     <label for="border<?php echo $bor_index; ?>">
                                         <?php
-                                        echo get_sub_field('title');
+                                       
                                         $image = get_sub_field('image');
 
                                         $size = 'thumbnail';
@@ -192,7 +199,12 @@
 
                                         <input type="hidden" name="data[border][border_<?php echo $bor_index ?>][type]"
                                                value="<?php echo get_sub_field('price_in') ?>"/>
+                                        <span class="title">
+                                            <?php echo get_sub_field('title'); ?>
+                                        </span>
+                                        
                                     </label>
+                                    <i class="fa fa-check-circle"></i>
                                 </div>
                             </div>
                             <?php
@@ -210,7 +222,7 @@
         if (have_rows('loop_price', 'option')): while (have_rows('loop_price', 'option')) : the_row();
             $loop_index = 1;
             ?>
-            <div class="loop">
+            <div class="loop border-top">
 
                 <h3><?php echo get_sub_field('title'); ?></h3>
                 <p><?php echo get_sub_field('description'); ?></p>
@@ -249,6 +261,7 @@
                                     <input type="hidden" name="data[loop][loop_<?php echo $loop_index ?>][type]"
                                            value="<?php echo get_sub_field('price_in') ?>"/>
                                 </label>
+                                <i class="fa fa-check-circle"></i>
                             </div>
                         </div>
                     </div>
@@ -259,7 +272,7 @@
         ?>
 
         <?php if (have_rows('thread_price', 'option')): ?>
-        <div class="thread">
+        <div class="thread border-top">
 
             <?php while (have_rows('thread_price', 'option')) :
             the_row(); ?>
@@ -268,8 +281,6 @@
             <p><?php echo get_sub_field('description'); ?></p>
             <div class="errorDiv">
                 <div class="row custom-select-inner">
-
-
                     <?php
                     if (have_rows('repeat_fields')): ?>
 
@@ -283,7 +294,7 @@
                                            value="thread_<?php echo $thr_index; ?>">
                                     <label for="thread<?php echo $thr_index; ?>">
                                         <?php
-                                        echo get_sub_field('title');
+                                        
                                         $image = get_sub_field('image');
 
                                         $size = 'thumbnail';
@@ -308,7 +319,12 @@
                                         />
                                         <input type="hidden" name="data[thread][thread_<?php echo $thr_index ?>][type]"
                                                value="<?php echo get_sub_field('price_in') ?>"/>
+                                               <span class="title">
+                                               <?php echo get_sub_field('title');
+                                               ?>
+                                               </span>
                                     </label>
+                                    <i class="fa fa-check-circle"></i>
                                     <?php
                                     $thr_index++;
                                     ?>
@@ -356,9 +372,10 @@
                                    value="<?php echo get_sub_field('price_in') ?>"/>
 
 
-                            <input id="tprice<?php echo $tprice_index; ?>" type="text" name="productData[tprice]"
-                                   class="maxthread ignore"/>
+                            
                         </label>
+                        <input id="tprice<?php echo $tprice_index; ?>" type="text" name="productData[tprice]"
+                                   class="maxthread ignore"/>
                     </div>
                     <script>
                         var max = "<?php echo(get_sub_field('max_thread') ? get_sub_field('max_thread') : 1); ?>";

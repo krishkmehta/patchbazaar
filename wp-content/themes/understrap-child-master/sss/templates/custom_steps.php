@@ -80,6 +80,7 @@
                             echo '<span class="title">' . get_the_title() . '</span>';
                             ?>
                         </label>
+                        <i class="fa fa-check"></i>
                     </div>
                 </div>
                 <?php
@@ -471,17 +472,17 @@
 
             },
             messages:{
-                'productData[height]': 'height is required',
-                'productData[width]': 'width is required',
-                'productData[add_to_cart]': 'please select a embroidery',
-                'productData[backing]': 'please select a backing',
-                'productData[border]': 'please select a border',
+                'productData[height]': 'Height is required',
+                'productData[width]': 'Width is required',
+                'productData[add_to_cart]': 'Please select a embroidery',
+                'productData[backing]': 'Please select a backing',
+                'productData[border]': 'Please select a border',
                 'productData[thread][]': {
-                    required: "please select a thread",
-                    minlength: "please select a thread"
+                    required: "Please select a thread",
+                    minlength: "Please select a thread"
                 },
-                'productData[tprice]': 'please select thread type',
-                'productData[patch_size]': 'please select height or width'
+                'productData[tprice]': 'Please select thread type',
+                'productData[patch_size]': 'Please select height or width'
             }
         });
 
