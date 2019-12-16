@@ -39,7 +39,7 @@
 
 				endif; 
 
-				do_action( 'ecommerce_gem_credit' ); 
+				//do_action( 'ecommerce_gem_credit' ); 
 
 				?>
 			</div>
