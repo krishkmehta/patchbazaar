@@ -8,9 +8,10 @@
 
 ?>
 
-<form id="custom-product-form" method="post" action="#">
+<form id="custom-product-form" method="post" action="#" enctype="multipart/form-data">
     <h3>Determine Your Patch Size</h3>
     <section id="sstep-0">
+
         <h4>
         </h4>
         <p>
@@ -25,7 +26,7 @@
             </div>
             <div class="field-wrapper errorDiv">
                 <label for="width">Width *</label>
-                <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size ignore" type="text"
+                <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
                 >
             </div>
         </div>
@@ -34,6 +35,7 @@
     </section>
     <h3>Choose Your Embroidery</h3>
     <section id="sstep-1">
+
         <p>
             The size and design of your patch determines the patch’s embroidery percentage. On a 50% embroidered
             patch, at least half of the patch’s twill backing is visible. This is good for simple, text-only
@@ -419,9 +421,16 @@
             </div>
 
         </div>
+        <?php
+        require "fileupload/imageUpload.php";
+        ?>
+
     </section>
 
 
+</form>
+<form id="fileupload" action="<?php print(admin_url() . 'admin-ajax.php'); ?>" method="POST"
+      enctype="multipart/form-data">
 </form>
 <script>
     jQuery(document).ready(function ($) {
