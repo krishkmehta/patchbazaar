@@ -56,9 +56,7 @@ function aigpl_designs_page() {
 			}
 			else if( isset($active_tab) && $active_tab == 'plugins-feed' ) {
 				echo aigpl_get_plugin_design( 'plugins-feed' );
-			} else {
-				echo aigpl_get_plugin_design( 'offers-feed' );
-			}
+			} 
 		?>
 		</div><!-- end .aigpl-tab-cnt-wrp -->
 
@@ -123,12 +121,6 @@ function aigpl_help_tabs() {
 													'transient_key'		=> 'wpos_plugins_feed',
 													'transient_time'	=> 172800
 												),
-						'offers-feed' 	=> array(
-													'name'				=> __('Hire Us', 'album-and-image-gallery-plus-lightbox'),
-													'url'				=> 'http://wponlinesupport.com/plugin-data-api/wpos-offers.php',
-													'transient_key'		=> 'wpos_offers_feed',
-													'transient_time'	=> 86400,
-												)
 					);
 	return $wpos_feed_tabs;
 }
@@ -147,6 +139,7 @@ function aigpl_howitwork_page() { ?>
 		.postbox-container .wpos-list li:before{font-family: dashicons; content: "\f139"; font-size:20px; color: #0073aa; vertical-align: middle;}
 		.aigpl-wrap .wpos-button-full{display:block; text-align:center; box-shadow:none; border-radius:0;}
 		.aigpl-shortcode-preview{background-color: #e7e7e7; font-weight: bold; padding: 2px 5px; display: inline-block; margin:0 0 2px 0;}
+		.upgrade-to-pro{font-size:18px; text-align:center; margin-bottom:15px;}
 	</style>
 
 	<div class="post-box-container">
@@ -210,8 +203,8 @@ function aigpl_howitwork_page() { ?>
 												</th>
 												<td>
 													<p><?php _e('Check plugin document for shortcode parameters and demo for designs.', 'album-and-image-gallery-plus-lightbox'); ?></p> <br/>
-													<a class="button button-primary" href="http://docs.wponlinesupport.com/album-and-image-gallery-plus-lightbox/" target="_blank"><?php _e('Documentation', 'album-and-image-gallery-plus-lightbox'); ?></a>
-													<a class="button button-primary" href="http://demo.wponlinesupport.com/album-and-image-gallery-plus-lightbox-demo/" target="_blank"><?php _e('Demo for Designs', 'album-and-image-gallery-plus-lightbox'); ?></a>
+													<a class="button button-primary" href="https://docs.wponlinesupport.com/album-and-image-gallery-plus-lightbox/" target="_blank"><?php _e('Documentation', 'album-and-image-gallery-plus-lightbox'); ?></a>
+													<a class="button button-primary" href="https://demo.wponlinesupport.com/album-and-image-gallery-plus-lightbox-demo/" target="_blank"><?php _e('Demo for Designs', 'album-and-image-gallery-plus-lightbox'); ?></a>
 												</td>
 											</tr>
 										</tbody>
@@ -233,34 +226,26 @@ function aigpl_howitwork_page() { ?>
 								<div class="inside">
 									<ul class="wpos-list">
 										<li>15+ image gallery designs</li>
+										<li>4 shortcodes [aigpl-gallery], [aigpl-gallery-slider], [aigpl-gallery-album] and [aigpl-gallery-album-slider]</li>
 										<li>Display album category wise</li>
-										<li>Custom css</li>
+										<li>Easy Drag & Drop Image Feature</li>
 										<li>Masonry style for image gallery</li>
 										<li>Display gallery image with title and description</li>
 										<li>Display image album with title and description</li>
 										<li>Custom link to gallery image</li>
+										<li>Gutenberg Block Support</li>
+										<li>Template overriding feature support</li>
 										<li>Strong Shortcode Parameters</li>
 										<li>Slider Center Mode Effect</li>
 										<li>Slider RTL support</li>
+										<li>Visual Composer support.</li>
+										<li>Custom CSS option</li>
 										<li>Fully responsive</li>
 										<li>100% Multi language</li>
 									</ul>
-									<a class="button button-primary wpos-button-full" href="https://www.wponlinesupport.com/wp-plugin/album-image-gallery-plus-lightbox/" target="_blank"><?php _e('Go Premium ', 'album-and-image-gallery-plus-lightbox'); ?></a>
-									<p><a class="button button-primary wpos-button-full" href="http://demo.wponlinesupport.com/prodemo/album-and-image-gallery-plus-lightbox-pro/" target="_blank"><?php _e('View PRO Demo ', 'album-and-image-gallery-plus-lightbox'); ?></a></p>
-								</div><!-- .inside -->
-							</div><!-- #general -->
-						</div><!-- .meta-box-sortables ui-sortable -->
-					</div><!-- .metabox-holder -->
-
-					<div class="metabox-holder wpos-pro-box">
-						<div class="meta-box-sortables ui-sortable">
-							<div class="postbox">
-								<h3 class="hndle">
-									<span><?php _e('Need PRO Support?', 'album-and-image-gallery-plus-lightbox'); ?></span>
-								</h3>
-								<div class="inside">
-									<p><?php _e('Hire our experts for any WordPress task.', 'album-and-image-gallery-plus-lightbox'); ?></p>
-									<p><a class="button button-primary wpos-button-full" href="https://www.wponlinesupport.com/projobs-support/" target="_blank"><?php _e('PRO Support', 'album-and-image-gallery-plus-lightbox'); ?></a></p>
+									<div class="upgrade-to-pro">Gain access to <strong>Album and Image Gallery Plus Lightbox</strong> included in <br /><strong>Essential Plugin Bundle</div>
+									<a class="button button-primary wpos-button-full" href="https://www.wponlinesupport.com/wp-plugin/album-image-gallery-plus-lightbox/?ref=WposPratik&utm_source=WP&utm_medium=WP-Plugins&utm_campaign=Upgrade-PRO" target="_blank"><?php _e('Go Premium ', 'album-and-image-gallery-plus-lightbox'); ?></a>
+									<p><a class="button button-primary wpos-button-full" href="https://demo.wponlinesupport.com/prodemo/album-and-image-gallery-plus-lightbox-pro/" target="_blank"><?php _e('View PRO Demo ', 'album-and-image-gallery-plus-lightbox'); ?></a></p>
 								</div><!-- .inside -->
 							</div><!-- #general -->
 						</div><!-- .meta-box-sortables ui-sortable -->

@@ -2,7 +2,7 @@
 Contributors: wponlinesupport, anoopranawat, pratik-jain 
 Tags: wponlinesupport, album, image album, gallery, magnific-popup, magnific image slider, image gallery, responsive image gallery, image slider, image gallery slider, gallery slider, album slider, lightbox, albums, best gallery plugin, fancybox, free photo gallery, galleries, gallery, image, image captions,  images, media, media gallery, photo, photo albums, photo gallery, photographer, photography, photos, picture, Picture Gallery, pictures, responsive, responsive galleries, responsive gallery, singlepic, slideshow, slideshow galleries, slideshow gallery, slideshows, thumbnail galleries, thumbnail gallery, thumbnails, watermarking, watermarks, wordpress gallery plugin, wordpress photo gallery plugin, wordpress responsive gallery, wp gallery, wp gallery plugins
 Requires at least: 4.0
-Tested up to: 5.3
+Tested up to: 5.3.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,8 +22,7 @@ in your post, page and custom post type section.
 
 Display Album and Image Gallery on frontend side of your website in a **Grid, Slider OR carousel** view with the help of shorcode. With the help of the gallery plugin, you can add multiple images for an attractive look to your website.  A quite simple yet spontaneous plugin feature that helps with wonders for your web space.  
 
-Check [FREE DEMO](https://demo.wponlinesupport.com/album-and-image-gallery-plus-lightbox-demo/) 
-Check [PRO DEMO and Features](https://demo.wponlinesupport.com/prodemo/album-and-image-gallery-plus-lightbox-pro/) for additional information.
+Check [Demo and Features](https://demo.wponlinesupport.com/album-and-image-gallery-plus-lightbox-demo/) for additional information.
 
 Gallery Plugin enables you to create several media such as image gallery, photo albums, portfolio and also simple picture to an image slider or image lightbox and image carousel.
 
@@ -82,6 +81,7 @@ Where you can display image gallery and image album with lightbox
 * **Autoplay:** [aigpl-gallery-slider autoplay="true"] (Start slider automatically. Values are "true" OR "false".)
 * **Autoplay Interval:** [aigpl-gallery-slider autoplay_interval="3000"] (Delay between two slides.)
 * **Slider Speed:** [aigpl-gallery-slider speed="3000"] (Control speed of slider.)
+* **Loop:** [aigpl-gallery-slider loop="true"] (Infinite Loop.)
 
 
 = Use Following Gallery Album parameters with shortcode =
@@ -139,7 +139,7 @@ Where you can display image gallery and image album with lightbox
 * **Autoplay:** [aigpl-gallery-album-slider album_autoplay="true"] (Start slider automatically. Values are "true" OR "false".)
 * **Autoplay Interval:** [aigpl-gallery-album-slider album_autoplay_interval="3000"] (Delay between two slides.)
 * **Slider Speed:** [aigpl-gallery-album-slider album_speed="3000"] (Control speed of slider.)
-
+* **Loop:** [aigpl-gallery-album-slider loop="true"] (Infinite Loop.)
 
 = Template code is =
 <code><?php echo do_shortcode('[aigpl-gallery]'); ?></code>
@@ -165,29 +165,29 @@ Where you can display image gallery and image album with lightbox
 * 100% Multilanguage
 
 = PRO Features Include =
-> * Gallery Grid
-> * Gallery Slider
-> * Image Album Grid
-> * Image Album Slider
-> * Category wise Album
-> * 15+ Designs for Album grid & Slider view
-> * 15+ Designs for Gallery grid & Slider view
-> * Display gallery image with title and description
-> * Display image album with title and description
-> * Masonry Style for Gallery
-> * Masonry Style for Album
-> * Album Images in a responsive lightbox
-> * Gallery Images in a responsive lightbox
-> * Easy Drag & Drop Image Feature
-> * Custom link to gallery image
-> * Strong Shortcode Parameters
-> * Slider CenterMode Effect
-> * Slider RTL support
-> * Fully Responsive
-> * 100% Multilanguage
->
-> View [PRO DEMO and Features](http://wponlinesupport.com/wp-plugin/album-image-gallery-plus-lightbox/) for additional information.
->
+* Gallery Grid
+* Gallery Slider
+* Image Album Grid
+* Image Album Slider
+* Category wise Album
+* 15+ Designs for Album grid & Slider view
+* 15+ Designs for Gallery grid & Slider view
+* Display gallery image with title and description
+* Display image album with title and description
+* Masonry Style for Gallery
+* Masonry Style for Album
+* Album Images in a responsive lightbox
+* Gallery Images in a responsive lightbox
+* Easy Drag & Drop Image Feature
+* Custom link to gallery image
+* Strong Shortcode Parameters
+* Slider CenterMode Effect
+* Slider RTL support
+* Fully Responsive
+* 100% Multilanguage
+
+View [PRO DEMO and Features](http://wponlinesupport.com/wp-plugin/album-image-gallery-plus-lightbox/) for additional information.
+
 
 = Privacy & Policy =
 * We have also opt-in e-mail selection , once you download the plugin , so that we can inform you and nurture you about products and its features.
@@ -212,6 +212,10 @@ Where you can display image gallery and image album with lightbox
 
 
 == Changelog ==
+
+= 1.2.4 (26, 12 2019) =
+* [*] Added new loop parameter in all slider shortcode.
+* [*] Updated features list.
 
 = 1.2.3 (14, Sep  2019) =
 * [*] Tested with latest version of WordPress.

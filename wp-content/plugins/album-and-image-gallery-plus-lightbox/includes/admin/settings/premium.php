@@ -51,10 +51,15 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		/* Table Footer */
 		.wpos-plugin-pricing-table tfoot th, .wpos-plugin-pricing-table tfoot td{text-align: center; border-top: 1px solid #ccc;}
-		.pricing-footer a{margin-bottom:5px;}
-		.wpos-plugin-pricing-table tfoot .wpos-button{font-weight: 600; color: #fff; text-decoration: none; border:0px; cursor:pointer; text-transform: uppercase; display: inline-block; padding: 1em 2em; background: #59c7fb; border-radius: .2em;}
+		.wpos-plugin-pricing-table tfoot a{font-weight: 600; color: #fff; text-decoration: none; text-transform: uppercase; display: inline-block; padding: 1em 2em; background: #ca4a1f; border-radius: .2em;}
+		
+		.essential-plugin-bundle{clear:both; margin-bottom:15px;}
+		.essential-plugin-bundle img{max-width:100%;}
 	</style>
-	
+	<div class="essential-plugin-bundle">
+		<a href="https://www.wponlinesupport.com/pricing/?ref=WposPratik&utm_source=WP&utm_medium=WP-Plugins&utm_campaign=Essential-Plugin-Banner" target="_blank"><img src="https://www.wponlinesupport.com/plugin-data-api/images/plugin-bundle-banner.png?time=<?php echo current_time('timestamp'); ?>" alt="essential-plugin-bundle" /></a>
+	</div>
+
 	<table class="wpos-plugin-pricing-table">
 		<colgroup></colgroup>
 		<colgroup></colgroup>
@@ -68,7 +73,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	    		</th>
 	    		<th>
 	    			<h2>Premium</h2>
-	    			<p>Gain access to <strong>Album and Image Gallery Plus Lightbox</strong> and <strong>all other products</strong> with a single purchase.</p>
+	    			<p>Gain access to <strong>Album and Image Gallery Plus Lightbox</strong> included in <br /><strong>Essential Plugin Bundle</strong></p>
 	    			<p class="promo">Our most valuable package!</p>
 	    		</th>	    		
 	    	</tr>
@@ -78,8 +83,8 @@ if ( !defined( 'ABSPATH' ) ) {
 	    	<tr>
 	    		<th></th>
 	    		<td></td>
-	    		<td><p>Gain access to <strong>Album and Image Gallery Plus Lightbox</strong> and <strong>all other products</strong> with a single purchase.</p>
-				<a href="https://www.wponlinesupport.com/pricing/?ref=WposPratik" class="wpos-button" target="_blank">View Pricing Options</a></td>
+	    		<td><p>Gain access to <strong>Album and Image Gallery Plus Lightbox</strong> included in <strong>Essential Plugin Bundle</p>
+				<a href="https://www.wponlinesupport.com/pricing/?ref=WposPratik&utm_source=WP&utm_medium=WP-Plugins&utm_campaign=Upgrade-PRO" class="wpos-button" target="_blank">View Pricing Options</a></td>
 	    	</tr>
 	    </tfoot>
 
@@ -109,13 +114,16 @@ if ( !defined( 'ABSPATH' ) ) {
 				<td><i class="dashicons dashicons-no-alt"> </i></td>
 				<td><i class="dashicons dashicons-yes"> </i></td>
 			</tr>
-
 			<tr>
-				<th>Visual Composer Page Builder Supports <span>Use this plugin with Visual Composer easily</span></th>
-				<td><i class="dashicons dashicons-no-alt"></i></td>
-				<td><i class="dashicons dashicons-yes"></i></td>
-			</tr>		
-
+	    		<th>Gutenberg Block Supports <span>Use this plugin with Gutenberg easily</span></th>
+	    		<td><i class="dashicons dashicons-no-alt"></i></td>
+	    		<td><i class="dashicons dashicons-yes"></i></td>
+	    	</tr>
+			<tr>
+	    		<th>WPBakery Page Builder Supports  <span>Use this plugin with WPBakery Page Builder easily</span></th>
+	    		<td><i class="dashicons dashicons-no-alt"></i></td>
+	    		<td><i class="dashicons dashicons-yes"></i></td>
+	    	</tr>
 			<tr>
 				<th>Album image with popup <span>Display Album image with popup on click</span></th>
 				<td><i class="dashicons dashicons-no-alt"></i></td>
@@ -143,7 +151,11 @@ if ( !defined( 'ABSPATH' ) ) {
 				<td><i class="dashicons dashicons-no-alt"></i></td>
 				<td><i class="dashicons dashicons-yes"></i></td>
 			</tr>
-
+			<tr>
+				<th>Loop Control <span class="subtext">Infinite scroll control </span></th>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+			</tr>
 			<tr>
 				<th>Custom CSS <span> Custom CSS to override plugin CSS.</span></th>
 				<td><i class="dashicons dashicons-no-alt"></i></td>
@@ -165,7 +177,32 @@ if ( !defined( 'ABSPATH' ) ) {
 				<td><i class="dashicons dashicons-no-alt"></i></td>
 				<td><i class="dashicons dashicons-yes"></i></td>
 			</tr>
-
+			<tr>
+				<th>Display Album for Particular Categories <span class="subtext">Display only the album with particular category</span></th>
+				<td><i class="dashicons dashicons-no-alt"> </i></td>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+			</tr>
+			<tr>
+				<th>Exclude Some Album <span class="subtext">Do not display the album you want</span></th>
+				<td><i class="dashicons dashicons-no-alt"> </i></td>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+			</tr>
+			<tr>
+				<th>Exclude Some Categories <span class="subtext">Do not display the album for particular categories</span></th>
+				<td><i class="dashicons dashicons-no-alt"> </i></td>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+			</tr>
+			<tr>
+				<th>Album Gallery Order / Order By Parameters <span class="subtext">Display album according to date, title and etc</span></th>
+				<td><i class="dashicons dashicons-no-alt"> </i></td>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+			</tr>
+			<tr>
+				<th>Multiple Album Gallery Parameters <span class="subtext">Album Gallery parameters like autoplay, number of album, album dots and etc.</span></th>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+				<td><i class="dashicons dashicons-yes"> </i></td>
+			</tr>
+			<tr>
 			<tr>
 				<th>100% Multi language<span>Supports 100% Multi language</span></th>
 				<td><i class="dashicons dashicons-no-alt"></i></td>
@@ -187,6 +224,11 @@ if ( !defined( 'ABSPATH' ) ) {
 				<td><i class="dashicons dashicons-yes"></i></td>
 				<td><i class="dashicons dashicons-yes"></i></td>
 			</tr>
+			<tr>
+	    		<th>Automatic Update <span>Get automatic  plugin updates </span></th>
+	    		<td>Lifetime</td>
+	    		<td>Lifetime</td>
+	    	</tr> 
 			<tr>
 				<th>Support <span>Get support for plugin</span></th>
 				<td>Limited</td>
