@@ -43,6 +43,7 @@ function aigpl_gallery_album_slider( $atts, $content = null ) {
 				'album_autoplay'     		=> 'true',
 				'album_autoplay_interval'	=> 3000,
 				'album_speed'             	=> 300,
+				'loop'						=> 'true'
 	), $atts, 'aigpl-gallery-album-slider' ));
 	
 	$album_designs 		= aigpl_album_designs();
@@ -66,6 +67,7 @@ function aigpl_gallery_album_slider( $atts, $content = null ) {
 	$autoplay 			= ( $album_autoplay == 'false' ) 		? 'false' 							: 'true';
 	$autoplay_interval 	= (!empty($album_autoplay_interval)) 	? $album_autoplay_interval 			: 3000;
 	$speed 				= (!empty($album_speed)) 				? $album_speed 						: 300;
+	$loop 				= ( $loop == 'false' ) 				? 'false' 							: 'true';
 
 	// Taking some global
 	global $post, $aigpl_gallery_render;
@@ -93,7 +95,7 @@ function aigpl_gallery_album_slider( $atts, $content = null ) {
 	$wrpper_cls			= 'aigpl-slider-slide aigpl-cnt-wrp';
 
 	// Slider configuration
-	$slider_conf = compact('slidestoshow', 'slidestoscroll', 'dots', 'arrows', 'autoplay', 'autoplay_interval', 'speed');
+	$slider_conf = compact('slidestoshow', 'slidestoscroll', 'dots', 'arrows', 'autoplay', 'autoplay_interval', 'speed', 'loop');
 
 	// If album id is not passed then take all albums else album images
 	if( empty($_GET['album']) ) {
