@@ -5,10 +5,9 @@
  * Date: 21/7/19
  * Time: 11:18 AM
  */
-
+require "gravity-form-render.php";
 add_action('wp_ajax_sss_upload_image_ajax', 'sss_upload_image_ajax');
 add_action('wp_ajax_nopriv_sss_upload_image_ajax', 'sss_upload_image_ajax');
-
 
 function sss_upload_image_ajax()
 {
@@ -27,6 +26,21 @@ function sss_upload_image_ajax()
     die();
 }
 
+function sss_pre_get_posts( $q ) {
+
+    $tax_query = (array) $q->get( 'tax_query' );
+
+    $tax_query[] = array(
+        'taxonomy' => 'product_cat',
+        'field' => 'slug',
+        'terms' => array( 'embroidery' ), // Don't display products in the clothing category on the shop page.
+        'operator' => 'NOT IN'
+    );
+
+    $q->set( 'tax_query', $tax_query );
+
+}
+add_action( 'woocommerce_product_query', 'sss_pre_get_posts' );
 
 add_action('init', 'sss_register_post');
 
