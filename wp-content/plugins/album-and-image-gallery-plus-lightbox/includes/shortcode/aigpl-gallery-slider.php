@@ -30,6 +30,7 @@ function aigpl_gallery_slider( $atts, $content = null ) {
 					'autoplay'     		=> 'true',
 					'autoplay_interval' => 3000,
 					'speed'             => 300,
+					'loop' 				=> 'true',
 	), $atts, 'aigpl-gallery-slider'));
 
 	$shortcode_designs 	= aigpl_designs();
@@ -51,6 +52,7 @@ function aigpl_gallery_slider( $atts, $content = null ) {
 	$autoplay 			= ( $autoplay == 'false' ) 			? 'false' 							: 'true';
 	$autoplay_interval 	= (!empty($autoplay_interval)) 		? $autoplay_interval 				: 3000;
 	$speed 				= (!empty($speed)) 					? $speed 							: 300;
+	$loop 				= ( $loop == 'false' ) 				? 'false' 							: 'true';
 
 	// If no id is passed then return
 	if( empty($post_ids) ) {
@@ -80,7 +82,7 @@ function aigpl_gallery_slider( $atts, $content = null ) {
 	$loop_count		= 1;
 
 	// Slider configuration
-	$slider_conf = compact('slidestoshow', 'slidestoscroll', 'dots', 'arrows', 'autoplay', 'autoplay_interval', 'speed');
+	$slider_conf = compact('slidestoshow', 'slidestoscroll', 'dots', 'arrows', 'autoplay', 'autoplay_interval', 'speed', 'loop');
 
 	// WP Query Parameters
 	$args = array (

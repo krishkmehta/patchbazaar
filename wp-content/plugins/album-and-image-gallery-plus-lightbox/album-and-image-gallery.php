@@ -6,7 +6,7 @@
  * Author: WP OnlineSupport
  * Text Domain: album-and-image-gallery-plus-lightbox
  * Domain Path: /languages/
- * Version: 1.2.3
+ * Version: 1.2.4
  * Author URI: https://www.wponlinesupport.com/
  *
  * @package WordPress
@@ -20,7 +20,7 @@
  * @since 1.0.0
  */
 if( !defined( 'AIGPL_VERSION' ) ) {
-	define( 'AIGPL_VERSION', '1.2.3' ); // Version of plugin
+	define( 'AIGPL_VERSION', '1.2.4' ); // Version of plugin
 }
 if( !defined( 'AIGPL_DIR' ) ) {
 	define( 'AIGPL_DIR', dirname( __FILE__ ) ); // Plugin dir

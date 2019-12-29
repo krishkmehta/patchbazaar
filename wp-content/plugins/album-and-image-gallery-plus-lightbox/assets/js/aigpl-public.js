@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 		
 		jQuery('#'+slider_id).slick({
 			dots			: (slider_conf.dots) == "true" ? true : false,
-			infinite		: true,
+			infinite		: (slider_conf.loop) == "true" ? true : false,
 			arrows			: (slider_conf.arrows) == "true" ? true : false,
 			speed			: parseInt(slider_conf.speed),
 			autoplay		: (slider_conf.autoplay) == "true" ? true : false,
