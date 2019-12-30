@@ -3916,8 +3916,17 @@ body.woocommerce-checkout .top-cart-content {
 .form-quote label{
     display: block;
     font-weight: 500;
-    margin-bottom: 4px
-
+    margin-bottom: 4px;
+}
+.form-quote .field-wrapper-container .field-wrapper{
+    width: 50%;
+}
+.form-quote .field-wrapper-container label{
+    
+display: inline-block;
+}
+.form-quote .field-wrapper-container input {
+    width: calc(100% - 85px);
 }
 .no-margin{
     margin-left: 0;

@@ -234,7 +234,8 @@
     height: 36px;
 }
 .field-wrapper-container .field-wrapper{
-    padding-right: 15px;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 .field-wrapper-container label{
     margin-bottom: 0 !important;
