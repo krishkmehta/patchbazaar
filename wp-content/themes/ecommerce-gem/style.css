@@ -1887,7 +1887,9 @@ li {
     font-weight: 400;
     line-height: 28px;
 }
-
+.main-navigation ul li:last-child a{
+    color: #ff5757;
+}
 /*--------------------------------------------------------------
 ## Social Links Style
 --------------------------------------------------------------*/
@@ -5303,10 +5305,14 @@ li.product .view-detail-wishlist-wrap {
 #footer-widgets p,
 #footer-widgets .widget ul li ,
 #footer-widgets .widget ul li a{
-    color: #e0e0e0;
+    color: #ffffff;
     font-size: 15px;
     font-weight: 400;
 }
+#footer-widgets .widget ul li a:hover{
+    color: #000;
+}
+
 .address-block{
     list-style: none;
 }
@@ -5662,7 +5668,7 @@ li.product .view-detail-wishlist-wrap {
         left:0 !important;
         opacity: 1;
     }
-
+    
     .mean-container .mean-nav ul li a.mean-expand {
         z-index: 99999999;
         height: 57px;
