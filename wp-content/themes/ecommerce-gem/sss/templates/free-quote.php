@@ -1,5 +1,5 @@
  <div class="form-row">
-    <div class="col-md-8 sideimg">
+    <div class="col-md-8">
         <div class="form-quote">
             <form method="post" name="form-quote" id="form-quote">
                 <?php wp_nonce_field('quote-form'); ?>
@@ -202,7 +202,7 @@
             jQuery(this).val(width);
             calculateSize(parseFloat(height), parseFloat(width))
         })
-    })
+    })  
 
     function getSizeValue(ele, check) {
         var val = parseFloat(ele.val());
@@ -253,4 +253,4 @@
 
     }
 
-</script>
+</script>   
