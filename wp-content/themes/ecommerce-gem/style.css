@@ -320,7 +320,7 @@ h2.vc_custom_heading{
     line-height: 1.3;
 }
 .vc_custom_heading b{
-    color: #fa6f6f;
+    color: #0084c2;
     font-weight: 600;
 }
 h3{
@@ -331,7 +331,9 @@ h4 {
     font-size: 18px;
 }
 .table-title{
-    margin-bottom: 8px;
+    margin-bottom: 0.6em;
+    margin-top: 1.3em;
+    font-size: 21px;
 }
 h5 {
     font-size: 15px;
@@ -484,7 +486,6 @@ table {
 }
 
 td, th {
-    border: 1px solid #ddd;
     padding: 5px;
 }
 
@@ -1082,6 +1083,7 @@ a:active {
 .vc_row.our-feature{
     margin-left: -8px;
     margin-right: -8px;
+    margin-bottom: 50px;
 }
 .our-feature .vc_column_container>.vc_column-inner{
     padding-left: 8px;
@@ -1870,7 +1872,7 @@ li {
 .site-branding {
     float: left;
     margin-right: 30px;
-    margin-top: 28px;
+    margin-top: 15px;
 }
 .site-description {
     color: #515151;
@@ -3580,10 +3582,10 @@ body.woocommerce-checkout .top-cart-content {
 --------------------------------------------------------------*/
 
 #colophon {
-    background-color: #100e1c;
+    background-color: #065599;
     clear: both;
     color: #ffffff;
-    padding-bottom: 35px;
+    padding-bottom: 20px;
     text-align: center;
     font-size: 14px;
 }
@@ -3705,7 +3707,6 @@ body.woocommerce-checkout .top-cart-content {
 .site-footer-wrap {
     float: left;
     width: 100%;
-    border-top: 1px solid #23212f;
     padding-top: 20px;
 }
 
@@ -3719,7 +3720,7 @@ body.woocommerce-checkout .top-cart-content {
 #colophon .copyright a,
 #colophon .site-info,
 #colophon .site-info a {
-    color: #918f9d;
+    color: #ffffff;
     font-size: 14px;
     line-height: 1;
 }
@@ -3804,10 +3805,81 @@ body.woocommerce-checkout .top-cart-content {
 .custom-tables thead td{
     font-weight: bold;
     border: none;
-    background: #fa6161;
     color: #fff;
 }
 
+.custom-tables {
+    width: 100%;
+    /* float: left; */
+    padding: 0;
+    margin: 0;
+}
+.custom-tables table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: -4px 0 0
+}
+.custom-tables th,
+.custom-tables tr,
+.custom-tables td {
+    text-align: center;
+    color: #3d3d3d;
+    font-size: 16px;
+    font-weight: 400
+}
+.custom-tables td {
+    padding: 8px;
+    border-bottom: 1px dashed #c5e6f9 !important;
+}
+.custom-tables th {
+    padding: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700
+}
+.custom-tables td:nth-child(2n+1) {
+    background: #58a3cd
+}
+.custom-tables th:nth-child(even) {
+    background: #006ab8
+}
+.custom-tables th:nth-child(odd) {
+    background: #00549c
+}
+.custom-tables tr {
+    background: #8bccf2
+}
+.custom-tables td:first-child {
+    background: #0084c2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700
+}
+.custom-tables .special_table {
+    border-collapse: collapse;
+    width: 100%;
+    padding: 0;
+    margin: -4px 0 0
+}
+.custom-tables .special_table td:first-child {
+    background: #58a3cd;
+    color: #3d3d3d;
+    font-size: 16px;
+    font-weight: 400;
+    width: 35%;
+    text-align: right
+}
+.custom-tables .special_table th:first-child {
+    text-align: right
+}
+.custom-tables .special_table th:nth-child(even) {
+    text-align: left
+}
+.custom-tables .special_table td {
+    text-align: left
+}
 .row{
     margin-left: -8px;
     margin-right: -8px;
@@ -3842,8 +3914,8 @@ body.woocommerce-checkout .top-cart-content {
 }
 
 #breadcrumb {
-    background: #fa6161;
-    padding: 30px 0;
+    background: #0084c2;
+    padding: 20px 0;
     color: #fff;
 }
 #breadcrumb a {
@@ -4481,7 +4553,7 @@ blockquote p{
 .woocommerce-products-header__title.page-title {
     color: #515151;
     font-weight: 500;
-    padding: 0;
+    padding: 0 0 6px;
     line-height: 1.4;
 }
 
@@ -5017,7 +5089,7 @@ li.product .view-detail-wishlist-wrap {
 }
 
 #footer-widgets {
-    background: #100e1c;
+    background: #0084c2;
     padding: 60px 0px 50px;
     position: relative;
 }
@@ -5325,11 +5397,11 @@ li.product .view-detail-wishlist-wrap {
 
 .mean-container a.meanmenu-reveal {
     color: #fa6161;
-    top: -5px;
+    top: 10px;
 }
 
 .mean-container .mean-nav {
-    margin-top: 74px;
+    margin-top: 85px;
 }
 
 .mean-container .mean-nav ul li a {
@@ -5514,11 +5586,11 @@ li.product .view-detail-wishlist-wrap {
     /* Mean Menu css ends */
 
     .site-branding {
-        margin-top: 0px;
+        margin-top: 8px;
     }
 
     .site-header {
-        padding: 20px 0px;
+        padding: 0px 0px;
     }
 
 }
