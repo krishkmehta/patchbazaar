@@ -197,7 +197,7 @@
         } else if (precsize < 50 && precsize > 0) {
             new_size = parts[0] + ".50";
         } else {
-            new_size = (parseInt(parts[0]) + 1) + ".00";
+            new_size = (parseInt(pahorts[0]) + 1) + ".00";
         }
 
         jQuery(".new_size").html(new_size + "\"");
