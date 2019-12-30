@@ -4001,11 +4001,18 @@ body.woocommerce-checkout .top-cart-content {
     box-sizing: border-box;
     width: 34px;
 }
-.easy_t_pagination a:last-child{
+.easy_testimonial .blue-accolades_style .footer-area{
+    background: #0084c2;
+}
+.easy_t_pagination a.next, .easy_t_pagination a.prev{
     padding: 0;
     width: auto;
     border: none;
     margin-left: 10px;
+}
+.easy_t_pagination a.next:hover, .easy_t_pagination a.prev:hover{
+    background: none;
+    color: #0084c2;
 }
 .easy_t_pagination a:hover, .easy_t_pagination span.current{
     color: #fff;
