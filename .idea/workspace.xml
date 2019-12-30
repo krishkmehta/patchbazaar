@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ef8b28e-d25f-4692-a2f2-3262af5a1231" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-update-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/plugins/woocommerce/includes/wc-update-functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/gravity-form-render.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/gravity-form-render.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/free-quote.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/free-quote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/images/footer-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/images/footer-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       <workItem from="1576055036753" duration="10000" />
       <workItem from="1577531874765" duration="10758000" />
       <workItem from="1577548963891" duration="32092000" />
-      <workItem from="1577685714061" duration="6335000" />
+      <workItem from="1577685714061" duration="6669000" />
     </task>
     <servers />
   </component>
