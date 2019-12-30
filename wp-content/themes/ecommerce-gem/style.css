@@ -650,7 +650,7 @@ a:active {
 
 .main-navigation ul {
     display: block;
-    margin: 21px 0 0 0;
+    margin: 32px 0 0 0;
     padding: 0;
 }
 
@@ -710,7 +710,7 @@ a:active {
     font-family: 'Barlow', sans-serif;
     font-size: 15px;
     font-weight: normal;
-    padding: 13px 8px;
+    padding: 4px 8px;
     position: relative;
     z-index: 99;
     font-weight: 600;
@@ -1887,8 +1887,17 @@ li {
     font-weight: 400;
     line-height: 28px;
 }
-.main-navigation ul li:last-child a{
-    color: #ff5757;
+.main-navigation ul li.menu-primary-btn a{
+    color: #ffffff;
+    background: #0084c2;
+    padding: 4px 22px;
+    border-radius: 3px;
+    font-size: 18px;
+    margin-left: 8px;
+    transition: 0.3s ease-in-out;
+}
+.main-navigation ul li.menu-primary-btn a:hover{
+    background: #ff5757;
 }
 /*--------------------------------------------------------------
 ## Social Links Style
