@@ -156,7 +156,11 @@ add_shortcode("size_charts", 'sss_size_charts');
 
 function sss_size_charts()
 {
-    return get_template_part('sss/templates/size_charts');
+    ob_start();
+     get_template_part('sss/templates/size_charts');
+     $results = ob_get_contents();
+     ob_flush();
+     return $results;
 }
 
 add_action('wp_enqueue_scripts', 'sss_enqueue_style');
@@ -214,7 +218,11 @@ add_shortcode('custom_steps', 'sss_custom_steps');
 
 function sss_custom_steps()
 {
-    return get_template_part('sss/templates/custom_steps');
+    ob_start();
+     get_template_part('sss/templates/custom_steps');
+     $result = ob_get_contents();
+     ob_clean();
+     return $result;
 }
 
 

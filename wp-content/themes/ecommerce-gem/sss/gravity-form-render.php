@@ -107,7 +107,7 @@ function sss_free_quote_submit()
         }
         $entry_data['form_id'] = $form_id;
         $entry_meta = GFAPI::add_entry($entry_data);
-        GFAPI::send_notifications($form, $input_values);
+        GFAPI::send_notifications($form, $entry_data);
     }
 
 
@@ -118,7 +118,11 @@ add_shortcode('free_quote', 'sss_free_quote');
 
 function sss_free_quote()
 {
+    ob_start();
     get_template_part('sss/templates/free', 'quote');
+    $results = ob_get_contents();
+    ob_flush();
+    return $results;
 }
 
 function sss_backing_type()

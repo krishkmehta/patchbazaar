@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ef8b28e-d25f-4692-a2f2-3262af5a1231" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/free-quote.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/plugins/SSS_Custom/SSS_Custom.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/plugins/SSS_Custom/classes/SSS_CustomSettings.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/gravity-form-render.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/gravity-form-render.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/custom_steps.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/custom_steps.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +99,7 @@
       <workItem from="1576055036753" duration="10000" />
       <workItem from="1577531874765" duration="10758000" />
       <workItem from="1577548963891" duration="32092000" />
+      <workItem from="1577685714061" duration="244000" />
     </task>
     <servers />
   </component>
@@ -122,10 +119,10 @@
       <screen x="0" y="27" width="1321" height="741" />
     </state>
     <state x="456" y="323" width="399" height="156" key="NewPhpFileDialog/0.27.1321.741@0.27.1321.741" timestamp="1577641878696" />
-    <state x="307" y="129" width="709" height="536" key="find.popup" timestamp="1577639890639">
+    <state x="307" y="129" width="709" height="536" key="find.popup" timestamp="1577685740425">
       <screen x="0" y="27" width="1321" height="741" />
     </state>
-    <state x="307" y="129" width="709" height="536" key="find.popup/0.27.1321.741@0.27.1321.741" timestamp="1577639890639" />
+    <state x="307" y="129" width="709" height="536" key="find.popup/0.27.1321.741@0.27.1321.741" timestamp="1577685740425" />
     <state x="385" y="229" width="540" height="343" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577546976966">
       <screen x="0" y="27" width="1321" height="741" />
     </state>
