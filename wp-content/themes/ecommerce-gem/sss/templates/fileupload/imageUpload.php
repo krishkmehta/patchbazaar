@@ -1,13 +1,15 @@
 <div id="fileupload" data-url="<?php print(admin_url('admin-ajax.php')); ?>">
+    <label for="">Upload File</label>
     <div class="upload-wrap">
+
         <div class="upload_box">
-            <label for="">Upload Files</label>
+
             <input type="hidden" name="action" value="sss_upload_image_ajax"/>
             <div class="fileupload-buttonbar">
-            <div class="upload-text">Drop files here to upload or</div>
+            <div class="upload-text button ">Draf file here or</div>
                 <div class="fileupload-buttons">
                         <span class="fileinput-button">
-                            <span class="img-add-edit button button-uploadtext">Select Files</span>
+                            <span class="img-add-edit button button-uploadtext">Select a File</span>
                             <input type="file" name="files">
                         </span>
                 </div>
@@ -23,7 +25,11 @@
             <!-- The table listing the files available for upload/download -->
 
         </div>
+        <div role="presentation" class="ipresentation">
+            <div class="files"></div>
+        </div>
     </div>
+
 
     <h3 id="upload-msg" class="success"></h3>
     <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
@@ -31,9 +37,7 @@
         <h3 class="title"></h3>
         <a class="close">×</a>
     </div>
-    <div role="presentation" class="clearfix">
-        <div class="files"></div>
-    </div>
+
     <script id="template-upload" type="text/x-tmpl">
     {% for (var i=0, file; file=o.files[i]; i++) { %}
 
@@ -68,14 +72,13 @@
                 </div>
 
             <a href="{%=file.url%}" title="{%=file.name%}"  {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.filename%}</a>
-        </div>
-        {% } %}
-        <div class="file_btns">
-            <span class="fileinput-button">
-                <button class=" icon_photos_delete button button-primary" data-url="{%=file
-                .deleteUrl%}&action=sss_upload_image_ajax"> Remove</button>
+             <span class="fileinput-button">
+                <a href="#" class="icon_photos_delete" data-url="{%=file
+                .deleteUrl%}&action=sss_upload_image_ajax"> <i class="fa fa-trash-o"></i></button>
             </span>
         </div>
+        {% } %}
+
     </div>
 </div>
 {% } %}

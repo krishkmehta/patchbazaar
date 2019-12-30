@@ -1,143 +1,154 @@
-<div class="form-row">
-    <div class="col-md-8">
-    <div class="form-quote">
-        <form method="post" name="form-quote">
-            <?php wp_nonce_field('quote-form'); ?>
-            <div class="form-row">
-                <div class="col-md-6">
-                    <label for="first_name">First Name</label>
-                    <input type="text" name="productData[first_name]" id="first_name"/>
+ <div class="form-row">
+    <div class="col-md-8 sideimg">
+        <div class="form-quote">
+            <form method="post" name="form-quote" id="form-quote">
+                <?php wp_nonce_field('quote-form'); ?>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="first_name">First Name <span class="error red">*</span></label>
+                        <input type="text" name="productData[first_name]" id="first_name"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastname">Last Name <span class="error red">*</span></label>
+                        <input type="text" name="productData[last_name]" id="lastname"/>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" name="productData[last_name]" id="last_name"/>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="email">Email <span class="error red">*</span></label>
+                        <input type="text" name="productData[email]" id="last_name"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone">Phone <span class="error red">*</span></label>
+                        <input type="text" name="productData[phone]" id="phone"/>
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6">
-                    <label for="email">Email</label>
-                    <input type="text" name="productData[email]" id="last_name"/>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="need_by_date">Need By Date <span class="error red">*</span></label>
+                        <input type="text" name="productData[need_by_date]" id="need_by_date"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="qty">Quantity <span class="error red">*</span></label>
+                        <input type="text" name="productData[qty]" id="qty"/>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <label for="phone">Phone</label>
-                    <input type="text" name="productData[phone]" id="phone"/>
+                <div class="field-wrapper-container">
+                    <div class="field-wrapper errorDiv">
+                        <label for="height">Height <span class="error red">*</span></label>
+                        <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
+                        >
+                    </div>
+                    <div class="field-wrapper errorDiv">
+                        <label for="width">Width <span class="error red">*</span></label>
+                        <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
+                        >
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6">
-                    <label for="need_by_date">Need By Date</label>
-                    <input type="text" name="productData[need_by_date]" id="need_by_date"/>
-                </div>
-                <div class="col-md-6">
-                    <label for="qty">Quantity</label>
-                    <input type="text" name="productData[qty]" id="qty"/>
-                </div>
-            </div>
-            <div class="form-row no-margin">
-                <label for="embroidery">Embroidery</label>
-                <?php
-                $args = array(
-                    'post_type' => 'product',
-                    'order' => 'asc',
-                    'posts_per_page' => -1,
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'product_cat',
-                            'field' => 'term_id', //This is optional, as it defaults to 'term_id'
-                            'terms' => 20,
-                            'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
-                        ),
-                        array(
-                            'taxonomy' => 'product_visibility',
-                            'field' => 'slug',
-                            'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
-                            'operator' => 'NOT IN'
+                <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
+                <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
+
+                <div class="form-row no-margin">
+                    <label for="embroidery">Embroidery <span class="error red">*</span></label>
+                    <?php
+                    $args = array(
+                        'post_type' => 'product',
+                        'order' => 'asc',
+                        'posts_per_page' => -1,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                                'terms' => 20,
+                                'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                            ),
+                            array(
+                                'taxonomy' => 'product_visibility',
+                                'field' => 'slug',
+                                'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                                'operator' => 'NOT IN'
+                            )
                         )
-                    )
-                );
-                $posts = get_posts($args);
+                    );
+                    $posts = get_posts($args);
 
-                if ($posts) {
-                    echo "<div class='errorDiv'>";
-                    echo '<div class="row custom-select-inner">';
-                    foreach ($posts as $post) {
-                        setup_postdata($post);
+                    if ($posts) {
+                        echo "<div class='errorDiv'>";
+                        echo '<div class="row custom-select-inner">';
+                        foreach ($posts as $post) {
+                            setup_postdata($post);
+                            ?>
+
+                            <div class="col-md-3 ">
+                                <div class="select-wrap">
+                                    <input type="radio" class="required ignore" id="product<?php echo get_the_ID(); ?>"
+                                           name="productData[embroidery]"
+                                           value="<?php echo get_the_title() . "(" . get_the_ID() . ")"; ?>"/>
+                                    <label for="product<?php echo get_the_ID(); ?>">
+                                        <?php
+                                        echo woocommerce_get_product_thumbnail();
+                                        echo '<span class="title">' . get_the_title() . '</span>';
+                                        ?>
+                                    </label>
+                                    <i class="fa fa-check-circle"></i>
+
+                            echo '</div></div>';
+                            wp_reset_postdata();
+                        }
                         ?>
-
-                        <div class="col-md-3 ">
-                            <div class="select-wrap">
-                                <input type="radio" class="required ignore" id="product<?php echo get_the_ID(); ?>"
-                                       name="productData[embroidery]"
-                                       value="<?php echo get_the_title()."(".get_the_ID().")"; ?>"/>
-                                <label for="product<?php echo get_the_ID(); ?>">
-                                    <?php
-                                    echo woocommerce_get_product_thumbnail();
-                                    echo '<span class="title">' . get_the_title() . '</span>';
-                                    ?>
-                                </label>
-                                <i class="fa fa-check-circle"></i>
-                            </div>
+                    </div>
+                    <div class="field-wrapper-container">
+                        <div class="field-wrapper errorDiv">
+                            <label for="height">Height *</label>
+                            <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
+                            >
                         </div>
-                        <?php
+                        <div class="field-wrapper errorDiv">
+                            <label for="width">Width *</label>
+                            <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
+                            >
+                        </div>
+                    </div>
+                    <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
+                    <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="border_style">Border Style</label>
+                            <select name="productData[border_style]" id="border_style">
+                                <?php $choices = sss_border_style(); ?>
+                                <option>Select a border</option>
+                                <?php foreach ($choices as $choice): ?>
+                                    <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="backing_type">Backing Type</label>
+                            <select name="productData[backing_type]" id="backing_type">
+                                <?php $choices = sss_backing_type(); ?>
+                                <option>Select a backing</option>
+                                <?php foreach ($choices as $choice): ?>
+                                    <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                         <div class="col-md-6">
+                            <?php require "fileupload/imageUpload.php" ?>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="notes">Comments</label>
+                            <textarea name="productData[notes]" id="notes">
+                            </textarea>
+                        </div>
 
-                    }
-
-                    echo '</div></div>';
-                    wp_reset_postdata();
-                }
-                ?>
-            </div>
-            <div class="field-wrapper-container">
-                <div class="field-wrapper errorDiv">
-                    <label for="height">Height *</label>
-                    <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
-                    >
-                </div>
-                <div class="field-wrapper errorDiv">
-                    <label for="width">Width *</label>
-                    <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
-                    >
-                </div>
-            </div>
-            <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
-            <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
-            <div class="form-row">
-                <div class="col-md-6">
-                    <label for="border_style">Border Style</label>
-                    <select name="productData[border_style]" id="border_style">
-                        <?php $choices = sss_border_style(); ?>
-                        <option>Select a border</option>
-                        <?php foreach ($choices as $choice): ?>
-                            <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label for="backing_type">Backing Type</label>
-                    <select name="productData[backing_type]" id="backing_type">
-                        <?php $choices = sss_backing_type(); ?>
-                        <option>Select a backing</option>
-                        <?php foreach ($choices as $choice): ?>
-                            <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                 <div class="col-md-6">
-                    <?php require "fileupload/imageUpload.php" ?>
-                </div>
-                <div class="col-md-6">
-                    <label for="notes">Comments</label>
-                    <textarea name="productData[notes]" id="notes">
-                    </textarea>
-                </div>
-            </div>
-            <div class="text-center">
-                <input type="submit" name="quote-form-submit" value="Submit"/>
-            </div>
-        </form>
-    </div>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" name="quote-form-submit" value="Submit"/>
+                    </div>
+                </form>
+        </div>
     </div>
     <div class="col-md-4 sideimg">
         <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/sideimg.jpg" class="img-responsive">
@@ -146,6 +157,30 @@
 <script>
     jQuery(document).ready(function () {
         calculateSize(1, 1);
+        jQuery("#form-quote").validate({
+            // // errorPlacement: function errorPlacement(error, element) {
+            //     console.log(element)
+            //     element.closest('.errorDiv').append(error);
+            // },
+            rules: {
+                'productData[email]': {
+                    required: true,
+                    email: true
+                },
+                'productData[first_name]': 'required',
+                'productData[last_name]': 'required',
+                'productData[phone]': 'required',
+                'productData[need_by_date]': 'required',
+                'productData[qty]': 'required',
+                'productData[embroidery]': 'required',
+                'productData[height]': 'required',
+                'productData[width]': 'required',
+                'productData[border_style]': 'required',
+                'productData[backing_type]': 'required',
+
+            }
+        });
+
         jQuery('.calculate_size').keyup(function () {
 
             var height = getSizeValue(jQuery("#height"));
