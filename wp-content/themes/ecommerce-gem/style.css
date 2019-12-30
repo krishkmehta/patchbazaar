@@ -3998,6 +3998,9 @@ body.woocommerce-checkout .top-cart-content {
 .easy_testimonial .blue-accolades_style .footer-area{
     background: #0084c2;
 }
+.easy-t-cycle-pager span.cycle-pager-active {
+    color: #ff5757;
+}
 .easy_t_pagination a.next, .easy_t_pagination a.prev{
     padding: 0;
     width: auto;

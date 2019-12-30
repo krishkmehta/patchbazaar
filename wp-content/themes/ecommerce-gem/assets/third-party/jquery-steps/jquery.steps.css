@@ -107,7 +107,6 @@
     margin: 0 0.5em 0.5em;
     padding: 1em 1em;
     text-decoration: none;
-
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -148,7 +147,7 @@
 }
 
 .wizard > .content {
-    background: #eee;
+    background: #f3f3f3;
     display: block;
     margin: 0.5em;
     /*min-height: 35em;*/
@@ -225,6 +224,7 @@
 .field-wrapper-container .field-wrapper {
     padding-right: 8px;
     padding-left: 8px;
+    margin-bottom: 5px;
 }
 
 .field-wrapper-container label {
@@ -235,6 +235,7 @@
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     padding: 5px 8px 5px 13px;
+    max-width: 79px;
 }
 
 .steps .content .calculate_size {
@@ -532,4 +533,33 @@
     font-weight: normal;
     font-size: 17px;
     font-family: 'Barlow', sans-serif;
+}
+@media (min-width: 768px){
+    .inner-title{
+        display: none;
+    }
+}
+@media (max-width: 767px){
+    .wizard > .steps .tab-title{
+        display: none;
+    }
+    .inner-title{
+        font-size: 21px;
+    }
+    .wizard > .steps .number:before{
+        content: 'Step ';
+        
+    }
+    .wizard > .steps .number{
+        width: auto;
+        position: static;
+        background: none;
+        line-height: 1;
+    }
+    .wizard > .steps a, .wizard > .steps a:hover, .wizard > .steps a:active{
+        padding: 12px;
+    }
+    .wizard > .steps .disabled .number, .wizard > .steps .disabled .number, .wizard > .steps .disabled .number{
+        background: none;
+    }
 }

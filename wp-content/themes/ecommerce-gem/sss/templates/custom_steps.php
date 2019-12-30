@@ -10,10 +10,10 @@
 
 <form id="custom-product-form" method="post" action="#" enctype="multipart/form-data">
 
-    <h3>Determine Your Patch Size</h3>
+    <h3><span class="tab-title">Determine Your Patch Size</span></h3>
     <section id="sstep-0">
 
-        <h4>
+        <h4 class="inner-title">Determine Your Patch Size
         </h4>
         <p>
             Determining the size of your custom embroidered patch is simple. Input your sizing below and we will
@@ -34,9 +34,9 @@
         <input type="hidden" class="ignore" name="productData[patch_size]" id="patch_size">
         <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
     </section>
-    <h3>Choose Your Embroidery</h3>
+    <h3><span class="tab-title">Choose Your Embroidery</span></h3>
     <section id="sstep-1">
-
+        <h4 class="inner-title">Choose Your Embroidery </h4>
         <p>
             The size and design of your patch determines the patch’s embroidery percentage. On a 50% embroidered
             patch, at least half of the patch’s twill backing is visible. This is good for simple, text-only
@@ -97,8 +97,9 @@
         }
         ?>
     </section>
-    <h3>Choose Your Backing</h3>
+    <h3><span class="tab-title">Choose Your Backing</span></h3>
     <section id="sstep-2">
+    <h4 class="inner-title">Choose Your Backing</h4>
         <?php
         echo '<div class="errorDiv"><div class="row custom-select-inner">';
         if (have_rows('backing_price', 'option')): while (have_rows('backing_price', 'option')) : the_row();
@@ -156,8 +157,9 @@
         ?>
     </section>
 
-    <h3>Choose Your Border</h3>
+    <h3><span class="tab-title">Choose Your Border</span></h3>
     <section id="sstep-3">
+    <h4 class="inner-title">Choose Your Border</h4>
         <?php
         if (have_rows('border_price', 'option')): while (have_rows('border_price', 'option')) : the_row();
             $bor_index = 1;
@@ -345,8 +347,9 @@
 
 
     </section>
-    <h3>Finish</h3>
+    <h3><span class="tab-title">Finish</span></h3>
     <section id="sstep-4">
+    <h4 class="inner-title">Finish</h4>
         <?php
         wp_nonce_field('pz-step-nonce');
         ?>
