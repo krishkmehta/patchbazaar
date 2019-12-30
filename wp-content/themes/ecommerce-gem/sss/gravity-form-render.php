@@ -1,5 +1,7 @@
 <?php
 
+
+
 function sss_add_leads($form_id, $qty, $start = 1)
 {
     global $wpdb;
@@ -121,7 +123,7 @@ function sss_free_quote()
     ob_start();
     get_template_part('sss/templates/free', 'quote');
     $results = ob_get_contents();
-    ob_flush();
+    ob_clean();
     return $results;
 }
 

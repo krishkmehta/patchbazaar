@@ -2,30 +2,36 @@
     <form method="post" name="form-quote">
         <?php wp_nonce_field('quote-form'); ?>
         <div class="form-row">
-            <label for="first_name">First Name</label>
-            <input type="text" name="productData[first_name]" id="first_name"/>
+            <div class="col-md-6">
+                <label for="first_name">First Name</label>
+                <input type="text" name="productData[first_name]" id="first_name"/>
+            </div>
+            <div class="col-md-6">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="productData[last_name]" id="last_name"/>
+            </div>
         </div>
         <div class="form-row">
-            <label for="last_name">Last Name</label>
-            <input type="text" name="productData[last_name]" id="last_name"/>
+            <div class="col-md-6">
+                <label for="email">Email</label>
+                <input type="text" name="productData[email]" id="last_name"/>
+            </div>
+            <div class="col-md-6">
+                <label for="phone">Phone</label>
+                <input type="text" name="productData[phone]" id="phone"/>
+            </div>
         </div>
         <div class="form-row">
-            <label for="email">Email</label>
-            <input type="text" name="productData[email]" id="last_name"/>
+            <div class="col-md-6">
+                <label for="need_by_date">Need By Date</label>
+                <input type="text" name="productData[need_by_date]" id="need_by_date"/>
+            </div>
+            <div class="col-md-6">
+                <label for="qty">Quantity</label>
+                <input type="text" name="productData[qty]" id="qty"/>
+            </div>
         </div>
-        <div class="form-row">
-            <label for="phone">Phone</label>
-            <input type="text" name="productData[phone]" id="phone"/>
-        </div>
-        <div class="form-row">
-            <label for="need_by_date">Need By Date</label>
-            <input type="text" name="productData[need_by_date]" id="need_by_date"/>
-        </div>
-        <div class="form-row">
-            <label for="qty">Quantity</label>
-            <input type="text" name="productData[qty]" id="qty"/>
-        </div>
-        <div class="form-row">
+        <div class="form-row no-margin">
             <label for="embroidery">Embroidery</label>
             <?php
             $args = array(
@@ -191,7 +197,7 @@
         } else if (precsize < 50 && precsize > 0) {
             new_size = parts[0] + ".50";
         } else {
-            new_size = (parseInt(parts[0]) + 1) + ".00";
+            new_size = (parseInt(pahorts[0]) + 1) + ".00";
         }
 
         jQuery(".new_size").html(new_size + "\"");

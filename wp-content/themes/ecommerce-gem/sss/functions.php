@@ -6,6 +6,18 @@
  * Time: 11:18 AM
  */
 require "gravity-form-render.php";
+
+function wpse_292293_quantity_input_default($args, $product)
+{
+    if ($args['input_value'] < 10) {
+        $args['input_value'] = 10;
+    }
+
+
+    return $args;
+}
+
+add_filter('woocommerce_quantity_input_args', 'wpse_292293_quantity_input_default', 10, 2);
 add_action('wp_ajax_sss_upload_image_ajax', 'sss_upload_image_ajax');
 add_action('wp_ajax_nopriv_sss_upload_image_ajax', 'sss_upload_image_ajax');
 
@@ -157,10 +169,10 @@ add_shortcode("size_charts", 'sss_size_charts');
 function sss_size_charts()
 {
     ob_start();
-     get_template_part('sss/templates/size_charts');
-     $results = ob_get_contents();
-     ob_flush();
-     return $results;
+    get_template_part('sss/templates/size_charts');
+    $results = ob_get_contents();
+    ob_clean();
+    return $results;
 }
 
 add_action('wp_enqueue_scripts', 'sss_enqueue_style');
@@ -219,10 +231,10 @@ add_shortcode('custom_steps', 'sss_custom_steps');
 function sss_custom_steps()
 {
     ob_start();
-     get_template_part('sss/templates/custom_steps');
-     $result = ob_get_contents();
-     ob_clean();
-     return $result;
+    get_template_part('sss/templates/custom_steps');
+    $result = ob_get_contents();
+    ob_clean();
+    return $result;
 }
 
 
@@ -462,7 +474,7 @@ if (!function_exists('pb_add_user_custom_data_from_session_into_cart')) {
 
         }
         $product = wc_get_product($values['product_id']);
-          $string .= "<table><tr><td><p><strong>" . $return_string . "</strong></p>";
+        $string .= "<table><tr><td><p><strong>" . $return_string . "</strong></p>";
 
         $skip_keys = array();
         if (isset($values['main'])) {
@@ -638,4 +650,102 @@ function SGetSizePrice($prices, $qty = 1)
         return $price_array[$low_qty];
     }
     return 0;
+}
+
+add_action('woocommerce_checkout_create_order_line_item', 'save_custom_order_item_meta_data', 10, 4);
+function save_custom_order_item_meta_data($item, $cart_item_key, $values, $order)
+{
+
+    $skip_keys = array();
+    if (isset($values['main'])) {
+
+        $skip_keys = array('timages', 'notes');
+        foreach ($values['main'] as $k => $value) {
+
+            if (empty($value) || $k == 'size_chart' || in_array($k, $skip_keys)) {
+                continue;
+            }
+
+            $item->update_meta_data(kGetLabel($k), $value);
+        }
+    }
+
+
+    if (isset($values['extra'])) {
+        foreach ($values['extra'] as $k => $value) {
+            if ($k == 'size_chart') {
+                continue;
+            }
+            if ($k == 'loop') {
+                $price = '';
+                if (isset($value['type'])) {
+                    if ($value['type'] == 'flat') {
+                        $price = " (" . wc_price($value['price']) . "/patch)";
+                    } else {
+                        $price = " (" . $value['price'] . "% /patch)";
+                    }
+                }
+                $item->update_meta_data(kGetLabel($k), 'Yes' . $price);
+
+            } elseif ($k == 'tprice') {
+                if (!empty($value['value'])) {
+
+                    $item->update_meta_data(kGetLabel($k), $value['value'] . " (" . wc_price
+                        ($value['price'])
+                        . " Per Thread)");
+                }
+
+            } elseif ($k == 'thread') {
+                $str = array();
+
+                foreach ($value as $v) {
+                    $price = '';
+                    if (isset($v['type'])) {
+                        if ($v['type'] == 'flat') {
+                            $price = " (" . wc_price($v['price']) . " /patch)";
+                        } else {
+                            $price = " (" . $v['price'] . "% /patch)";
+                        }
+                    }
+
+
+                    $str['title'][] = $v['title'] . $price;
+
+                }
+                $item->update_meta_data(kGetLabel($k), implode(",", $str['title']));
+
+            } else {
+                $price = '';
+                if (isset($value['type'])) {
+                    if ($value['type'] == 'flat') {
+                        $price = " (" . wc_price($value['price']) . " /patch)";
+                    } else {
+                        $price = " (" . $value['price'] . "% /patch)";
+                    }
+                }
+                $item->update_meta_data(kGetLabel($k), $value['title'] . $price);
+            }
+        }
+
+    }
+    foreach ($skip_keys as $v) {
+        if (!empty($values['main'][$v])) {
+            if ($v == 'timages') {
+                if (isset($values['main'][$v])) {
+                    $filename = basename($values['main'][$v]);
+                    $string .= "<p><strong>" . kGetLabel('timages') . " :</strong> <a download href='" . $values['main'][$v] . "' alt='" . $filename
+                        . "' title='" . $filename . "'>" .
+                        $filename . "</a></p>";
+                    $item->update_meta_data(kGetLabel('timages'), "<a download href='" . $values['main'][$v] . "' alt='" . $filename
+                        . "' title='" . $filename . "'>" .
+                        $filename . "</a>");
+
+
+                }
+            } else {
+                $item->update_meta_data(kGetLabel($v), $values['main'][$v]);
+            }
+        }
+    }
+
 }
