@@ -495,6 +495,9 @@ td, th {
     width: 100%;
     /* max-width: 100%; */
 }
+.text-center{
+    text-align: center;
+}
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -3933,6 +3936,12 @@ body.woocommerce-checkout .top-cart-content {
     margin-top: 20px;
     font-size: 30px;
 }
+.form-quote{
+    padding-right: 25px;
+}
+.sideimg img{
+    border-radius: 5px;
+}
 .form-quote input, .form-quote select, .form-quote textarea{
     border-radius: 3px;
     border: none;
@@ -3944,6 +3953,23 @@ body.woocommerce-checkout .top-cart-content {
 }
 .form-quote .field-wrapper-container .field-wrapper{
     width: 50%;
+}
+.easy_t_pagination a,.easy_t_pagination span {
+    padding: 1px 12px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    width: 34px;
+}
+.easy_t_pagination a:last-child{
+    padding: 0;
+    width: auto;
+    border: none;
+    margin-left: 10px;
+}
+.easy_t_pagination a:hover, .easy_t_pagination span.current{
+    color: #fff;
+    background: #0084c2;
 }
 .form-quote textarea{
     height: 102px;
@@ -3988,11 +4014,14 @@ width: 74px;
     .col-md-3{
         width: 33.333%;
     }
+    .col-md-8{
+        width: 66.64%;
+    }
     .col-md-2{
         width: 50%;
     }
     .col-md-4{
-        width: 25%;
+        width: 33.33%;
     }
     .col-md-6{
         width: 50%;
@@ -6785,7 +6814,9 @@ hr.is-style-dots:before {
     }
 }
 /* == */
-
+.easy_testimonial .blue-accolades_style .header-area{
+    background: #0084c2;
+}
 /*19-02*/
 h1.page-title{
     padding-top: 0px;

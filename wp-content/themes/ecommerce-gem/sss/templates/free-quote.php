@@ -1,138 +1,147 @@
-<div class="form-quote">
-    <form method="post" name="form-quote">
-        <?php wp_nonce_field('quote-form'); ?>
-        <div class="form-row">
-            <div class="col-md-6">
-                <label for="first_name">First Name</label>
-                <input type="text" name="productData[first_name]" id="first_name"/>
+<div class="form-row">
+    <div class="col-md-8">
+    <div class="form-quote">
+        <form method="post" name="form-quote">
+            <?php wp_nonce_field('quote-form'); ?>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="productData[first_name]" id="first_name"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="productData[last_name]" id="last_name"/>
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="last_name">Last Name</label>
-                <input type="text" name="productData[last_name]" id="last_name"/>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label for="email">Email</label>
+                    <input type="text" name="productData[email]" id="last_name"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="productData[phone]" id="phone"/>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-6">
-                <label for="email">Email</label>
-                <input type="text" name="productData[email]" id="last_name"/>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label for="need_by_date">Need By Date</label>
+                    <input type="text" name="productData[need_by_date]" id="need_by_date"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="qty">Quantity</label>
+                    <input type="text" name="productData[qty]" id="qty"/>
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="phone">Phone</label>
-                <input type="text" name="productData[phone]" id="phone"/>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-6">
-                <label for="need_by_date">Need By Date</label>
-                <input type="text" name="productData[need_by_date]" id="need_by_date"/>
-            </div>
-            <div class="col-md-6">
-                <label for="qty">Quantity</label>
-                <input type="text" name="productData[qty]" id="qty"/>
-            </div>
-        </div>
-        <div class="form-row no-margin">
-            <label for="embroidery">Embroidery</label>
-            <?php
-            $args = array(
-                'post_type' => 'product',
-                'order' => 'asc',
-                'posts_per_page' => -1,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'product_cat',
-                        'field' => 'term_id', //This is optional, as it defaults to 'term_id'
-                        'terms' => 20,
-                        'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
-                    ),
-                    array(
-                        'taxonomy' => 'product_visibility',
-                        'field' => 'slug',
-                        'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
-                        'operator' => 'NOT IN'
+            <div class="form-row no-margin">
+                <label for="embroidery">Embroidery</label>
+                <?php
+                $args = array(
+                    'post_type' => 'product',
+                    'order' => 'asc',
+                    'posts_per_page' => -1,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+                            'terms' => 20,
+                            'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+                        ),
+                        array(
+                            'taxonomy' => 'product_visibility',
+                            'field' => 'slug',
+                            'terms' => 'exclude-from-catalog', // Possibly 'exclude-from-search' too
+                            'operator' => 'NOT IN'
+                        )
                     )
-                )
-            );
-            $posts = get_posts($args);
+                );
+                $posts = get_posts($args);
 
-            if ($posts) {
-                echo "<div class='errorDiv'>";
-                echo '<div class="row custom-select-inner">';
-                foreach ($posts as $post) {
-                    setup_postdata($post);
-                    ?>
+                if ($posts) {
+                    echo "<div class='errorDiv'>";
+                    echo '<div class="row custom-select-inner">';
+                    foreach ($posts as $post) {
+                        setup_postdata($post);
+                        ?>
 
-                    <div class="col-md-3 ">
-                        <div class="select-wrap">
-                            <input type="radio" class="required ignore" id="product<?php echo get_the_ID(); ?>"
-                                   name="productData[embroidery]"
-                                   value="<?php echo get_the_title()."(".get_the_ID().")"; ?>"/>
-                            <label for="product<?php echo get_the_ID(); ?>">
-                                <?php
-                                echo woocommerce_get_product_thumbnail();
-                                echo '<span class="title">' . get_the_title() . '</span>';
-                                ?>
-                            </label>
-                            <i class="fa fa-check-circle"></i>
+                        <div class="col-md-3 ">
+                            <div class="select-wrap">
+                                <input type="radio" class="required ignore" id="product<?php echo get_the_ID(); ?>"
+                                       name="productData[embroidery]"
+                                       value="<?php echo get_the_title()."(".get_the_ID().")"; ?>"/>
+                                <label for="product<?php echo get_the_ID(); ?>">
+                                    <?php
+                                    echo woocommerce_get_product_thumbnail();
+                                    echo '<span class="title">' . get_the_title() . '</span>';
+                                    ?>
+                                </label>
+                                <i class="fa fa-check-circle"></i>
+                            </div>
                         </div>
-                    </div>
-                    <?php
+                        <?php
 
+                    }
+
+                    echo '</div></div>';
+                    wp_reset_postdata();
                 }
-
-                echo '</div></div>';
-                wp_reset_postdata();
-            }
-            ?>
-        </div>
-        <div class="field-wrapper-container">
-            <div class="field-wrapper errorDiv">
-                <label for="height">Height *</label>
-                <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
-                >
+                ?>
             </div>
-            <div class="field-wrapper errorDiv">
-                <label for="width">Width *</label>
-                <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
-                >
+            <div class="field-wrapper-container">
+                <div class="field-wrapper errorDiv">
+                    <label for="height">Height *</label>
+                    <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
+                    >
+                </div>
+                <div class="field-wrapper errorDiv">
+                    <label for="width">Width *</label>
+                    <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
+                    >
+                </div>
             </div>
-        </div>
-        <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
-        <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
-        <div class="form-row">
-            <div class="col-md-6">
-                <label for="border_style">Border Style</label>
-                <select name="productData[border_style]" id="border_style">
-                    <?php $choices = sss_border_style(); ?>
-                    <option>Select a border</option>
-                    <?php foreach ($choices as $choice): ?>
-                        <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
+            <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label for="border_style">Border Style</label>
+                    <select name="productData[border_style]" id="border_style">
+                        <?php $choices = sss_border_style(); ?>
+                        <option>Select a border</option>
+                        <?php foreach ($choices as $choice): ?>
+                            <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="backing_type">Backing Type</label>
+                    <select name="productData[backing_type]" id="backing_type">
+                        <?php $choices = sss_backing_type(); ?>
+                        <option>Select a backing</option>
+                        <?php foreach ($choices as $choice): ?>
+                            <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="backing_type">Backing Type</label>
-                <select name="productData[backing_type]" id="backing_type">
-                    <?php $choices = sss_backing_type(); ?>
-                    <option>Select a backing</option>
-                    <?php foreach ($choices as $choice): ?>
-                        <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <div class="form-row">
+                 <div class="col-md-6">
+                    <?php require "fileupload/imageUpload.php" ?>
+                </div>
+                <div class="col-md-6">
+                    <label for="notes">Comments</label>
+                    <textarea name="productData[notes]" id="notes">
+                    </textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-             <div class="col-md-6">
-                <?php require "fileupload/imageUpload.php" ?>
+            <div class="text-center">
+                <input type="submit" name="quote-form-submit" value="Submit"/>
             </div>
-            <div class="col-md-6">
-                <label for="notes">Comments</label>
-                <textarea name="productData[notes]" id="notes">
-                </textarea>
-            </div>
-        </div>
-        <input type="submit" name="quote-form-submit" value="Submit"/>
-    </form>
+        </form>
+    </div>
+    </div>
+    <div class="col-md-4 sideimg">
+        <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/sideimg.jpg" class="img-responsive">
+    </div>
 </div>
 <script>
     jQuery(document).ready(function () {
