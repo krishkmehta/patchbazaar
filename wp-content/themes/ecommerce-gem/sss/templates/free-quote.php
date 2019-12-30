@@ -1,38 +1,53 @@
 <div class="form-quote">
-    <form method="post" name="form-quote">
+    <form method="post" name="form-quote" id="form-quote">
         <?php wp_nonce_field('quote-form'); ?>
         <div class="form-row">
             <div class="col-md-6">
-                <label for="first_name">First Name</label>
+                <label for="first_name">First Name <span class="error red">*</span></label>
                 <input type="text" name="productData[first_name]" id="first_name"/>
             </div>
             <div class="col-md-6">
-                <label for="last_name">Last Name</label>
-                <input type="text" name="productData[last_name]" id="last_name"/>
+                <label for="lastname">Last Name <span class="error red">*</span></label>
+                <input type="text" name="productData[last_name]" id="lastname"/>
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-6">
-                <label for="email">Email</label>
+                <label for="email">Email <span class="error red">*</span></label>
                 <input type="text" name="productData[email]" id="last_name"/>
             </div>
             <div class="col-md-6">
-                <label for="phone">Phone</label>
+                <label for="phone">Phone <span class="error red">*</span></label>
                 <input type="text" name="productData[phone]" id="phone"/>
             </div>
         </div>
         <div class="form-row">
             <div class="col-md-6">
-                <label for="need_by_date">Need By Date</label>
+                <label for="need_by_date">Need By Date <span class="error red">*</span></label>
                 <input type="text" name="productData[need_by_date]" id="need_by_date"/>
             </div>
             <div class="col-md-6">
-                <label for="qty">Quantity</label>
+                <label for="qty">Quantity <span class="error red">*</span></label>
                 <input type="text" name="productData[qty]" id="qty"/>
             </div>
         </div>
+        <div class="field-wrapper-container">
+            <div class="field-wrapper errorDiv">
+                <label for="height">Height <span class="error red">*</span></label>
+                <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
+                >
+            </div>
+            <div class="field-wrapper errorDiv">
+                <label for="width">Width <span class="error red">*</span></label>
+                <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
+                >
+            </div>
+        </div>
+        <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
+        <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
+
         <div class="form-row no-margin">
-            <label for="embroidery">Embroidery</label>
+            <label for="embroidery">Embroidery <span class="error red">*</span></label>
             <?php
             $args = array(
                 'post_type' => 'product',
@@ -66,7 +81,7 @@
                         <div class="select-wrap">
                             <input type="radio" class="required ignore" id="product<?php echo get_the_ID(); ?>"
                                    name="productData[embroidery]"
-                                   value="<?php echo get_the_title()."(".get_the_ID().")"; ?>"/>
+                                   value="<?php echo get_the_title() . "(" . get_the_ID() . ")"; ?>"/>
                             <label for="product<?php echo get_the_ID(); ?>">
                                 <?php
                                 echo woocommerce_get_product_thumbnail();
@@ -85,20 +100,6 @@
             }
             ?>
         </div>
-        <div class="field-wrapper-container">
-            <div class="field-wrapper errorDiv">
-                <label for="height">Height *</label>
-                <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
-                >
-            </div>
-            <div class="field-wrapper errorDiv">
-                <label for="width">Width *</label>
-                <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
-                >
-            </div>
-        </div>
-        <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
-        <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
         <div class="form-row">
             <div class="col-md-6">
                 <label for="border_style">Border Style</label>
@@ -111,7 +112,7 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="backing_type">Backing Type</label>
+                <label for="backing_type">Backing Type <span class="error red">*</span></label>
                 <select name="productData[backing_type]" id="backing_type">
                     <?php $choices = sss_backing_type(); ?>
                     <option>Select a backing</option>
@@ -122,7 +123,7 @@
             </div>
         </div>
         <div class="form-row">
-             <div class="col-md-6">
+            <div class="col-md-6">
                 <?php require "fileupload/imageUpload.php" ?>
             </div>
             <div class="col-md-6">
@@ -137,6 +138,30 @@
 <script>
     jQuery(document).ready(function () {
         calculateSize(1, 1);
+        jQuery("#form-quote").validate({
+            // // errorPlacement: function errorPlacement(error, element) {
+            //     console.log(element)
+            //     element.closest('.errorDiv').append(error);
+            // },
+            rules: {
+                'productData[email]': {
+                    required: true,
+                    email: true
+                },
+                'productData[first_name]': 'required',
+                'productData[last_name]': 'required',
+                'productData[phone]': 'required',
+                'productData[need_by_date]': 'required',
+                'productData[qty]': 'required',
+                'productData[embroidery]': 'required',
+                'productData[height]': 'required',
+                'productData[width]': 'required',
+                'productData[border_style]': 'required',
+                'productData[backing_type]': 'required',
+
+            }
+        });
+
         jQuery('.calculate_size').keyup(function () {
 
             var height = getSizeValue(jQuery("#height"));

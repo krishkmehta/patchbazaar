@@ -9,6 +9,7 @@
 ?>
 
 <form id="custom-product-form" method="post" action="#" enctype="multipart/form-data">
+
     <h3>Determine Your Patch Size</h3>
     <section id="sstep-0">
 
@@ -349,80 +350,90 @@
         <?php
         wp_nonce_field('pz-step-nonce');
         ?>
-        <?php if (have_rows('tprice_loop', 'option')): ?>
-            <div class="thread_option ">
+        <div class="form-row">
+            <div class="col-md-6">
+                <?php if (have_rows('tprice_loop', 'option')): ?>
+                    <div class="thread_option ">
 
-                <?php while (have_rows('tprice_loop', 'option')) :the_row(); ?>
-                    <?php $tprice_index = 1; ?>
-                    <h3><?php echo get_sub_field('title'); ?></h3>
+                        <?php while (have_rows('tprice_loop', 'option')) :the_row(); ?>
+                            <?php $tprice_index = 1; ?>
+                            <h3><?php echo get_sub_field('title'); ?></h3>
 
-                    <div class="errorDiv">
+                            <div class="errorDiv">
 
-                        <label for="tprice<?php echo $tprice_index; ?>">
-                            <?php echo get_sub_field('description'); ?>
+                                <label class="tpricelabel" for="tprice<?php echo $tprice_index; ?>">
+                                    <?php echo get_sub_field('description'); ?>
 
-                            <input type="hidden" name="data[tprice][tprice_<?php echo $tprice_index ?>][price]"
-                                   value="<?php echo
-                                   get_sub_field
-                                   ('thread_price')
-                                   ?>"
-                            />
-                            <input type="hidden" name="data[tprice][tprice_<?php echo $tprice_index ?>][title]"
-                                   value="Thread Price"
-                            />
-                            <input type="hidden" name="data[tprice][tprice_<?php echo $tprice_index ?>][type]"
-                                   value="<?php echo get_sub_field('price_in') ?>"/>
+                                    <input type="hidden" name="data[tprice][tprice_<?php echo $tprice_index ?>][price]"
+                                           value="<?php echo
+                                           get_sub_field
+                                           ('thread_price')
+                                           ?>"
+                                    />
+                                    <input type="hidden" name="data[tprice][tprice_<?php echo $tprice_index ?>][title]"
+                                           value="Thread Price"
+                                    />
+                                    <input type="hidden" name="data[tprice][tprice_<?php echo $tprice_index ?>][type]"
+                                           value="<?php echo get_sub_field('price_in') ?>"/>
 
 
-                        </label>
-                        <input id="tprice<?php echo $tprice_index; ?>" type="text" name="productData[tprice]"
-                               class="maxthread ignore"/>
+                                </label>
+                                <input id="tprice<?php echo $tprice_index; ?>" type="text" name="productData[tprice]"
+                                       class="maxthread ignore"/>
+                            </div>
+                            <script>
+                                var max = "<?php echo(get_sub_field('max_thread') ? get_sub_field('max_thread') : 1); ?>";
+                                jQuery(document).ready(function () {
+                                    jQuery("#tprice<?php echo $tprice_index; ?>").on('blur', function () {
+                                        var valu = jQuery(this).val();
+                                        setv(valu, this, 0, max)
+
+                                    });
+                                    jQuery("#tprice<?php echo $tprice_index; ?>").on('focus', function () {
+                                        var valu = jQuery(this).val();
+                                        setv(valu, this, 0, max)
+                                    });
+                                });
+
+                                function setv(valu, obj, value, max) {
+                                    max = parseInt(max);
+                                    if (valu == 'undefined' || valu == '') {
+                                        jQuery(obj).val(value);
+                                    }
+                                    valu = parseInt(valu);
+                                    if (valu > max) {
+                                        jQuery(obj).val(max);
+                                    }
+                                }
+                            </script>
+                        <?php
+                        endwhile;
+                        ?>
                     </div>
-                    <script>
-                        var max = "<?php echo(get_sub_field('max_thread') ? get_sub_field('max_thread') : 1); ?>";
-                        jQuery(document).ready(function () {
-                            jQuery("#tprice<?php echo $tprice_index; ?>").on('blur', function () {
-                                var valu = jQuery(this).val();
-                                setv(valu, this, 0, max)
-
-                            });
-                            jQuery("#tprice<?php echo $tprice_index; ?>").on('focus', function () {
-                                var valu = jQuery(this).val();
-                                setv(valu, this, 0, max)
-                            });
-                        });
-
-                        function setv(valu, obj, value, max) {
-                            max = parseInt(max);
-                            if (valu == 'undefined' || valu == '') {
-                                jQuery(obj).val(value);
-                            }
-                            valu = parseInt(valu);
-                            if (valu > max) {
-                                jQuery(obj).val(max);
-                            }
-                        }
-                    </script>
-                <?php
-                endwhile;
-                ?>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
+            <div class="col-md-6">
 
-        <div class="custom-comment">
-            <h2>Additional Notes</h2>
-            <p>Please provide any additional details regarding your custom patch order.</p>
-            <div class="form-group errorDiv">
+                <div class="custom-comment">
+                    <h2>Additional Notes</h2>
+                    <p>Please provide any additional details regarding your custom patch order.</p>
+                    <div class="form-group errorDiv">
 
-                    <textarea placeholder="Enter here your additional details" name="productData[notes]"
+                    <textarea rows="4" placeholder="Enter here your additional details" name="productData[notes]"
                               class="form-control ignore"></textarea>
 
+                    </div>
+
+                </div>
             </div>
 
         </div>
-        <?php
-        require "fileupload/imageUpload.php";
-        ?>
+        <div class="form-row">
+            <div class="col-md-6">
+                <?php require "fileupload/imageUpload.php"; ?>
+            </div>
+        </div>
+
 
     </section>
 

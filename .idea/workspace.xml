@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ef8b28e-d25f-4692-a2f2-3262af5a1231" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/images/footer-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/images/footer-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/third-party/jquery-steps/jquery.steps.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/third-party/jquery-steps/jquery.steps.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/custom_steps.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/custom_steps.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/fileupload/imageUpload.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/fileupload/imageUpload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/free-quote.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/sss/templates/free-quote.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,10 +123,18 @@
       <screen x="0" y="27" width="1321" height="741" />
     </state>
     <state x="456" y="323" width="399" height="156" key="NewPhpFileDialog/0.27.1321.741@0.27.1321.741" timestamp="1577641878696" />
-    <state x="283" y="129" width="1038" height="536" key="find.popup" timestamp="1577690755827">
+    <state x="100" y="127" width="1121" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1577714043496">
       <screen x="0" y="27" width="1321" height="741" />
     </state>
-    <state x="283" y="129" width="1038" height="536" key="find.popup/0.27.1321.741@0.27.1321.741" timestamp="1577690755827" />
+    <state x="100" y="127" width="1121" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1321.741@0.27.1321.741" timestamp="1577714043496" />
+    <state x="283" y="129" width="1038" height="536" key="find.popup" timestamp="1577713767102">
+      <screen x="0" y="27" width="1321" height="741" />
+    </state>
+    <state x="283" y="129" width="1038" height="536" key="find.popup/0.27.1321.741@0.27.1321.741" timestamp="1577713767102" />
+    <state x="324" y="174" key="run.anything.popup" timestamp="1577712707097">
+      <screen x="0" y="27" width="1321" height="741" />
+    </state>
+    <state x="324" y="174" key="run.anything.popup/0.27.1321.741@0.27.1321.741" timestamp="1577712707097" />
     <state x="385" y="229" width="540" height="343" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577546976966">
       <screen x="0" y="27" width="1321" height="741" />
     </state>
