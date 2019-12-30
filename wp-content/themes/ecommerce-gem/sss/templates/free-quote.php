@@ -100,32 +100,36 @@
         <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
         <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
         <div class="form-row">
-            <label for="border_style">Border Style</label>
-            <select name="productData[border_style]" id="border_style">
-                <?php $choices = sss_border_style(); ?>
-                <option>Select a border</option>
-                <?php foreach ($choices as $choice): ?>
-                    <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
-                <?php endforeach; ?>
-            </select>
+            <div class="col-md-6">
+                <label for="border_style">Border Style</label>
+                <select name="productData[border_style]" id="border_style">
+                    <?php $choices = sss_border_style(); ?>
+                    <option>Select a border</option>
+                    <?php foreach ($choices as $choice): ?>
+                        <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="backing_type">Backing Type</label>
+                <select name="productData[backing_type]" id="backing_type">
+                    <?php $choices = sss_backing_type(); ?>
+                    <option>Select a backing</option>
+                    <?php foreach ($choices as $choice): ?>
+                        <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
         </div>
         <div class="form-row">
-            <label for="backing_type">Backing Type</label>
-            <select name="productData[backing_type]" id="backing_type">
-                <?php $choices = sss_backing_type(); ?>
-                <option>Select a backing</option>
-                <?php foreach ($choices as $choice): ?>
-                    <option value="<?php echo $choice['value']; ?>"><?php echo $choice['text']; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="form-row">
-            <?php require "fileupload/imageUpload.php" ?>
-        </div>
-        <div class="form-row">
-            <label for="notes">Notes</label>
-            <textarea name="productData[notes]" id="notes">
-            </textarea>
+             <div class="col-md-6">
+                <?php require "fileupload/imageUpload.php" ?>
+            </div>
+            <div class="col-md-6">
+                <label for="notes">Comments</label>
+                <textarea name="productData[notes]" id="notes">
+                </textarea>
+            </div>
         </div>
         <input type="submit" name="quote-form-submit" value="Submit"/>
     </form>

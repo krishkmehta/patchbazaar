@@ -3910,23 +3910,75 @@ body.woocommerce-checkout .top-cart-content {
     margin-right: -8px;
     margin-bottom: 10px;
 }
+.form-row .col-md-6{
+    margin-bottom: 10px;
+}
 .form-row input{
     width: 100%;
+}
+.fileupload-buttonbar{
+    background: #f9f9f9;
+    padding: 13px 15px;
+    border-radius: 3px;
+    border: 1px solid #d9d9de;
 }
 .form-quote label{
     display: block;
     font-weight: 500;
     margin-bottom: 4px;
 }
+.form-quote .patch-size{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 30px;
+}
+.form-quote input, .form-quote select, .form-quote textarea{
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.05), 0 1px 1px 0 rgba(0,0,0,.05);
+    height: 36px;
+}
+.form-quote input[type="submit"]{
+    height: auto;
+}
 .form-quote .field-wrapper-container .field-wrapper{
     width: 50%;
+}
+.form-quote textarea{
+    height: 102px;
+}
+.form-quote .field-wrapper-container {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.fileupload-buttons input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.fileupload-buttons {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background: #0084c2;
+    padding: 5px 15px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 3px;
+    margin-top: 7px;
 }
 .form-quote .field-wrapper-container label{
     
 display: inline-block;
+    
+width: 74px;
 }
 .form-quote .field-wrapper-container input {
-    width: calc(100% - 85px);
+    width: calc(100% - 74px);
 }
 .no-margin{
     margin-left: 0;
@@ -5934,7 +5986,9 @@ li.product .view-detail-wishlist-wrap {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width:767px) {
-
+    .col-md-6{
+        width: 100%;
+    }
     h1 {
         font-size: 22px;
     }

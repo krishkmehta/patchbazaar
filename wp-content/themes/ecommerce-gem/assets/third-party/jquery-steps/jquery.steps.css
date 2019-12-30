@@ -309,6 +309,7 @@
 }
 .custom-select-inner input:checked ~ label img{
     padding: 10px;
+    /* box-sizing: border-box; */
 }
 .custom-select-inner input:checked ~ label + .fa-check-circle{
     color: #4CAF50;

@@ -1,11 +1,13 @@
 <div id="fileupload" data-url="<?php print(admin_url('admin-ajax.php')); ?>">
     <div class="upload-wrap">
         <div class="upload_box">
+            <label for="">Upload Files</label>
             <input type="hidden" name="action" value="sss_upload_image_ajax"/>
             <div class="fileupload-buttonbar">
+            <div class="upload-text">Drop files here to upload or</div>
                 <div class="fileupload-buttons">
                         <span class="fileinput-button">
-                            <span class="img-add-edit button button-uploadtext">Change</span>
+                            <span class="img-add-edit button button-uploadtext">Select Files</span>
                             <input type="file" name="files">
                         </span>
                 </div>
