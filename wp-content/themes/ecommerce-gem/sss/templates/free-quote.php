@@ -48,6 +48,7 @@
                 <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
                 <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
 
+
                 <div class="form-row no-margin">
                     <label for="embroidery">Embroidery <span class="error red">*</span></label>
                     <?php
@@ -91,26 +92,17 @@
                                         ?>
                                     </label>
                                     <i class="fa fa-check-circle"></i>
-
+                                    </div>
+                                    </div>
+                                    
+<?php
+}
                             echo '</div></div>';
                             wp_reset_postdata();
                         }
                         ?>
                     </div>
-                    <div class="field-wrapper-container">
-                        <div class="field-wrapper errorDiv">
-                            <label for="height">Height *</label>
-                            <input id="height" name="productData[height]" placeholder="1.00" class="calculate_size" type="text"
-                            >
-                        </div>
-                        <div class="field-wrapper errorDiv">
-                            <label for="width">Width *</label>
-                            <input id="width" name="productData[width]" placeholder="1.00" class="calculate_size" type="text"
-                            >
-                        </div>
-                    </div>
-                    <input type="hidden" class="" name="productData[patch_size]" id="patch_size">
-                    <div class="patch-size">YOUR PATCH SIZE:<span class="new_size"></span></div>
+                 
                     <div class="form-row">
                         <div class="col-md-6">
                             <label for="border_style">Border Style</label>
