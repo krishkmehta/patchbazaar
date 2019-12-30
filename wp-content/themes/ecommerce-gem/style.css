@@ -473,6 +473,7 @@ dd {
 }
 .footer-logo{
     max-width: 200px;
+    width: 100%;
 }
 img {
     height: auto; /* Make sure images are scaled correctly. */
@@ -5666,8 +5667,8 @@ li.product .view-detail-wishlist-wrap {
 
     .main-navigation ul li a {
         font-size: 14px;
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     #home-page-advertisement-area .advertisement-widget .advertisement-text-wrap {
