@@ -650,7 +650,7 @@ a:active {
 
 .main-navigation ul {
     display: block;
-    margin: 32px 0 0 0;
+    margin: 23px 0 0 0;
     padding: 0;
 }
 
@@ -709,8 +709,7 @@ a:active {
     display: block;
     font-family: 'Barlow', sans-serif;
     font-size: 15px;
-    font-weight: normal;
-    padding: 4px 8px;
+    padding: 7px 8px;
     position: relative;
     z-index: 99;
     font-weight: 600;
@@ -1842,7 +1841,7 @@ li {
 
 .custom-logo-link,
 .site-logo-link {
-    max-width: 300px;
+    max-width: 270px;
 }
 
 .site-info a {
@@ -1876,7 +1875,6 @@ li {
 }
 .site-branding {
     float: left;
-    margin-right: 30px;
     margin-top: 15px;
 }
 .site-description {
@@ -1890,7 +1888,7 @@ li {
 .main-navigation ul li.menu-primary-btn a{
     color: #ffffff;
     background: #0084c2;
-    padding: 4px 22px;
+    padding: 7px 22px;
     border-radius: 3px;
     font-size: 18px;
     margin-left: 8px;
@@ -4000,6 +3998,7 @@ body.woocommerce-checkout .top-cart-content {
     border: 1px solid #ddd;
     box-sizing: border-box;
     width: 34px;
+    color: #000;
 }
 .easy_testimonial .blue-accolades_style .footer-area{
     background: #0084c2;
