@@ -5,19 +5,18 @@
  * Date: 21/7/19
  * Time: 11:18 AM
  */
-
+require "gravity-form-render.php";
 add_action('wp_ajax_sss_upload_image_ajax', 'sss_upload_image_ajax');
 add_action('wp_ajax_nopriv_sss_upload_image_ajax', 'sss_upload_image_ajax');
-
 
 function sss_upload_image_ajax()
 {
 
-    if(!isset($_COOKIE['sssUniqueId'])){
+    if (!isset($_COOKIE['sssUniqueId'])) {
         $current_user_id = uniqid();
-        setcookie( "sssUniqueId", $current_user_id, 3600, COOKIEPATH, COOKIE_DOMAIN );
+        setcookie("sssUniqueId", $current_user_id, 3600, COOKIEPATH, COOKIE_DOMAIN);
 
-    }else{
+    } else {
         $current_user_id = $_COOKIE['sssUniqueId'];
     }
 
@@ -27,6 +26,23 @@ function sss_upload_image_ajax()
     die();
 }
 
+function sss_pre_get_posts($q)
+{
+
+    $tax_query = (array)$q->get('tax_query');
+
+    $tax_query[] = array(
+        'taxonomy' => 'product_cat',
+        'field' => 'slug',
+        'terms' => array('embroidery'), // Don't display products in the clothing category on the shop page.
+        'operator' => 'NOT IN'
+    );
+
+    $q->set('tax_query', $tax_query);
+
+}
+
+add_action('woocommerce_product_query', 'sss_pre_get_posts');
 
 add_action('init', 'sss_register_post');
 
@@ -143,7 +159,7 @@ function sss_size_charts()
     return get_template_part('sss/templates/size_charts');
 }
 
-add_action('wp_enqueue_scripts','sss_enqueue_style');
+add_action('wp_enqueue_scripts', 'sss_enqueue_style');
 
 function sss_enqueue_style()
 {
@@ -186,13 +202,10 @@ function sss_enqueue_scripts()
         'jquery-fileupload-script'), '', true);
 
 
-
     wp_enqueue_script('jquery-validate');
     wp_enqueue_script('jquery-step');
     wp_enqueue_script('jquery-mask');
     wp_enqueue_style('jquery-step');
-
-
 
 
 }
@@ -220,7 +233,7 @@ function km_add_to_cart()
 {
     @session_start();
 
-    if(wp_doing_ajax()){
+    if (wp_doing_ajax()) {
         return;
     }
 
@@ -352,7 +365,7 @@ function add_to_cart_logic()
     WC()->session->set_customer_session_cookie(true);
     unset($_SESSION['pb_extra_data']);
     $current_user_id = uniqid();
-    setcookie( "sssUniqueId", $current_user_id, -100, COOKIEPATH, COOKIE_DOMAIN );
+    setcookie("sssUniqueId", $current_user_id, -100, COOKIEPATH, COOKIE_DOMAIN);
 
     wp_redirect(wc_get_cart_url());
 
@@ -367,7 +380,7 @@ function pb_add_item_data($cart_item_data, $product_id, $variation_id)
     @session_start();
     $new_value = array();
     $extra_key = array('backing', 'border', 'loop', 'thread', 'tprice', 'size_chart');
-    $main_key = array('height', 'width', 'patch_size', 'notes','timages');
+    $main_key = array('height', 'width', 'patch_size', 'notes', 'timages');
 
     foreach ($_SESSION['pb_extra_data'] as $key => $value) {
         if (in_array($key, $main_key)) {
@@ -436,95 +449,102 @@ if (!function_exists('pb_add_user_custom_data_from_session_into_cart')) {
         $return_var_start = $return_var_end = $string = '';
 
         $return_string = $product_name;
-
-
-        $product = wc_get_product($values['product_id']);
-        //  $string .= "<table><tr><td><p><strong>" . $return_string . "</strong> (".wc_price($product->get_price()).")
-        //</p>";
-        $string .= "<table><tr><td><p><strong>" . $return_string . "</strong></p>";
-
-        $skip_keys = array('timages','notes');
-        foreach ($values['main'] as $k => $value) {
-
-            if (empty($value) || $k == 'size_chart' || in_array($k,$skip_keys) ) {
-                continue;
-            }
-
-
-            if ($k == 'patch_size') {
-                $string .= "<p><strong>" . kGetLabel($k) . " :</strong>" . $value . "</p>";
-            } else {
-                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value . "</p>";
-            }
+        if (isset($values['main'])) {
+            $return_string = "<a href='" . get_permalink(212) . "'>" . get_the_title($values['product_id']) . "</a>";
 
         }
+        $product = wc_get_product($values['product_id']);
+          $string .= "<table><tr><td><p><strong>" . $return_string . "</strong></p>";
 
-//        debug($values);
-        foreach ($values['extra'] as $k => $value) {
-            if ($k == 'size_chart') {
-                continue;
+        $skip_keys = array();
+        if (isset($values['main'])) {
+
+            $skip_keys = array('timages', 'notes');
+            foreach ($values['main'] as $k => $value) {
+
+                if (empty($value) || $k == 'size_chart' || in_array($k, $skip_keys)) {
+                    continue;
+                }
+
+
+                if ($k == 'patch_size') {
+                    $string .= "<p><strong>" . kGetLabel($k) . " :</strong>" . $value . "</p>";
+                } else {
+                    $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value . "</p>";
+                }
+
             }
-            if ($k == 'loop') {
-                $price ='';
-                if(isset($value['type'])){
-                    if($value['type']=='flat'){
-                        $price =" (".wc_price($value['price'])." per piece)";
-                    }else{
-                        $price =" (".$value['price']."% on per piece)";
+        }
+
+
+        if (isset($values['extra'])) {
+            foreach ($values['extra'] as $k => $value) {
+                if ($k == 'size_chart') {
+                    continue;
+                }
+                if ($k == 'loop') {
+                    $price = '';
+                    if (isset($value['type'])) {
+                        if ($value['type'] == 'flat') {
+                            $price = " (" . wc_price($value['price']) . "/patch)";
+                        } else {
+                            $price = " (" . $value['price'] . "% /patch)";
+                        }
                     }
-                }
-                $string .= "<p><strong>" . kGetLabel($k) . " :</strong>Yes".$price."</p>";
-            } elseif ($k == 'tprice') {
-                if(!empty($value['value'])){
-                    $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value['value'] ." (".wc_price
-                        ($value['price'])
-                        ." Per Thread)". "</p>";
-                }
+                    $string .= "<p><strong>" . kGetLabel($k) . " :</strong>Yes" . $price . "</p>";
+                } elseif ($k == 'tprice') {
+                    if (!empty($value['value'])) {
+                        $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value['value'] . " (" . wc_price
+                            ($value['price'])
+                            . " Per Thread)" . "</p>";
+                    }
 
-            } elseif ($k == 'thread') {
-                $str = array();
+                } elseif ($k == 'thread') {
+                    $str = array();
 
-                foreach ($value as $v) {
-                    $price ='';
-                    if(isset($v['type'])){
-                        if($v['type']=='flat'){
-                            $price =" (".wc_price($v['price'])." per piece)";
-                        }else{
-                            $price =" (".$v['price']."% on per piece)";
+                    foreach ($value as $v) {
+                        $price = '';
+                        if (isset($v['type'])) {
+                            if ($v['type'] == 'flat') {
+                                $price = " (" . wc_price($v['price']) . " /patch)";
+                            } else {
+                                $price = " (" . $v['price'] . "% /patch)";
+                            }
+                        }
+
+
+                        $str['title'][] = $v['title'] . $price;
+
+                    }
+                    $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . implode(",", $str['title']) . "</p>";
+
+                } else {
+                    $price = '';
+                    if (isset($value['type'])) {
+                        if ($value['type'] == 'flat') {
+                            $price = " (" . wc_price($value['price']) . " /patch)";
+                        } else {
+                            $price = " (" . $value['price'] . "% /patch)";
                         }
                     }
 
-
-                    $str['title'][] = $v['title'].$price;
-
+                    $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value['title'] . $price . "</p>";
                 }
-                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . implode(",", $str['title']) . "</p>";
-
-            } else {
-                $price ='';
-                if(isset($value['type'])){
-                   if($value['type']=='flat'){
-                       $price =" (".wc_price($value['price'])." per piece)";
-                   }else{
-                       $price =" (".$value['price']."% on per piece)";
-                   }
-                }
-
-                $string .= "<p><strong>" . kGetLabel($k) . " :</strong> " . $value['title'] .$price. "</p>";
             }
+
         }
-        foreach ($skip_keys as $v){
-            if(!empty($values['main'][$v])){
-                if($v=='timages'){
-                    if(isset($values['main'][$v])){
-                        $filename  = basename( $values['main'][$v]);
-                        $string .= "<p><strong>" . kGetLabel('timages') . " :</strong> <a download href='". $values['main'][$v]."' alt='".$filename
-                            ."' title='".$filename."'>" .
+        foreach ($skip_keys as $v) {
+            if (!empty($values['main'][$v])) {
+                if ($v == 'timages') {
+                    if (isset($values['main'][$v])) {
+                        $filename = basename($values['main'][$v]);
+                        $string .= "<p><strong>" . kGetLabel('timages') . " :</strong> <a download href='" . $values['main'][$v] . "' alt='" . $filename
+                            . "' title='" . $filename . "'>" .
                             $filename . "</a></p>";
 
                     }
-                }else{
-                    $string .= "<p><strong>" . kGetLabel($v) . " :</strong> " . $values['main'][$v]. "</p>";
+                } else {
+                    $string .= "<p><strong>" . kGetLabel($v) . " :</strong> " . $values['main'][$v] . "</p>";
                 }
             }
         }

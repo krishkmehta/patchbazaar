@@ -112,7 +112,7 @@
                                value="backing_<?php echo $bac_index; ?>">
                         <label for="backing<?php echo $bac_index; ?>">
                             <?php
-                            
+
                             $image = get_sub_field('image');
 
                             $size = 'thumbnail';
@@ -176,7 +176,7 @@
                                            value="border_<?php echo $bor_index; ?>">
                                     <label for="border<?php echo $bor_index; ?>">
                                         <?php
-                                       
+
                                         $image = get_sub_field('image');
 
                                         $size = 'thumbnail';
@@ -197,14 +197,14 @@
                                                value="<?php echo
                                                get_sub_field
                                                ('title')
-                                               ?>" />
+                                               ?>"/>
 
                                         <input type="hidden" name="data[border][border_<?php echo $bor_index ?>][type]"
                                                value="<?php echo get_sub_field('price_in') ?>"/>
                                         <span class="title">
                                             <?php echo get_sub_field('title'); ?>
                                         </span>
-                                        
+
                                     </label>
                                     <i class="fa fa-check-circle"></i>
                                 </div>
@@ -296,7 +296,7 @@
                                            value="thread_<?php echo $thr_index; ?>">
                                     <label for="thread<?php echo $thr_index; ?>">
                                         <?php
-                                        
+
                                         $image = get_sub_field('image');
 
                                         $size = 'thumbnail';
@@ -321,7 +321,7 @@
                                         />
                                         <input type="hidden" name="data[thread][thread_<?php echo $thr_index ?>][type]"
                                                value="<?php echo get_sub_field('price_in') ?>"/>
-                                               <span class="title">
+                                        <span class="title">
                                                <?php echo get_sub_field('title');
                                                ?>
                                                </span>
@@ -374,10 +374,9 @@
                                    value="<?php echo get_sub_field('price_in') ?>"/>
 
 
-                            
                         </label>
                         <input id="tprice<?php echo $tprice_index; ?>" type="text" name="productData[tprice]"
-                                   class="maxthread ignore"/>
+                               class="maxthread ignore"/>
                     </div>
                     <script>
                         var max = "<?php echo(get_sub_field('max_thread') ? get_sub_field('max_thread') : 1); ?>";
@@ -454,7 +453,7 @@
                     form.find(".body:eq(" + newIndex + ") label.error").remove();
                     form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
                 }
-                if(currentIndex > newIndex){
+                if (currentIndex > newIndex) {
                     return true;
                 }
                 form.validate().settings.ignore = ":disabled,.ignore";
@@ -473,7 +472,7 @@
             onFinished: function (event, currentIndex) {
 
                 form.validate().settings.ignore = ":disabled";
-                if(form.valid()){
+                if (form.valid()) {
                     form.submit();
                 }
             }
@@ -496,7 +495,7 @@
                 'productData[patch_size]': 'required',
 
             },
-            messages:{
+            messages: {
                 'productData[height]': 'height is required',
                 'productData[width]': 'width is required',
                 'productData[add_to_cart]': 'please select a embroidery',
