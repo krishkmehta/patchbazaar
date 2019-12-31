@@ -3928,10 +3928,7 @@ body.woocommerce-checkout .top-cart-content {
 
 }
 .fileupload-buttonbar{
-    width: 60%;
-    margin: auto;
     text-align: center;
-
 }
 .upload-wrap{
     float: left;
@@ -3939,13 +3936,11 @@ body.woocommerce-checkout .top-cart-content {
     background: #f9f9f9;
     padding: 13px 15px;
     border-radius: 3px;
-    border: solid 1px #c1c1c1;
+    border: solid 2px #0084c2;
 }
 
 .upload-text {
-    float: left;
-    width: 40%;
-    padding: 9px 3px;
+    padding: 5px 3px;
     font-size: 16px;
 }
 .album-photo-list a{
@@ -3980,9 +3975,12 @@ body.woocommerce-checkout .top-cart-content {
     border: none;
     box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.05), 0 1px 1px 0 rgba(0,0,0,.05);
     height: 36px;
+    border: 2px solid #0084c2;
 }
 .form-quote input[type="submit"]{
     height: auto;
+    border: none;
+    width: auto;
 }
 .form-quote .field-wrapper-container .field-wrapper{
     width: 50%;
@@ -4016,7 +4014,7 @@ body.woocommerce-checkout .top-cart-content {
     background: #0084c2;
 }
 .form-quote textarea{
-    height: 102px;
+    height: 115px;
 }
 .form-quote .field-wrapper-container {
     margin-left: -8px;
@@ -4049,6 +4047,11 @@ width: 74px;
 }
 .form-quote .field-wrapper-container input {
     width: calc(100% - 74px);
+    border: 2px solid #0084c2;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+    box-shadow: none;
 }
 .no-margin{
     margin-left: 0;

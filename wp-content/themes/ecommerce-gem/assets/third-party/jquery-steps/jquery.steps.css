@@ -237,7 +237,14 @@
     padding: 5px 8px 5px 13px;
     max-width: 79px;
 }
-
+.field-wrapper-container label.error{
+    display: block;
+    background: none;
+    color: #fa6161;
+    width: 100%;
+    max-width: initial;
+    padding-left: 0;
+}
 .steps .content .calculate_size {
     margin-right: 15px;
 }
@@ -331,7 +338,7 @@
 .patch-size {
     font-weight: bold;
     font-size: 26px;
-    color: #ff1e00;
+    color: #ff5757;
     padding-top: 30px;
 }
 
