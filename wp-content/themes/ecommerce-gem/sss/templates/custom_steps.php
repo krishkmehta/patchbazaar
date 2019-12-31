@@ -418,7 +418,7 @@
             <div class="col-md-6">
 
                 <div class="custom-comment">
-                    <h2>Additional Notes</h2>
+                    <h3>Additional Notes</h3>
                     <p>Please provide any additional details regarding your custom patch order.</p>
                     <div class="form-group errorDiv">
 
