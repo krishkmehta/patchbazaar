@@ -6937,3 +6937,6 @@ label.error {
     font-weight: normal !important;
     padding-left: 0;
 }
+.wishlist-title h2{
+    display: none;
+}

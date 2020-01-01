@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6ef8b28e-d25f-4692-a2f2-3262af5a1231" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/third-party/accordionJs/css/responsive-tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/assets/third-party/accordionJs/css/responsive-tabs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/woocommerce/content-product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/ecommerce-gem/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +104,7 @@
       <workItem from="1577531874765" duration="10758000" />
       <workItem from="1577548963891" duration="32092000" />
       <workItem from="1577685714061" duration="6669000" />
-      <workItem from="1577878095459" duration="2838000" />
+      <workItem from="1577878095459" duration="3243000" />
     </task>
     <servers />
   </component>
@@ -129,14 +128,18 @@
       <screen x="0" y="27" width="1321" height="741" />
     </state>
     <state x="100" y="127" width="1121" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1321.741@0.27.1321.741" timestamp="1577728083053" />
-    <state x="283" y="129" width="1038" height="536" key="find.popup" timestamp="1577880224572">
+    <state x="283" y="129" width="1038" height="536" key="find.popup" timestamp="1577881305210">
       <screen x="0" y="27" width="1321" height="741" />
     </state>
-    <state x="283" y="129" width="1038" height="536" key="find.popup/0.27.1321.741@0.27.1321.741" timestamp="1577880224572" />
+    <state x="283" y="129" width="1038" height="536" key="find.popup/0.27.1321.741@0.27.1321.741" timestamp="1577881305210" />
     <state x="324" y="174" key="run.anything.popup" timestamp="1577729088063">
       <screen x="0" y="27" width="1321" height="741" />
     </state>
     <state x="324" y="174" key="run.anything.popup/0.27.1321.741@0.27.1321.741" timestamp="1577729088063" />
+    <state x="323" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1577881335042">
+      <screen x="0" y="27" width="1321" height="741" />
+    </state>
+    <state x="323" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1321.741@0.27.1321.741" timestamp="1577881335042" />
     <state x="385" y="229" width="540" height="343" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577546976966">
       <screen x="0" y="27" width="1321" height="741" />
     </state>
