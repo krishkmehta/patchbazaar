@@ -6,7 +6,7 @@
 
             <input type="hidden" name="action" value="sss_upload_image_ajax"/>
             <div class="fileupload-buttonbar">
-            <div class="upload-text button ">Draf file here or</div>
+            <div class="upload-text button ">Drag file here or</div>
                 <div class="fileupload-buttons">
                         <span class="fileinput-button">
                             <span class="img-add-edit button button-uploadtext">Select a File</span>
