@@ -445,6 +445,9 @@
 <form id="fileupload" action="<?php print(admin_url() . 'admin-ajax.php'); ?>" method="POST"
       enctype="multipart/form-data">
 </form>
+<div id="demo" class="simplePopup">
+    <a href="https://www.jqueryscript.net/tags.php?/Modal/">Modal</a> content goes here
+</div>
 <script>
     jQuery(document).ready(function ($) {
         calculateSize(1, 1);
@@ -598,3 +601,6 @@
 
 </script>
 <script src="<?php echo get_stylesheet_directory_uri()?>/sss/assets/js/jquery.simplePopup.js"></script>
+<script>
+    $('#demo').simplePopup();
+</script>
