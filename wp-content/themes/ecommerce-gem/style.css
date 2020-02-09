@@ -4728,7 +4728,7 @@ blockquote p{
 
 .products {
     margin-top: 30px !important;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .woocommerce table.shop_table th {
