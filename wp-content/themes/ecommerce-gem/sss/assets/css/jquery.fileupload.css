@@ -184,7 +184,7 @@ background-color:#f9f9f9;
 }
 
 .progress-animated .progress-bar,.progress-animated .bar {
-background:url(../img/progressbar.gif)!important;
+background:url(../img/progressbar.svg)!important;
 filter:none;
 }
 

@@ -597,3 +597,4 @@
     }
 
 </script>
+<script src="<?php echo get_stylesheet_directory_uri()?>/sss/assets/js/jquery.simplePopup.js"></script>
