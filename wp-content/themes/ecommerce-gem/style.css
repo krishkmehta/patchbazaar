@@ -777,7 +777,7 @@ a:active {
     position: absolute;
     top: 50%;
 }
-.main-navigation ul li.current-menu-item.secondary-btn a{color: #fff;}
+
 .main-navigation ul li li.menu-item-has-children > a::after,
 .main-navigation ul li li.page_item_has_children > a::after {
     content: "\f105";
@@ -4748,7 +4748,7 @@ blockquote p{
 
 .products {
     margin-top: 30px !important;
-    /* display: inline-block; */
+    display: inline-block;
 }
 
 .woocommerce table.shop_table th {
@@ -6965,4 +6965,32 @@ label.error {
 }
 .wishlist-title h2{
     display: none;
+}
+
+.simplePopupBackground {
+  display: none;
+  background: #000;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.simplePopup {
+  display: none;
+  position: fixed;
+  border: 4px solid #d870a9;
+  background: #ed87bd;
+  z-index: 3;
+  color:#fff;
+  padding: 12px;
+  width: 70%;
+  min-width: 70%;
+}
+.simplePopupClose {
+  float: right;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
