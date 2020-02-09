@@ -678,7 +678,24 @@ a:active {
     margin-bottom:0;
     float: left;
 }
-
+.secondary-btn a{
+    background: #ff5757;
+    padding: 7px 22px;
+    border-radius: 3px;
+    font-size: 18px;
+    margin-left: 8px;
+    transition: 0.3s ease-in-out;
+}
+.main-navigation ul li.secondary-btn a{
+	color: #ffffff;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 18px;
+}
+.main-navigation ul li.secondary-btn a:hover{
+	background: #0084c2;
+	color: #ffffff;
+}
 .main-navigation ul > li:hover > ul {
     opacity: 1;
     left:0;
@@ -5686,6 +5703,12 @@ li.product .view-detail-wishlist-wrap {
 
 
 }
+@media screen and (min-width: 1051px) and (max-width: 1300px) {
+	.main-navigation ul li.secondary-btn a,
+	.main-navigation ul li.menu-primary-btn a{
+		font-size: 14px;
+	}
+}
 @media screen and (min-width: 1051px) {
     .main-navigation ul li.menu-primary-btn a{
         color: #ffffff;
@@ -6936,4 +6959,7 @@ label.error {
     display: block;
     font-weight: normal !important;
     padding-left: 0;
+}
+.wishlist-title h2{
+    display: none;
 }
