@@ -692,6 +692,9 @@ a:active {
 	padding-right: 15px;
 	font-size: 18px;
 }
+.main-navigation ul li.secondary-btn.current-menu-item a{
+	color: #fff;
+}
 .main-navigation ul li.secondary-btn a:hover{
 	background: #0084c2;
 	color: #ffffff;
