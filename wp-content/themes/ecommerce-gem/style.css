@@ -757,7 +757,7 @@ a:active {
     position: absolute;
     top: 50%;
 }
-
+.main-navigation ul li.current-menu-item.secondary-btn a{color: #fff;}
 .main-navigation ul li li.menu-item-has-children > a::after,
 .main-navigation ul li li.page_item_has_children > a::after {
     content: "\f105";
