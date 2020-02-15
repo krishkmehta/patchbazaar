@@ -177,7 +177,6 @@
 
             var height = getSizeValue(jQuery("#height"));
             var width = getSizeValue(jQuery("#width"));
-            console.log(height);
             calculateSize(parseFloat(height), parseFloat(width))
         })
         jQuery('#height').blur(function () {
@@ -234,12 +233,12 @@
         var precsize = parseInt(parts[1]);
         if (precsize < 1) {
             new_size = parts[0] + ".00";
-        } else if (precsize < 50 && precsize > 0) {
+        } else if (precsize <= 50 && precsize > 0) {
             new_size = parts[0] + ".50";
         } else {
             new_size = (parseInt(pahorts[0]) + 1) + ".00";
         }
-
+console.log(new_size);
         jQuery(".new_size").html(new_size + "\"");
         jQuery("#patch_size").val(new_size);
 
