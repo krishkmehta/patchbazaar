@@ -5,6 +5,9 @@
  * Date: 21/7/19
  * Time: 11:20 AM
  */
+extract(shortcode_atts(array(
+    'patchcat' => 'hand',
+), $satts));
 
 $qty_array = array(10, 20, 50, 100, 200, 300, 500, 1000, 2000, 5000);
 $args = array(
@@ -49,6 +52,11 @@ if ($custom_query->have_posts()) {
                             'key' => 'size_price_products', // name of custom field
                             'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a
                             'compare' => 'LIKE'
+                        ),
+                        array(
+                            'key' => 'size_price_patch__category', // name of custom field
+                            'value' =>  $patchcat, // matches exactly "123", not just 123. This prevents a
+                           // 'compare' => 'LIKE'
                         )
                     )
                 ));

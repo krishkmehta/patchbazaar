@@ -445,8 +445,10 @@
 <form id="fileupload" action="<?php print(admin_url() . 'admin-ajax.php'); ?>" method="POST"
       enctype="multipart/form-data">
 </form>
-<div id="demo" class="simplePopup">
-    <a href="https://www.jqueryscript.net/tags.php?/Modal/">Modal</a> content goes here
+<div id="modal-popup" class="simplePopup"><div class="simplePopupClose">X</div>
+    <h3>Computerized Embordary's price may vary according to size,width and thread colors</h3> 
+    <p>If you want to know about cost please follow</p>
+    <a href="http://patchbazzar.englishcanvas.in/free-quote/">Free Quote</a>
 </div>
 <script>
     jQuery(document).ready(function ($) {
@@ -582,13 +584,14 @@
             w = 7.00;
         }
         var size = parseFloat((w + h) / 2).toFixed(2);
+        console.log(size);
         var cs = size + "";
         var parts = cs.split('.');
 
         var precsize = parseInt(parts[1]);
         if (precsize < 1) {
             new_size = parts[0] + ".00";
-        } else if (precsize < 50 && precsize > 0) {
+        } else if (precsize <= 50 && precsize > 0) {
             new_size = parts[0] + ".50";
         } else {
             new_size = (parseInt(parts[0]) + 1) + ".00";
@@ -602,5 +605,9 @@
 </script>
 <script src="<?php echo get_stylesheet_directory_uri()?>/sss/assets/js/jquery.simplePopup.js"></script>
 <script>
-    $('#demo').simplePopup();
+    jQuery(window).on('load',function(){
+        jQuery('#modal-popup').simplePopup({
+            centerPopup:true
+        });
+    })
 </script>

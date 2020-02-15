@@ -5,6 +5,11 @@
  * Date: 21/7/19
  * Time: 11:18 AM
  */
+add_filter("use_block_editor_for_post_type", "kmdisable_gutenberg_editor");
+function kmdisable_gutenberg_editor()
+{
+    return false;
+}
 require "gravity-form-render.php";
 
 function wpse_292293_quantity_input_default($args, $product)
@@ -166,9 +171,10 @@ function sss_unique_repeater_sub_field($valid, $value, $field, $input)
 
 add_shortcode("size_charts", 'sss_size_charts');
 
-function sss_size_charts()
+function sss_size_charts( $satts)
 {
     ob_start();
+    set_query_var( 'satts', $satts);
     get_template_part('sss/templates/size_charts');
     $results = ob_get_contents();
     ob_clean();
@@ -291,7 +297,6 @@ function km_add_to_cart()
                         array(
                             'key' => 'size_price_products', // name of custom field
                             'value' => '"' . $_POST['productData']['add_to_cart'] . '"', // matches exactly
-                            // "123", not just
                             'compare' => 'LIKE'
                         )
                     )
