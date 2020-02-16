@@ -10,7 +10,7 @@ if (1 !== absint($slider_status)) {
     return;
 }
 
-if (!( is_front_page()) && !is_page_template('templates/home.php')) {
+if (!( is_front_page())) {
     return;
 }
 
@@ -53,9 +53,8 @@ for ($i = 1; $i <= $slider_number; $i++) {
     }
 }
 
-if (empty($page_ids)) {
-    return;
-}
+
+
 
 $slider_args = array(
     'posts_per_page' => count($page_ids),
@@ -70,7 +69,7 @@ $slider_args = array(
 
 $slider_posts = new WP_Query($slider_args);
 
-if ($slider_posts->have_posts()) :
+if (false) :
     ?>
 
     <div class="main-slider" data-slick='<?php echo $slick_args_encoded; ?>'>
@@ -124,6 +123,7 @@ if ($slider_posts->have_posts()) :
     
 		endif; 
         ?>
+    
        
             <div class="main-slider">
                 <?php
@@ -131,14 +131,14 @@ if ($slider_posts->have_posts()) :
                         'post_type' => 'patchbazaar_slider', 
                         'posts_per_page' => 10                     
                     );
-                    $post = get_the_ID();
+               
                     $the_query = new WP_Query( $args );
                     if ( $the_query->have_posts() ) {
                         while ( $the_query->have_posts() ) {
                             
                             $the_query->the_post();
 
-                            $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                            $url = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
                             ?>
                             <div class="item">
                                 <img class="d-block"  src="<?=$url?>" />
@@ -146,7 +146,7 @@ if ($slider_posts->have_posts()) :
                             <?php
                         } 
                     }
-                    wp_reset_query();
+                    wp_reset_postdata();
                     ?>
 
             </div>
@@ -160,5 +160,3 @@ if ($slider_posts->have_posts()) :
                 });
             });
         </script>
-       
-       <?php
