@@ -161,4 +161,4 @@ if ($slider_posts->have_posts()) :
             });
         </script>
        
-           <?php
+       <?php
