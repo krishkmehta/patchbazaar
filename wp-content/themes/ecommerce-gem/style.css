@@ -5195,6 +5195,9 @@ li.product .view-detail-wishlist-wrap .yith-wcwl-add-to-wishlist .ajax-loading {
 .feature-category .wpb_single_image{
     margin-bottom: 0;
 }
+.feature-category{
+    margin-bottom: 30px;  
+}
 .feature-category .wpb_single_image h3 {
     position: absolute;
     bottom: 40px;
@@ -5211,9 +5214,13 @@ li.product .view-detail-wishlist-wrap .yith-wcwl-add-to-wishlist .ajax-loading {
     text-align: center !important;
     margin-bottom: 14px;
     color: #fff;
+    min-height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .category-main-img{
-    padding: 11px 0 10px;
+    padding: 21px 0 20px;
     background: #f8f8f8;
 }
 #home-page-widget-area li.product .product-info-wrap {
