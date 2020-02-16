@@ -5192,7 +5192,30 @@ li.product .view-detail-wishlist-wrap .yith-wcwl-add-to-wishlist .ajax-loading {
     top:0;
     right: 40px;
 }
-
+.feature-category .wpb_single_image{
+    margin-bottom: 0;
+}
+.feature-category .wpb_single_image h3 {
+    position: absolute;
+    bottom: 40px;
+    left: 35px;
+    font-size: 20px;
+    max-width: 240px;
+    color: #5d5d5d;
+    text-transform: uppercase;
+    
+}
+.feature-category h3 {
+    background: #0084c2;
+    padding: 6px 20px 8px;
+    text-align: center !important;
+    margin-bottom: 14px;
+    color: #fff;
+}
+.category-main-img{
+    padding: 11px 0 10px;
+    background: #f8f8f8;
+}
 #home-page-widget-area li.product .product-info-wrap {
     background: #fff;
 }
