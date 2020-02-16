@@ -122,4 +122,43 @@ if ($slider_posts->have_posts()) :
     <?php
 
     
-		endif;
+		endif; 
+        ?>
+       
+            <div class="main-slider">
+                <?php
+                    $args = array(  
+                        'post_type' => 'patchbazaar_slider', 
+                        'posts_per_page' => 10                     
+                    );
+                    $post = get_the_ID();
+                    $the_query = new WP_Query( $args );
+                    if ( $the_query->have_posts() ) {
+                        while ( $the_query->have_posts() ) {
+                            
+                            $the_query->the_post();
+
+                            $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                            ?>
+                            <div class="item">
+                                <img class="d-block"  src="<?=$url?>" />
+                            </div>
+                            <?php
+                        } 
+                    }
+                    wp_reset_query();
+                    ?>
+
+            </div>
+     
+        <script>
+            jQuery(document).ready(function($){
+                $('.main-slider').slick({
+                  infinite: true,
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                });
+            });
+        </script>
+       
+           <?php

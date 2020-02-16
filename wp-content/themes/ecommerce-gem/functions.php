@@ -313,3 +313,40 @@ if (function_exists('acf_add_options_page')) {
 }
 
 require_once "sss/functions.php";
+
+
+
+
+function patchbazaar_slider() {
+
+	$labels = array(
+		'name'                  => _x( 'Patchbazaar Slider', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Patchbazaar Slider', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Slider', 'text_domain' ),
+		'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+		'archives'              => __( 'Item Archives', 'text_domain' ),
+		'featured_image'        => __( 'Featured Image', 'text_domain' ),
+		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Slider', 'text_domain' ),
+		'description'           => __( 'Slider Description', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 4,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true
+
+	);
+	register_post_type( 'patchbazaar_slider', $args );
+
+}
+add_action( 'init', 'patchbazaar_slider', 0 );
